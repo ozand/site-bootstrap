@@ -1,0 +1,3 @@
+[submodule "kb-bootstrap"]
+	path = kb-bootstrap
+	url = https://github.com/ozand/kb-bootstrap.git
