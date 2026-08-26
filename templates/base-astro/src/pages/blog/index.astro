@@ -1,0 +1,30 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('posts', ({ data }) => !data.draft)).sort(
+  (a, b) => (b.data.pubDate?.valueOf() ?? 0) - (a.data.pubDate?.valueOf() ?? 0)
+);
+---
+
+<Layout title="Blog — __SITE_NAME__" description="All posts">
+  <h1 class="mb-8 text-3xl font-bold tracking-tight">Blog</h1>
+  <ul class="space-y-6">
+    {
+      posts.map((post) => (
+        <li class="border-b pb-6">
+          <a href={`/blog/${post.id}`} class="text-xl font-medium hover:underline">
+            {post.data.title}
+          </a>
+          {post.data.pubDate && (
+            <time class="ml-3 text-sm text-muted-foreground">
+              {post.data.pubDate.toISOString().slice(0, 10)}
+            </time>
+          )}
+          <p class="mt-2 text-muted-foreground">{post.data.description}</p>
+        </li>
+      ))
+    }
+  </ul>
+  {posts.length === 0 && <p class="text-muted-foreground">No posts yet. Create one at <a href="/keystatic" class="underline">/keystatic</a>.</p>}
+</Layout>

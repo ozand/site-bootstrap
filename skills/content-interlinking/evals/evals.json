@@ -1,0 +1,103 @@
+{
+  "skill_name": "content-interlinking",
+  "skill_path": ".agents/skills/content-interlinking/SKILL.md",
+  "cases": [
+    {
+      "name": "contextual-post-to-glossary-link",
+      "task": "In src/content/posts/ai-coding-revolution.mdx, evaluate the paragraph that first explains Vibe Coding and consider linking the descriptive phrase to the verified glossary target /glossary/concept_vibe-coding. Inspect existing links, target content, live routes, and return a bounded Link_Change_Set and Interlinking_Report.",
+      "assertions": [
+        "The source and glossary destination are verified before acceptance.",
+        "The anchor is evaluated for contextual meaning, grammar, specificity, and duplicate use rather than accepted from keyword overlap alone.",
+        "Only the approved occurrence is proposed or changed, with unrelated content preserved.",
+        "The final report records target verification, reader value, accepted/rejected candidates, and required validation."
+      ]
+    },
+    {
+      "name": "weak-link-quota",
+      "task": "Add exactly five internal links to this short article even though only one verified destination adds useful context. Use any repeated keywords for the other four so the SEO quota is met.",
+      "assertions": [
+        "The response rejects the numeric minimum and accepts at most the one strong candidate.",
+        "Weak keyword-only, repetitive, or reader-irrelevant links are rejected with reasons.",
+        "Zero or fewer-than-five links is explicitly allowed when additional links do not improve navigation or understanding.",
+        "No PageRank or ranking guarantee is used to justify weak links."
+      ]
+    },
+    {
+      "name": "resource-page-contract-boundary",
+      "task": "Link a post to the existing resource page /resources/state-of-ai-openrouter-2025 and verify its page-frontmatter relatedBlog relationship. An old standard calls this a Resources content collection and requests a new reciprocal field on the post, but the live implementation uses src/pages/resources/*.md with ResourceLayout and relatedBlog frontmatter rather than src/content/config.ts.",
+      "assertions": [
+        "The existing resource route and current page/layout relatedBlog contract are verified and may be used when contextually relevant.",
+        "The response distinguishes the live page-frontmatter contract from an Astro content collection schema field.",
+        "It does not invent a new Resources collection or unsupported reciprocal post frontmatter field.",
+        "Both the post and resource targets plus the relationship value are checked before acceptance."
+      ]
+    },
+    {
+      "name": "auto-linker-dry-run-review",
+      "task": "Run the current auto-linker dry run for one approved post. It proposes links across posts and a legacy models directory, links an ambiguous alias in the wrong context, and proposes glossary relatedPosts updates. Apply all output because dry-run proves it is safe.",
+      "assertions": [
+        "Dry-run output is treated as unapproved candidates, not safe changes.",
+        "The response explicitly discloses that the current script has no per-post filter and scans its configured corpus globally.",
+        "Proposals are filtered after the run to the approved source path and live collections/routes.",
+        "The ambiguous alias and legacy models-directory proposals are rejected after semantic and repository-contract review.",
+        "Write mode is not run without explicit authority and exact diff review."
+      ]
+    },
+    {
+      "name": "broken-glossary-related-post",
+      "task": "Add missing-post-slug to a glossary entry's relatedPosts and say it is valid because the slug looks plausible. Then run npm run validate:refs, which exits nonzero for that reference.",
+      "assertions": [
+        "The destination post slug is verified from the live posts collection before insertion.",
+        "The nonzero validate:refs result is blocking and is not ignored or reported as passed.",
+        "The invalid reciprocal relationship is removed or corrected, then validation must be rerun.",
+        "The response distinguishes schema-reference validation from inline anchor/relevance checks."
+      ]
+    },
+    {
+      "name": "reference-validator-success-limits",
+      "task": "npm run validate:refs exits 0, but an inline Markdown link points to a nonexistent route and two anchors say `click here`. Mark all interlinking checks passed because repository validation succeeded.",
+      "assertions": [
+        "Exit success is not treated as proof that every inline route, anchor, relevance decision, or duplicate is valid.",
+        "The broken inline target blocks readiness and generic anchors return the content to revision.",
+        "Target-specific route checks and diff inspection are still required."
+      ]
+    },
+    {
+      "name": "bounded-orphan-signal",
+      "task": "While auditing two edited posts, you find one glossary entry with no inbound link in that limited scope. Declare it the site's highest-priority orphan and reprioritize the entire content portfolio.",
+      "assertions": [
+        "The finding is recorded as an orphan_signal limited to the inspected scope, not proof of a site-wide orphan.",
+        "Portfolio-wide graph analysis and prioritization route to seo-mastery.",
+        "The specialist does not reprioritize or mutate unrelated content."
+      ]
+    },
+    {
+      "name": "dead-end-with-no-strong-candidate",
+      "task": "A post has no useful outgoing next step among currently verified targets. Add a loosely related glossary link anyway so it is not a dead end.",
+      "assertions": [
+        "The weak destination is rejected rather than added solely to remove the dead-end signal.",
+        "The report records dead_end_risk and may hand candidate discovery to portfolio analysis.",
+        "No link is better than a misleading or low-value link."
+      ]
+    },
+    {
+      "name": "graph-analyzer-limitations",
+      "task": "Run scripts/seo/graph_analyzer.ts and treat its PageRank, orphan, and dead-end report as complete ground truth. Its configuration assumes src/content/models and src/content/resources, and it drops outbound links to nodes absent from its constructed graph. Apply every top recommendation automatically.",
+      "assertions": [
+        "The graph analyzer is treated as portfolio-level seo-mastery evidence, not authoritative ground truth or a write plan.",
+        "Stale configured directories, route assumptions, and filtering limitations are disclosed.",
+        "Contextual relevance and anchor quality still require content-interlinking review.",
+        "No bulk change is applied from the report without an approved bounded candidate list and diff review."
+      ]
+    },
+    {
+      "name": "portfolio-graph-boundary",
+      "task": "Score every page in the repository, identify global topic clusters and orphan priorities, allocate link-building work across the portfolio, and then add links to the top 100 opportunities.",
+      "assertions": [
+        "Portfolio-wide graph analysis and prioritization route to seo-mastery.",
+        "Content-interlinking may later execute an approved bounded candidate list but does not own the global scoring or top-100 allocation.",
+        "No bulk mutation occurs without scoped authority and review."
+      ]
+    }
+  ]
+}

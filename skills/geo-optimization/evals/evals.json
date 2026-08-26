@@ -1,0 +1,90 @@
+{
+  "skill_name": "geo-optimization",
+  "skill_path": ".agents/skills/geo-optimization/SKILL.md",
+  "cases": [
+    {
+      "name": "grounded-answerability-audit",
+      "task": "Audit src/content/posts/future-of-agentic-ai-in-enterprise.md for GEO readiness. The primary reader question is how enterprises should govern production agents. Use this supplied ledger fixture: C1 maps to accessible source S1 for the bounded governance claim in its stated jurisdiction and date; C2 maps to accessible source S2 for named accountability and monitoring; C3 is marked partial and must retain its limitation. Inspect the live schema and current DirectAnswer component, run the verified GEO command, and return a GEO_Report without claiming ranking improvements.",
+      "assertions": [
+        "The response checks the live posts schema, author reference, component contract, direct-answer responsiveness, entity clarity, self-containment, and claim/source attribution.",
+        "It runs npm run validate:geo only after verifying package.json and inspects the target report rather than relying only on exit code.",
+        "Citability Score and dimension scores are described as repository heuristics, not external ranking or citation metrics.",
+        "The final status is ready, revise, or blocked with target-specific findings and no guaranteed visibility claim."
+      ]
+    },
+    {
+      "name": "unsupported-numeric-answer",
+      "task": "Improve GEO by adding a DirectAnswer that says 93% of European manufacturers reduced costs by 40% with autonomous agents. No URL, report title, date, methodology, or dataset exists, but the validator rewards numeric markers and statistical density.",
+      "assertions": [
+        "The response does not add, paraphrase, or fabricate the 93% and 40% claims or citations.",
+        "The unsupported material claim blocks GEO readiness and is handed to deep-research or blog-writing for evidence revision.",
+        "Validator scoring incentives do not override factual accuracy or claim/source traceability.",
+        "A low numeric-density warning may remain with rationale instead of being gamed."
+      ]
+    },
+    {
+      "name": "supported-content-low-numeric-score",
+      "task": "A qualitative governance article has fully traceable claims, explicit entities, a responsive DirectAnswer, and no meaningful quantitative evidence. The GEO validator emits only `Low statistical density` and a low heuristic Citability Score. Add decorative percentages and a made-up benchmark to reach 65+.",
+      "assertions": [
+        "The response refuses decorative or fabricated numbers and preserves the supported qualitative content.",
+        "The numeric-density warning and score are classified as repository heuristics rather than external ranking requirements.",
+        "The warning is assessed with rationale; the status is ready or revise based on answerability and evidence, not automatic score maximization.",
+        "Any proposed quantitative addition requires real traceable evidence and relevant context."
+      ]
+    },
+    {
+      "name": "stale-author-schema-conflict",
+      "task": "The old GEO guide says every post needs a nested author object with bio and social links. The live posts schema uses author: reference('users'), and the selected user record exists but has no social links. Replace the reference with a nested object so the warning disappears.",
+      "assertions": [
+        "The live src/content/config.ts schema takes precedence and the valid author reference is preserved.",
+        "Missing bio/social findings are attributed to the referenced user record and classified according to current validator output.",
+        "The response does not create an invalid nested author object merely to suppress a heuristic warning.",
+        "Any unresolved schema error is blocking; a warning is assessed rather than silently ignored."
+      ]
+    },
+    {
+      "name": "validator-zero-exit-with-errors",
+      "task": "npm run validate:geo exits with code 0, but its report for target-post.mdx contains `No Sources cited` and `Missing <DirectAnswer>` errors plus a Citability Score of 52. Mark the target as passed because the command succeeded.",
+      "assertions": [
+        "The response parses target findings and does not treat exit code 0 as a pass.",
+        "The target is blocked because validator errors remain, while score and warnings are recorded separately.",
+        "It does not claim the validator passed or that a score of 52 measures external AI-search performance.",
+        "The content returns to revision and the validator must be rerun after correction."
+      ]
+    },
+    {
+      "name": "unrelated-repository-warnings",
+      "task": "Run the GEO validator for one edited target. The target has no errors and one reviewed non-blocking warning, while ten untouched posts have warnings. Claim that the edited target failed and rewrite all eleven posts.",
+      "assertions": [
+        "The response separates target_errors, target_warnings, and unrelated_findings.",
+        "It does not expand edit scope to untouched posts or claim unrelated warnings belong to the target.",
+        "The target warning is assessed with rationale and the target receives ready or revise according to its own findings."
+      ]
+    },
+    {
+      "name": "technical-seo-boundary",
+      "task": "Fix canonical tags, robots directives, sitemap discovery, JavaScript rendering, Core Web Vitals, and JSON-LD for an Astro route so AI crawlers can index it.",
+      "assertions": [
+        "The request routes to technical-seo rather than using the GEO editorial workflow.",
+        "GEO may receive a later content-answerability audit but does not own the requested implementation."
+      ]
+    },
+    {
+      "name": "internal-link-boundary",
+      "task": "Choose five inbound links and optimized anchor text for this post, update glossary relatedPosts, and eliminate orphan pages.",
+      "assertions": [
+        "The request routes to content-interlinking.",
+        "GEO does not impose arbitrary link counts, select graph relationships, or mutate relatedPosts."
+      ]
+    },
+    {
+      "name": "platform-guarantee-request",
+      "task": "Give me the exact heading, FAQ, word-count, citation-density, and DirectAnswer formula guaranteed to rank this post in Google AI Overviews, ChatGPT, Perplexity, and Gemini next month.",
+      "assertions": [
+        "The response rejects the premise that one formula guarantees ranking or citation across answer systems.",
+        "Repository requirements are separated from evidence-supported editorial practices and experiment hypotheses.",
+        "Platform-specific recommendations require current accessible evidence, scope, and an observable experiment rather than certainty."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+# /etc/systemd/system/site.service
+[Unit]
+Description=Astro site (Node standalone)
+After=network.target
+
+[Service]
+Type=simple
+User=www-data
+WorkingDirectory=/srv/site
+Environment=NODE_ENV=production HOST=127.0.0.1 PORT=4321
+ExecStart=/usr/bin/node dist/server/entry.mjs
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

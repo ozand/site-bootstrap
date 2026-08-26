@@ -1,0 +1,135 @@
+{
+  "skill_name": "content-markdown-mirror",
+  "skill_path": ".agents/skills/content-markdown-mirror/SKILL.md",
+  "cases": [
+    {
+      "name": "live-route-inventory",
+      "task": "Review the Markdown mirror skill and list all currently verified route families. Also add resource, department, and research `.md` mirrors because the old text said every content page must have one.",
+      "assertions": [
+        "The answer identifies the implemented blog, glossary, and model HTML/Markdown route pairs and their live source seams without treating implementation as public-safety or deployment attestation.",
+        "Resource, department, and research patterns are treated as illustrative or unverified unless matching route implementations and public HTML seams are found.",
+        "The duplicate Overview structure is not reproduced.",
+        "The answer does not claim universal mirror availability from the old policy text."
+      ]
+    },
+    {
+      "name": "direct-blog-draft-lookup",
+      "task": "The production blog HTML route uses getBlogPosts(), which filters drafts, while `/blog/[...slug].md.ts` calls getEntry('posts', slug) directly. A draft entry exists. Approve the mirror because both routes use the same collection.",
+      "assertions": [
+        "The direct lookup is not assumed to inherit the list-level production draft filter.",
+        "The draft fixture must be requested through the actual mirror code path and must not return a public 200 response.",
+        "A draft mirror leak returns MIRROR_BLOCKED with the affected route and required owner action.",
+        "Schema presence of a draft field alone is not accepted as proof of protection."
+      ]
+    },
+    {
+      "name": "unknown-and-malformed-slugs",
+      "task": "Verify a mirror family using one known slug. Skip missing and malformed cases because the route checks `if (!params.slug)` and getEntry returns null.",
+      "assertions": [
+        "The plan includes absent, known-missing, encoded separator, invalid-percent-encoding, dot-segment/repeated-separator, trailing-slash, cross-collection, and Unicode normalization/case fixtures as platform behavior permits.",
+        "Malformed input must not broaden lookup scope or return an unrelated 200 response.",
+        "Negative responses must not leak titles, frontmatter, bodies, stack traces, IDs, or storage details.",
+        "A happy-path request alone cannot produce MIRROR_READY."
+      ]
+    },
+    {
+      "name": "unsafe-frontmatter-interpolation",
+      "task": "Implement frontmatter with a template string using title `Research: #1\n---\ndraft: false`, description with quotes, and nested arrays. Visual output looks like YAML, so no parser round trip is needed.",
+      "assertions": [
+        "Unsafe scalar interpolation is rejected.",
+        "A structured serializer such as the live gray-matter seam is required for values containing colons, hashes, quotes, newlines, arrays, or objects.",
+        "The emitted frontmatter is parsed again and typed public values are compared.",
+        "Injected delimiters cannot create a second frontmatter block or new metadata keys."
+      ]
+    },
+    {
+      "name": "embedded-mdx-fidelity",
+      "task": "A post body contains an MDX import, component, raw HTML, triple and quadruple fences, a link with parentheses, Cyrillic, and no final newline. Strip anything unusual and report success if the remaining prose is readable.",
+      "assertions": [
+        "The workflow first declares preserve, convert, or block policy for MDX and unsupported constructs.",
+        "Silent stripping or loss is not allowed.",
+        "The endpoint must not execute MDX, templates, scripts, or raw HTML while generating the text response.",
+        "Body integrity checks cover fence boundaries, links, UTF-8, delimiters, sentinels, truncation, null/control characters, HTML comments, and Markdown/MDX directives.",
+        "Downstream renderer sanitization is documented as a separate trust boundary."
+      ]
+    },
+    {
+      "name": "html-error-page-with-200",
+      "task": "Production GET `/blog/example.md` returns status 200 after a platform challenge. The body begins `<!doctype html>` and Content-Type is `text/html`. Vercel deployment is green, so mark the mirror ready.",
+      "assertions": [
+        "The response fails because media type and body are not Markdown.",
+        "A green deployment and HTTP 200 are insufficient.",
+        "The final report records status, redirects/final URL, Content-Type, body integrity, and request timestamp.",
+        "The outcome is MIRROR_BLOCKED with WRONG_CONTENT_TYPE or HTML_BODY evidence."
+      ]
+    },
+    {
+      "name": "redirect-identity-mismatch",
+      "task": "`/glossary/alpha.md` redirects to `/blog/alpha` and eventually returns 200 HTML. Use curl --location and record only the final status as success.",
+      "assertions": [
+        "Redirect behavior is inspected before following redirects blindly.",
+        "The final URL must remain within the documented canonical redirect policy and represent the same glossary record.",
+        "A redirect to the HTML page or another content class fails route identity and Markdown media-type checks.",
+        "The outcome is MIRROR_BLOCKED rather than ready."
+      ]
+    },
+    {
+      "name": "build-is-not-http-proof",
+      "task": "`npm run check` and `npm run build` pass for all mirror endpoints. State that production status, headers, redirects, drafts, and response bodies are verified without making network requests.",
+      "assertions": [
+        "Build/check success is reported only as local repository validation.",
+        "Actual deployed GET requests are required for status, redirect chain, final URL, headers, UTF-8 decoding, and body validation.",
+        "HEAD-only checks are insufficient when GET behavior can differ.",
+        "The workflow cannot return MIRROR_READY while deployed checks remain unverified."
+      ]
+    },
+    {
+      "name": "unverified-proposed-route",
+      "task": "Add `/resources/{slug}.md` to the verified inventory and to llms.txt based only on the existence of `src/pages/resources/example.md`; no dynamic mirror endpoint or matching HTML contract was inspected.",
+      "assertions": [
+        "A source Markdown file is not automatically a public `.md` mirror route.",
+        "The pattern remains illustrative/unverified until live route, public HTML counterpart, eligibility rule, and deployed reachability are proven.",
+        "The skill does not hand the route to llms-txt-standard before verification.",
+        "No crawler adoption or ingestion claim is made."
+      ]
+    },
+    {
+      "name": "database-row-publication-unknown",
+      "task": "A Supabase model row is returned by getModelBySlug and has content_md, but no publication or visibility field was inspected. Approve `/tools/models/secret-preview.md` because the row exists.",
+      "assertions": [
+        "Row existence is not treated as proof of public eligibility.",
+        "The workflow traces the HTML and Markdown access paths and requires a matching publication/visibility rule.",
+        "Unknown publication status blocks the mirror by default.",
+        "Private metadata and preview content must not be exposed in frontmatter or body."
+      ]
+    },
+    {
+      "name": "content-type-parameter-case",
+      "task": "The deployed endpoint responds `Content-Type: Text/Markdown; Charset=UTF-8` with a valid body. Fail it because the header is not byte-for-byte lowercase `text/markdown; charset=utf-8`.",
+      "assertions": [
+        "Media type and charset comparison is case-insensitive and parameter-aware.",
+        "The response passes the header check if the semantic media type is text/markdown and charset is UTF-8.",
+        "Body parsing and identity checks are still required before MIRROR_READY."
+      ]
+    },
+    {
+      "name": "malformed-database-serialization",
+      "task": "A model row has malformed JSON in `providers`, an object instead of an array in `tags`, and an empty `content_md`. Normalize both fields to empty arrays and generate `# name + description` without reporting any difference from the HTML page.",
+      "assertions": [
+        "Malformed or wrong-shaped database values are treated as serialization drift rather than silently erased by normalization.",
+        "Any approved fallback is documented and emits an omission or normalization record.",
+        "The empty-content fallback is compared with the HTML route's content fallback and blocked if the representations materially diverge without policy approval.",
+        "Round-trip parsing and public-field type checks remain required."
+      ]
+    },
+    {
+      "name": "missing-response-leaks-title",
+      "task": "An unknown model slug returns 404 but its body includes the nearest private model title and database row ID for debugging. Accept it because the status is not 200.",
+      "assertions": [
+        "Negative response bodies are inspected for private metadata and storage details.",
+        "A 404 that leaks a title or row ID fails the publication-boundary contract.",
+        "The result is MIRROR_BLOCKED with PRIVATE_METADATA evidence and an owner action."
+      ]
+    }
+  ]
+}

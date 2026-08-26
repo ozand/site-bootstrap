@@ -1,0 +1,156 @@
+{
+  "skill_name": "design-system",
+  "skill_path": ".agents/skills/design-system/SKILL.md",
+  "cases": [
+    {
+      "name": "reuse-existing-button",
+      "task": "Add a primary action to a settings panel. Create `src/components/settings/PrimaryButton.tsx` with copied Tailwind styles so the feature stays independent.",
+      "assertions": [
+        "The workflow inspects `src/components/ui/button.tsx` and a live usage before creating a button.",
+        "The selected outcome is REUSE or COMPOSE unless a verified incompatibility exists.",
+        "A copied feature button is rejected as a duplicate primitive.",
+        "Verified existing variants, semantic tokens, focus, and disabled states are preserved; loading treatment is composed only after inspecting the live Button API."
+      ]
+    },
+    {
+      "name": "custom-chat-input-rejected",
+      "task": "Build a new full-screen assistant page with a custom `<textarea>` and send icon fixed to the bottom. Do not inspect existing chat components.",
+      "assertions": [
+        "The workflow requires inspection of ChatLayout and FloatingChatInput before implementation.",
+        "The custom chat textarea is rejected unless an approved incompatible interaction is demonstrated.",
+        "Slash commands, abort behavior, shortcuts, resizing, toolbar/actions, and accessibility are considered.",
+        "The route uses Command Center constraints only if it is actually a compatible full-screen chat/tool experience."
+      ]
+    },
+    {
+      "name": "generic-ideation-cannot-override-tokens",
+      "task": "UI Design Brain recommends a new neon palette, 20px radii, and a display font. Replace repository tokens because the new concept is more distinctive.",
+      "assertions": [
+        "AGENTS.md, live tokens, and design-system constraints take precedence over generic ideation.",
+        "UI Design Brain remains optional ideation inside frozen constraints.",
+        "A portfolio token change requires explicit approval and consumer impact review.",
+        "Isolated colors, radii, and fonts are not silently introduced."
+      ]
+    },
+    {
+      "name": "verified-paths-not-stale-examples",
+      "task": "Import shared UI from `src/styles/components/Button.tsx` and use React 18 patterns because the design-system guide says those paths and versions are current.",
+      "assertions": [
+        "The nonexistent `src/styles` path is not described as current or created automatically.",
+        "Package.json and live repository paths override stale examples.",
+        "The current shared button path under `src/components/ui` is inspected.",
+        "React/Astro version claims are verified rather than copied from prose."
+      ]
+    },
+    {
+      "name": "hydration-narrowest-directive",
+      "task": "A below-the-fold interactive chart is not needed until visible. Use `client:only=\"react\"` because all complex React components should be client-only.",
+      "assertions": [
+        "The skill rejects a universal client-only rule.",
+        "Comparable routes and browser-only requirements are inspected.",
+        "`client:visible` is preferred when it satisfies the interaction contract.",
+        "The directive and fallback are justified with observable loading behavior."
+      ]
+    },
+    {
+      "name": "client-only-browser-dependency",
+      "task": "A full-screen local model tool depends on browser-only APIs and cannot render on the server. Choose the hydration and loading pattern.",
+      "assertions": [
+        "`client:only=\"react\"` may be selected with an explicit browser-only reason.",
+        "A compatible ToolSkeleton fallback is considered for the visible full-page wait.",
+        "ChatLayout and current local-chat/tool routes are inspected.",
+        "Client-only is not generalized to unrelated islands."
+      ]
+    },
+    {
+      "name": "loading-scope-mismatch",
+      "task": "Use the full-page ToolSkeleton inside a small inline pricing badge while data loads, and use a spinner on an equivalent card elsewhere.",
+      "assertions": [
+        "The full-page skeleton is rejected for bounded badge geometry.",
+        "Fallback scope and dimensions must match the final component.",
+        "Equivalent loading states should use a consistent existing pattern.",
+        "Loading, success, empty, and error states are included in validation."
+      ]
+    },
+    {
+      "name": "token-drift-dark-mode",
+      "task": "Fix one card by adding `bg-[#ffffff] text-[#111111] dark:bg-[#080808]` and a custom shadow instead of using tokens.",
+      "assertions": [
+        "Semantic background/card/foreground/border tokens are preferred.",
+        "The workflow checks `src/index.css` and `tailwind.config.ts`.",
+        "Light and dark mode coherence is preserved without a parallel token system.",
+        "A new token requires explicit portfolio-level ownership rather than a local workaround."
+      ]
+    },
+    {
+      "name": "extend-shared-vs-feature-local",
+      "task": "One page needs a unique promotional footer in Card. Add a `promotionalFooter` boolean prop to the shared Card for this single consumer.",
+      "assertions": [
+        "The skill checks whether feature-local composition satisfies the requirement.",
+        "A generic shared prop is not added solely for one unrelated consumer.",
+        "Shared extension requires multiple real consumers and compatibility evidence.",
+        "The selected status is COMPOSE or CREATE_LOCAL when appropriate."
+      ]
+    },
+    {
+      "name": "command-center-not-every-form",
+      "task": "A simple contact form should use ChatLayout, ChatSidebar, FloatingChatInput, and ToolSkeleton because Command Center is mandatory for all interactive pages.",
+      "assertions": [
+        "The skill does not classify every form as a Command Center tool.",
+        "The actual route outcome and comparable pages are inspected.",
+        "General form primitives and standard Layout may be selected instead.",
+        "Command Center constraints apply only to compatible full-screen chat/tool experiences."
+      ]
+    },
+    {
+      "name": "screenshot-not-accessibility-proof",
+      "task": "The page screenshot matches the design. Mark accessibility, keyboard behavior, and performance as passed without other tests.",
+      "assertions": [
+        "Visual evidence is delegated to visual-inspection only.",
+        "Accessibility is delegated to web-accessibility and performance to web-performance.",
+        "A screenshot cannot prove keyboard, screen-reader, or Core Web Vitals behavior.",
+        "Design-system consistency is distinguished from specialist quality gates."
+      ]
+    },
+    {
+      "name": "missing-component-needs-inspection",
+      "task": "Create a new shared combobox immediately; I do not see one in the abbreviated design-system component list.",
+      "assertions": [
+        "The abbreviated list is not treated as a frozen registry.",
+        "The workflow lists the live UI/chat directories and searches role/behavior/usage sites.",
+        "It returns NEEDS_INSPECTION before declaring the primitive missing.",
+        "Existing select, command, popover, or composed patterns are considered."
+      ]
+    },
+    {
+      "name": "shared-token-change-impact",
+      "task": "Change `--radius` from 0.75rem to 0 because one new table should have square corners. No need to inspect other consumers.",
+      "assertions": [
+        "The skill identifies `--radius` as a portfolio-wide token.",
+        "One feature does not justify an unreviewed shared token change.",
+        "Consumer impact and design-owner approval are required.",
+        "A local existing radius utility/composition is considered first."
+      ]
+    },
+    {
+      "name": "inspect-api-before-import",
+      "task": "Use ChatSidebar on a new page and assume it accepts `sessions`, `onCreate`, and `collapsed` props based on another project.",
+      "assertions": [
+        "The actual ChatSidebar API is read before import or usage.",
+        "At least one live repository usage site is inspected.",
+        "External-project props are not fabricated.",
+        "Any extension preserves compatibility and is justified by shared consumers."
+      ]
+    },
+    {
+      "name": "should-not-trigger-copywriting",
+      "task": "Rewrite the headline copy on an existing landing page without changing layout, components, tokens, interaction, or loading states.",
+      "assertions": [
+        "The full design-system workflow is not required for copy-only work.",
+        "No component, token, layout, or hydration changes are proposed.",
+        "The request routes to the appropriate content/copy workflow.",
+        "The outcome may be not applicable unless UI constraints become relevant."
+      ]
+    }
+  ]
+}

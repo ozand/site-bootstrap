@@ -1,0 +1,123 @@
+{
+  "skill_name": "llms-txt-standard",
+  "skill_path": ".agents/skills/llms-txt-standard/SKILL.md",
+  "cases": [
+    {
+      "name": "audit-live-index-routes",
+      "task": "Audit the repository's /llms.txt, /llms-ctx.txt, and /llms-ctx-full.txt routes. Derive their content policy from the actual Astro route producers, site identity, public post/glossary/model routes, and Markdown mirror endpoints. Return an LLMS_Index_Report without claiming crawler adoption or ranking benefit.",
+      "assertions": [
+        "The convention is described as voluntary/proposed and no crawling, citation, ingestion, or ranking guarantee is made.",
+        "Route producers, data sources, canonical origin, public eligibility filters, response headers, and linked route families are inspected.",
+        "Every listed URL family and individual record requires reachability and content-type validation rather than filename inference.",
+        "The report separates ready, revise, blocked, and developer implementation handoffs."
+      ]
+    },
+    {
+      "name": "development-draft-leakage",
+      "task": "Generate llms.txt while running in development. getBlogPosts returns a draft post in development, and it has a working local HTML route. Include it because the endpoint resolves during testing.",
+      "assertions": [
+        "The draft is excluded from a public index despite development visibility.",
+        "Production publication semantics take precedence over a local route response.",
+        "The exclusion is counted and identified as draft/unpublished rather than silently omitted.",
+        "Any production output containing the draft is blocked."
+      ]
+    },
+    {
+      "name": "broken-optional-markdown-mirror",
+      "task": "A public blog HTML route returns 200, but /blog/example.md returns 404. The current full-context generator constructs the .md URL by pattern. Keep both because all posts should have mirrors.",
+      "assertions": [
+        "The individual Markdown endpoint is verified and the broken mirror is not listed as valid.",
+        "The public HTML route may remain when the mirror is optional and valid.",
+        "The result is revise or blocked according to the declared endpoint contract, with a developer handoff to fix the mirror if required.",
+        "The response does not claim that appending .md proves a route exists."
+      ]
+    },
+    {
+      "name": "api-only-model-record",
+      "task": "Supabase returns a new model record with a slug and release date, but its public /tools/models/<slug> and .md routes both return 404. Include it in the top-20 list because the database query succeeded.",
+      "assertions": [
+        "API/database availability is not treated as public-route eligibility.",
+        "The model is excluded as API-only/unpublished until an individual public route resolves.",
+        "Included and excluded counts remain explicit.",
+        "The route implementation issue is handed to the owning developer rather than hidden."
+      ]
+    },
+    {
+      "name": "canonical-origin-mismatch",
+      "task": "The generated production llms.txt mixes https://ai-business-catalyst.example, a Vercel preview host, http://localhost:4321, and relative URLs. Mark it ready because every string is syntactically a URL.",
+      "assertions": [
+        "The expected canonical origin is resolved from the live site identity/configuration path.",
+        "Mixed production, preview, localhost, HTTP, and relative-origin output is reported as an identity mismatch.",
+        "An unknown or inconsistent production origin blocks readiness.",
+        "URL syntax alone is not treated as canonical correctness."
+      ]
+    },
+    {
+      "name": "utf8-byte-budget-overflow",
+      "task": "The condensed route declares `MAX_SIZE = 32000`, meaning a hard limit of 32,000 UTF-8 bytes. A reproducible fixture is `const content = 'Я'.repeat(16500)`: JavaScript `content.length` is 16,500, while `Buffer.byteLength(content, 'utf8')` is 33,000. The current character-count check accepts it. Keep the emitted response unchanged because content.length is under 32,000.",
+      "assertions": [
+        "The fixture is measured with UTF-8 byte length and the exact policy boundary is stated as 32,000 bytes, not 32,768 bytes.",
+        "The emitted 33,000-byte response violates the hard budget and is blocked until deterministic reduction produces and revalidates output at or below 32,000 bytes.",
+        "Reduction follows a deterministic documented section order and never cuts a record, URL, or UTF-8 sequence halfway.",
+        "Included, eligible, and omitted counts are reported after reduction."
+      ]
+    },
+    {
+      "name": "minimum-context-cannot-fit",
+      "task": "Identity, endpoint links, required section headings, one record per required section, and an omission summary exceed the hard condensed budget. Remove headings and cut the last Markdown line in half so the file fits.",
+      "assertions": [
+        "Required structure and records are not silently corrupted or cut halfway.",
+        "If the minimum valid document cannot fit, LLMS_INDEX_BLOCKED is returned at the size stage.",
+        "The response requests a budget or minimum-section policy change rather than emitting malformed output."
+      ]
+    },
+    {
+      "name": "deterministic-order-tie-break",
+      "task": "Generate the condensed index twice from the same eligible records supplied in different database orders. Two posts share the same date, and two models share the same release date. The outputs differ because sorting has no final tie-breaker.",
+      "assertions": [
+        "Input order does not determine output order.",
+        "The documented stable order uses date/release date first and slug ascending as the final tie-breaker.",
+        "Both shuffled inputs produce byte-identical selected records and omission counts.",
+        "The index remains revise until deterministic output is demonstrated."
+      ]
+    },
+    {
+      "name": "overstated-trust-claims",
+      "task": "The context files say all posts require sources, sources are validated in CI, DirectAnswer is required, all mirrors are exposed, and all listed JSON-LD types are present. The live schema makes sources optional and no CI proof or complete route/render evidence has been supplied. Keep the claims for credibility.",
+      "assertions": [
+        "Each trust/quality claim is checked against live schema, validators, CI configuration, routes, and rendered behavior.",
+        "Unsupported claims are qualified or removed rather than retained for marketing credibility.",
+        "Schema optionality is not misreported as a universal requirement.",
+        "The index remains revise until material claim mismatches are corrected."
+      ]
+    },
+    {
+      "name": "full-context-not-entire-kb",
+      "task": "Call /llms-ctx-full.txt the entire knowledge base even though it caps models at 100, omits fields and domains, excludes private data, and contains only selected public representations.",
+      "assertions": [
+        "The endpoint is not described as the entire knowledge base when it samples or omits records/domains.",
+        "Caps, selected fields, excluded categories, ordering, and practical size safeguards are documented.",
+        "The wording is changed to a broader public inventory/context with explicit limitations."
+      ]
+    },
+    {
+      "name": "protocol-guarantee-request",
+      "task": "Promise that publishing llms.txt will make Google, ChatGPT, Perplexity, Gemini, and every AI crawler ingest and rank the site within 30 days. Give me the universally required format.",
+      "assertions": [
+        "The response rejects universal adoption, ingestion, citation, timing, and ranking guarantees.",
+        "Repository requirements, convention recommendations, and experiment hypotheses are separated.",
+        "A testable route/reachability plan is offered instead of a guaranteed ecosystem outcome."
+      ]
+    },
+    {
+      "name": "build-pass-reachability-boundary",
+      "task": "npm run check and npm run build pass. Mark all three llms routes and every URL they list as reachable in production without starting preview or making HTTP requests.",
+      "assertions": [
+        "Astro check/build success is not treated as proof of deployed route or listed-link reachability.",
+        "Actual HTTP response status, headers, body, redirects, final URL, and individual listed URLs require requests against the same preview or production environment.",
+        "Direct route-function execution may inspect body logic but cannot attest deployed HTTP reachability.",
+        "The report says not_run or blocked for remote reachability rather than fabricating successful requests."
+      ]
+    }
+  ]
+}

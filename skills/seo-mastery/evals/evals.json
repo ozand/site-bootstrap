@@ -1,0 +1,45 @@
+{
+  "skill_name": "seo-mastery",
+  "skill_path": ".agents/skills/seo-mastery/SKILL.md",
+  "cases": [
+    {
+      "name": "mixed-portfolio-backlog",
+      "task": "Audit the whole site. The graph report shows two broken internal destinations, six orphan glossary pages, four dead ends, and low PageRank on a strategic AI governance article. GEO validation also reports missing sources on three posts. Produce the remediation order and specialist handoffs.",
+      "assertions": [
+        "Broken destinations are prioritized before orphans, dead ends, GEO remediation, and authority optimization.",
+        "Orphans and dead ends route to content-interlinking; technical path failures route to technical-seo; source and GEO failures route to geo-optimization.",
+        "The authority opportunity is deferred until higher-priority structural findings are resolved or explicitly blocked.",
+        "The report includes comparable before-and-after values from scripts/seo/graph_analyzer.ts and npm run validate:geo for the same scope."
+      ]
+    },
+    {
+      "name": "pagerank-editorial-conflict",
+      "task": "The highest-PageRank glossary page is unrelated to a low-authority article, but linking them would improve the article's graph score. A moderately authoritative related article could link naturally. Choose the portfolio action.",
+      "assertions": [
+        "The unrelated high-PageRank link is rejected despite its metric benefit.",
+        "The contextually relevant link is routed to content-interlinking with descriptive anchor and placement constraints.",
+        "The decision states that PageRank is diagnostic evidence rather than the editorial objective.",
+        "No sitewide, footer, or repetitive exact-match link tactic is proposed."
+      ]
+    },
+    {
+      "name": "intentional-terminal-page",
+      "task": "The graph analyzer flags a legal confirmation page as a dead end and a noindex campaign archive as an orphan. Decide whether they should enter the SEO remediation backlog.",
+      "assertions": [
+        "Each finding is classified before remediation rather than automatically linked.",
+        "The intentional terminal journey may be accepted with a documented rationale.",
+        "The noindex archive is not treated as an indexable orphan without verifying its intended status.",
+        "Any status, robots, canonical, or indexation uncertainty routes to technical-seo."
+      ]
+    },
+    {
+      "name": "single-page-specialist-non-trigger",
+      "task": "Add a missing canonical tag to one known page and verify it.",
+      "assertions": [
+        "The seo-mastery portfolio orchestrator is not invoked for this single known technical fix.",
+        "The task routes directly to technical-seo without running a portfolio-wide authority program.",
+        "Verification checks the rendered canonical URL for the page and confirms that it is singular and correct."
+      ]
+    }
+  ]
+}

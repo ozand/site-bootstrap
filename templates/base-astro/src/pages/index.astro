@@ -1,0 +1,36 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('posts', ({ data }) => !data.draft))
+  .sort((a, b) => (b.data.pubDate?.valueOf() ?? 0) - (a.data.pubDate?.valueOf() ?? 0))
+  .slice(0, 3);
+---
+
+<Layout title="__SITE_NAME__" description="__SITE_NAME__ — built with Astro + Keystatic">
+  <section class="py-12">
+    <h1 class="text-4xl font-bold tracking-tight">__SITE_NAME__</h1>
+    <p class="mt-4 max-w-2xl text-lg text-muted-foreground">
+      Agent-operated site. Content is managed in git — via the
+      <a href="/keystatic" class="underline">Keystatic CMS</a> or directly by agents.
+    </p>
+  </section>
+
+  {
+    posts.length > 0 && (
+      <section class="py-8">
+        <h2 class="mb-6 text-2xl font-semibold">Latest posts</h2>
+        <ul class="grid gap-6 md:grid-cols-3">
+          {posts.map((post) => (
+            <li class="rounded-lg border p-5">
+              <a href={`/blog/${post.id}`} class="font-medium hover:underline">
+                {post.data.title}
+              </a>
+              <p class="mt-2 text-sm text-muted-foreground">{post.data.description}</p>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
+</Layout>

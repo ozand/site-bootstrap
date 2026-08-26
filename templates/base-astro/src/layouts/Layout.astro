@@ -1,0 +1,42 @@
+---
+import '@/styles/globals.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = '' } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    {description && <meta name="description" content={description} />}
+    <link rel="sitemap" href="/sitemap-index.xml" />
+  </head>
+  <body class="min-h-screen bg-background font-sans antialiased">
+    <header class="border-b">
+      <div class="container flex h-14 items-center justify-between">
+        <a href="/" class="font-semibold">__SITE_NAME__</a>
+        <nav class="flex gap-6 text-sm text-muted-foreground">
+          <a href="/blog" class="hover:text-foreground">Blog</a>
+          <a href="/about" class="hover:text-foreground">About</a>
+        </nav>
+      </div>
+    </header>
+    <main class="container py-10">
+      <slot />
+    </main>
+    <footer class="border-t">
+      <div class="container py-6 text-sm text-muted-foreground">
+        © {new Date().getFullYear()} __SITE_NAME__
+      </div>
+    </footer>
+  </body>
+</html>
