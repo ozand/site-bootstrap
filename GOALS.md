@@ -64,6 +64,7 @@ QMD is used to make the knowledge base searchable for agents. Search results are
 - Never store secrets, credentials, private cookies, access tokens, or sensitive runtime state.
 - Apply the [cross-source verification and claim-status policy](docs/agent-guide/cross-source-verification.md) before promoting raw claims into canonical knowledge.
 - Use the [canonical knowledge synthesis contract](docs/agent-guide/canonical-knowledge.md) when creating reviewed pages from verified evidence.
+- Classify reusable outcomes with the [knowledge records standard](docs/agent-guide/knowledge-records.md) before creating lessons, procedures, or architecture decisions.
 
 ## Long-term outcome
 
