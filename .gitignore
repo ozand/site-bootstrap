@@ -9,3 +9,8 @@ dist/
 .DS_Store
 Thumbs.db
 scratch/
+
+# QMD local index database and cache
+.qmd/*.sqlite
+.qmd/*.db
+.qmd/cache/

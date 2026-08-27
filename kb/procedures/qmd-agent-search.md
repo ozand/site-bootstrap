@@ -22,7 +22,7 @@ Use the project-local QMD collections to find reviewed guidance first and source
 ## Preconditions
 
 - Work from the project root.
-- Confirm that `qmd.json` and `qmd/collections/` exist.
+- Confirm that `qmd.json`, `qmd/collections/`, and the native QMD `.qmd/index.yml` registry exist.
 - Confirm the project collection names with `qmd collection list`.
 - Keep raw research separate from canonical knowledge.
 
@@ -35,6 +35,8 @@ Use the project-local QMD collections to find reviewed guidance first and source
    ```
 
    The equivalent direct query is `qmd search "..." -c site-bootstrap-wiki --format json`.
+
+   On QMD 2.5.3, the project-local `.qmd/index.yml` registry must be present and the command must run from the project root.
 
 2. Inspect the returned document with `qmd get` and read the relevant section, status, version scope, freshness, and evidence references.
 
@@ -54,6 +56,7 @@ Use the project-local QMD collections to find reviewed guidance first and source
 - Check `status`, version/environment scope, `updated`/capture dates, claim status, and provenance before use.
 - Do not index secrets, cookies, tokens, private payloads, PII, runtime state, or unrelated repositories.
 - After an authorized knowledge-file or collection change, run `qmd update`; it changes the local index.
+- Keep `.qmd/index.sqlite` and other QMD runtime databases out of Git; commit only the registry configuration.
 - Use `qmd search`/`qmd query`/`qmd get` as read operations. Do not run `qmd update`, `qmd embed`, or collection mutation commands without authorization.
 
 ## Related records
