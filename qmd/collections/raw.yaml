@@ -1,0 +1,5 @@
+name: site-bootstrap-raw
+paths:
+  - ../../kb/raw/
+exclude:
+  - "**/.DS_Store"

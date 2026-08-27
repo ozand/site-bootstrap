@@ -1,0 +1,6 @@
+name: site-bootstrap-wiki
+paths:
+  - ../../kb/
+exclude:
+  - "raw/**"
+  - "**/.DS_Store"
