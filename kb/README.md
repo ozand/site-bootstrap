@@ -17,3 +17,10 @@ One lesson = one file in `lessons/`, kebab-case name, structure:
 ```
 
 Add a lesson whenever you solve a non-obvious problem in a generated site — the fix belongs here, not only in that site's history.
+
+## Research captures
+
+The project-wide raw evidence and provenance contract is documented in
+[docs/agent-guide/raw-evidence.md](../docs/agent-guide/raw-evidence.md). New
+captures belong under `kb/raw/` and must remain separate from canonical knowledge
+and project lessons.
