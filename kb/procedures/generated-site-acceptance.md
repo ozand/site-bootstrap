@@ -24,9 +24,9 @@ claims:
     text: "A generated site must pass the project's verify and build commands before handover."
     type: api_contract
     status: confirmed
-    evidence_refs: [RAW-20260828-web-a4-baseline-smoke]
+    evidence_refs: [RAW-20260828-web-a4-baseline-smoke, RAW-20260828-web-verification-run-site-bootstrap-8a1d30b]
     verification_id: VR-ACCEPT-001
-    scope: "Project baseline workflow"
+    scope: "Project baseline workflow and verification-run identity"
   - claim_id: C-ACCEPT-002
     text: "A reachable /keystatic route does not prove authentication or authorization."
     type: observed_behavior
@@ -44,6 +44,15 @@ evidence_refs:
       kind: line_range
       value: "kb/raw/web/web-a4-baseline-smoke.md:L40-L47"
     notes: "One fixture/host/toolchain."
+  - evidence_id: RAW-20260828-web-verification-run-site-bootstrap-8a1d30b
+    source_type: web
+    url: "https://github.com/ozand/site-bootstrap"
+    captured_at: "2026-08-28T22:50:00Z"
+    source_version: "template commit ed7b1a7e4e597891471396d6bd8569946f0aefb0"
+    locator:
+      kind: line_range
+      value: "kb/raw/web/verification-run-20260828-site-bootstrap.md:L1-L48"
+    notes: "Versioned metadata-only contract example; not an executed verification."
   - evidence_id: RAW-20260828-github-a12-keystatic-boundary
     source_type: web
     url: "https://github.com/ozand/site-bootstrap"
@@ -80,7 +89,7 @@ unresolved_conflicts: []
 supersedes: []
 superseded_by: null
 provenance:
-  derived_from: [RAW-20260828-web-a4-baseline-smoke, RAW-20260828-github-a12-keystatic-boundary]
+  derived_from: [RAW-20260828-web-a4-baseline-smoke, RAW-20260828-github-a12-keystatic-boundary, RAW-20260828-web-verification-run-site-bootstrap-8a1d30b]
   reviewed_by: "site-bootstrap maintainer"
 error_signatures: []
 ---
@@ -97,6 +106,8 @@ production security, search ranking, accessibility conformance, or Core Web Vita
 
 - Use the supported scaffolder and a disposable or authorized target.
 - Confirm repository, dependency versions/lockfile, configured provider and output mode.
+- Assign a unique `verification_run.run_id` and record the exact template commit SHA,
+  input manifest hashes, and runtime tool versions before running checks.
 - Keep credentials outside files and command output.
 
 ## Steps
@@ -110,12 +121,14 @@ production security, search ranking, accessibility conformance, or Core Web Vita
 7. **S-007** — If content images exist, check meaningful `alt` and stable dimensions; otherwise mark image checks not applicable. Evidence: `RAW-20260828-web-a10-generated-acceptance`.
 8. **S-008** — Perform manual semantic HTML, labels, keyboard, visible-focus and no-trap checks for interactive UI. Evidence: `VR-ACCEPT-003`.
 9. **S-009** — Check canonical, Open Graph, JSON-LD and `robots.txt` only when the site has an explicit requirement for them. Evidence: `RAW-20260828-web-a10-generated-acceptance`.
-10. **S-010** — Record provider, runtime, commit, routes, warnings, evidence locations and limitations. Evidence: `RAW-20260828-web-a5-e-deployment-mapping` and `RAW-20260828-web-a4-baseline-smoke`.
+10. **S-010** — Record provider, runtime, commit, routes, warnings, evidence locations and limitations, together with the `verification_run` metadata. Evidence: `RAW-20260828-web-a5-e-deployment-mapping` and `RAW-20260828-web-a4-baseline-smoke`.
 
 ## Verification
 
-Acceptance requires successful `verify`/`build`, expected output for the configured
-mode, and required route checks. A route returning HTTP 200 proves reachability only;
+Acceptance requires a complete `verification_run` record plus successful `verify`/`build`, expected output for the configured
+mode, and required route checks. Confirm the recorded template commit, input manifest
+hashes, and runtime versions match the actual verification inputs before accepting the
+result. A route returning HTTP 200 proves reachability only;
 it is not authentication or authorization evidence. Record optional checks as
 `pass`, `fail`, or `not_applicable` rather than silently treating absence as failure.
 

@@ -160,6 +160,42 @@ language, speaker-attribution limits, and the extractor/tool version. A transcri
 is context/discovery evidence until important claims are independently verified.
 Do not download media when subtitles or bounded notes are sufficient.
 
+### Verification-run identity
+
+When a capture records a local verification run, add a `verification_run` block. It
+pins the exact source and dependency inputs without storing a lockfile, environment
+dump, credentials, or runtime payload. A changed input set requires a new capture;
+do not rewrite the earlier capture.
+
+```yaml
+verification_run:
+  run_id: "RUN-YYYYMMDD-project-purpose-sequence"
+  template_commit_sha: "full-template-commit-sha"
+  input_manifest:
+    hash_algorithm: "sha256"
+    files:
+      - path: "templates/base-astro/package.json"
+        sha256: "64-hex-digest"
+        byte_count: 0
+      - path: "templates/base-astro/package-lock.json"
+        sha256: "64-hex-digest"
+        byte_count: 0
+    combined_sha256: "64-hex-digest"
+  runtime:
+    node: "22.x"
+    npm: "10.x"
+    other: {}
+  result: "pass | fail | not_run | example-only"
+  limitations: []
+```
+
+Required identity fields are `run_id`, `template_commit_sha`, the manifest hash
+algorithm and file list, `combined_sha256`, relevant runtime tool versions, result,
+and limitations. The combined digest is computed deterministically over sorted
+repository-relative paths and each file's exact UTF-8/byte content, using an
+explicit framing documented by the producer. Record `unknown` or `null` when a
+field cannot be established safely; never fabricate a commit, hash, or version.
+
 ### GitHub repository, commit, issue, pull request, or release
 
 ```yaml
@@ -229,6 +265,9 @@ Before committing a raw capture, a reviewer or deterministic check must confirm:
       reproducible without including frontmatter recursively.
 - [ ] Channel-specific stable identity and locator are present; unknown fields are
       explicitly marked rather than invented.
+- [ ] Verification captures include `verification_run` identity when a local run is
+      recorded: run ID, template commit, input manifest/hash, runtime versions,
+      result, and limitations.
 - [ ] Reported/opinion/hypothesis claims are not phrased as confirmed guidance.
 - [ ] The raw file is new or intentionally versioned; no existing capture was
       silently overwritten.
