@@ -37,6 +37,13 @@ rights:
   license: unknown
   retention_note: "Sanitized artifact observations only."
 tags: [acceptance, seo, accessibility, performance, baseline]
+web:
+  canonical_url: "https://github.com/ozand/site-bootstrap"
+  publisher: "ozand/site-bootstrap"
+  locator: "WEB-A10 generated artifact matrix"
+  response_validators:
+    etag: null
+    last_modified: null
 ---
 
 # WEB-A10 generated-site acceptance smoke

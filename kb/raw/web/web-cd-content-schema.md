@@ -36,6 +36,13 @@ rights:
   license: unknown
   retention_note: "Short contract summary; no wholesale source text."
 tags: [astro, markdoc, content-collections, schema]
+web:
+  canonical_url: "https://docs.astro.build/en/guides/content-collections/"
+  publisher: "Astro"
+  locator: "Content collections and Markdoc schema summary"
+  response_validators:
+    etag: null
+    last_modified: null
 ---
 
 # WEB-C/D content and schema boundary

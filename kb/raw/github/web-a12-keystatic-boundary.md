@@ -20,8 +20,8 @@ retrieval:
   language: en
 content:
   representation: markdown
-  sha256: "sha256:27dd1457090f280b371510206c4a25d9b6a0b935b5ca8129a0bf48751bc03b9d"
-  byte_count: 660
+  sha256: "sha256:208849d2a180827d5fbd93e8fe7f0d5ce8c1ae5d70b8ef24f5c6442987acd805"
+  byte_count: 781
   excerpted: true
   transform: "sanitized anonymous route matrix"
 provenance:
@@ -37,6 +37,16 @@ rights:
   license: unknown
   retention_note: "Statuses, content types, and sizes only; no bodies or headers retained."
 tags: [keystatic, admin, route, baseline]
+github:
+  repository: "ozand/site-bootstrap"
+  object_type: repository_read
+  ref: null
+  commit_sha: null
+  path: null
+  blob_sha: null
+  issue_or_pr: null
+  comment_id: null
+  locator: "WEB-A12 generated fixture route matrix"
 ---
 
 # WEB-A12 anonymous Keystatic boundary smoke
@@ -52,4 +62,4 @@ Anonymous status matrix:
 | `/api/keystatic/config` | 404 | 0 | `text/plain;charset=UTF-8` |
 | `/api/keystatic/` | 404 | 0 | `text/plain;charset=UTF-8` |
 
-HTTP 200 is route reachability, not authentication/security proof. No login, token, cookie, write, GitHub mode, authorization, persistence, production, or provider test was performed.
+HTTP 200 is route reachability, not authentication/security proof. No login, token, cookie, write, GitHub mode, authorization, persistence, production, or provider test was performed. This is repository-read evidence with no immutable GitHub object anchor; it must not be promoted as a source-code claim.

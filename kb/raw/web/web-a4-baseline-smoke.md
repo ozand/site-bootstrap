@@ -37,6 +37,13 @@ rights:
   license: unknown
   retention_note: "Sanitized result summary; no lockfile or private path retained."
 tags: [baseline, compatibility, e2e, astro, keystatic]
+web:
+  canonical_url: "https://github.com/ozand/site-bootstrap"
+  publisher: "ozand/site-bootstrap"
+  locator: "WEB-A4 generated compatibility smoke summary"
+  response_validators:
+    etag: null
+    last_modified: null
 ---
 
 # WEB-A4 baseline compatibility smoke

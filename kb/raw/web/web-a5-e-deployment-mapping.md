@@ -37,6 +37,13 @@ rights:
   license: unknown
   retention_note: "Short mapping; no secrets or deployment payloads."
 tags: [astro, deployment, node, vps, docker]
+web:
+  canonical_url: "https://docs.astro.build/en/guides/integrations-guide/node/"
+  publisher: "Astro"
+  locator: "Node adapter standalone, middleware, entrypoint and HOST/PORT"
+  response_validators:
+    etag: null
+    last_modified: null
 ---
 
 # WEB-A5/E deployment mapping

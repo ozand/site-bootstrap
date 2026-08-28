@@ -1,4 +1,5 @@
 ---
+canonical_schema: canonical-v1
 id: KB-CONTENT-0001
 title: "Markdoc content and Keystatic schema boundary"
 category: architecture
@@ -10,6 +11,46 @@ environment:
   os: any
   shell: any
   tools: ["Astro 5", "Keystatic 5", "Zod"]
+version_scope:
+  product: "site-bootstrap content model"
+  versions: ["Astro 5", "@astrojs/markdoc 0.15.0", "@keystatic/astro 5.2.0", "@keystatic/core 0.5.51"]
+  environments: ["generated site"]
+  as_of: 2026-08-28
+  applicability: "Template posts and settings contract"
+owner: "site-bootstrap maintainers"
+claims:
+  - claim_id: C-CONTENT-001
+    text: "The template uses a .mdoc glob loader with Zod fields and a matching Keystatic content collection."
+    type: api_contract
+    status: confirmed
+    evidence_refs: [RAW-20260828-web-cd-content-schema]
+    verification_id: VR-CONTENT-001
+    scope: "Current template source configuration"
+evidence_refs:
+  - evidence_id: RAW-20260828-web-cd-content-schema
+    source_type: web
+    url: "https://docs.astro.build/en/guides/content-collections/"
+    captured_at: "2026-08-28T01:57:00Z"
+    source_version: "docs main; package anchors in raw capture"
+    locator:
+      kind: line_range
+      value: "kb/raw/web/web-cd-content-schema.md:L40-L49"
+    notes: "Official contract summary plus local mapping."
+verification:
+  - verification_id: VR-CONTENT-001
+    method: comparison
+    performed_at: "2026-08-28T01:57:00Z"
+    result: pass
+    scope: "Compared template Astro and Keystatic schema declarations"
+    output_ref: "RAW-20260828-web-cd-content-schema"
+    notes: "No schema mutation performed."
+alternatives: []
+unresolved_conflicts: []
+supersedes: []
+superseded_by: null
+provenance:
+  derived_from: [RAW-20260828-web-cd-content-schema]
+  reviewed_by: "site-bootstrap maintainer"
 error_signatures: []
 ---
 
