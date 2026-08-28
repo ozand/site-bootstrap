@@ -112,7 +112,7 @@ if (args.git) {
 console.log(`
 Done. Next steps:
   cd ${path.relative(process.cwd(), targetDir) || '.'}
-  npm install
+  npm ci
   npm run verify
   npm run dev        # site: http://localhost:4321, CMS: http://localhost:4321/keystatic
 `);

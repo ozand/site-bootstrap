@@ -31,7 +31,7 @@ node scripts/create-site.mjs --name my-site --domain example.com --target ../my-
 
 # 2. Install and run
 cd ../my-site
-npm install
+npm ci
 npm run dev
 # Site: http://localhost:4321  |  CMS: http://localhost:4321/keystatic
 ```

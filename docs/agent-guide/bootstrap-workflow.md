@@ -7,7 +7,7 @@ Protocol for an AI agent deploying a site from this repository. Follow in order;
 ```bash
 node scripts/create-site.mjs --name <kebab-name> --domain <domain> --target <path>
 cd <path>
-npm install
+npm ci            # requires the committed template package-lock.json
 ```
 
 Checks:

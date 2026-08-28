@@ -9,11 +9,16 @@ Built from the [site-bootstrap](https://github.com/ozand/site-bootstrap) templat
 ## Develop
 
 ```bash
-npm install
+npm ci            # requires the committed package-lock.json
 npm run dev       # http://localhost:4321
 npm run verify    # type check + lint
 npm run build     # production build (Node standalone by default)
 ```
+
+The template commits an npm lockfile (lockfile v3) and supports Node.js 18+
+with npm 9+. Use `npm ci` for clean, reproducible installs; it fails when the
+lockfile and `package.json` drift. If dependencies are intentionally changed,
+regenerate the lockfile with npm and commit both files together.
 
 ## Content
 

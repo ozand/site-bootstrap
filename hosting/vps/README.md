@@ -5,11 +5,18 @@ no config changes needed.
 
 ## Option A: Docker (recommended)
 
-Copy `Dockerfile` and `docker-compose.yml` from this folder into the site root:
+The generated site includes a committed npm lockfile. Copy `Dockerfile` and
+`docker-compose.yml` from this folder into the site root, then build with the
+same strict lockfile contract used by CI and local verification:
 
 ```bash
 docker compose up -d --build
 ```
+
+The Dockerfile uses `npm ci`, which requires `package-lock.json` and fails on
+manifest/lockfile drift. Keep `package.json` and `package-lock.json` together;
+regenerate both with npm when dependencies change. The image build runs
+`npm run build` after the locked install.
 
 The site listens on `127.0.0.1:4321`; put Nginx (or Caddy/Traefik) in front for
 TLS — see `nginx.conf`.

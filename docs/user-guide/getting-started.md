@@ -19,7 +19,7 @@ node scripts/create-site.mjs --name my-site --domain example.com --target ../my-
 
 # 2. Установить зависимости и запустить
 cd ../my-site
-npm install
+npm ci
 npm run dev
 ```
 
