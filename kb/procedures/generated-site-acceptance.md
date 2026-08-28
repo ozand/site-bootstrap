@@ -68,6 +68,13 @@ verification:
     scope: "WEB-A12 anonymous route checks"
     output_ref: "RAW-20260828-github-a12-keystatic-boundary"
     notes: "Reachability only; auth not tested."
+  - verification_id: VR-ACCEPT-003
+    method: manual_review
+    performed_at: "2026-08-28T00:00:00Z"
+    result: not_run
+    scope: "Manual semantic/keyboard/focus/no-trap audit was not performed in A4/A10"
+    output_ref: "RAW-20260828-web-a10-generated-acceptance"
+    notes: "This procedure step remains a required future check for interactive UI."
 alternatives: []
 unresolved_conflicts: []
 supersedes: []
@@ -101,7 +108,7 @@ production security, search ranking, accessibility conformance, or Core Web Vita
 5. **S-005** — Inspect generated HTML for required title/description/viewport and the sitemap link. Evidence: `RAW-20260828-web-a10-generated-acceptance`.
 6. **S-006** — If the template enables sitemap generation, inspect `sitemap-index.xml` and numbered sitemaps and confirm intended origin/path. Evidence: `RAW-20260828-web-a10-generated-acceptance`.
 7. **S-007** — If content images exist, check meaningful `alt` and stable dimensions; otherwise mark image checks not applicable. Evidence: `RAW-20260828-web-a10-generated-acceptance`.
-8. **S-008** — Perform manual semantic HTML, labels, keyboard, visible-focus and no-trap checks for interactive UI. Evidence: verification run required; not present in A4/A10 and must be recorded as `not_run` when omitted.
+8. **S-008** — Perform manual semantic HTML, labels, keyboard, visible-focus and no-trap checks for interactive UI. Evidence: `VR-ACCEPT-003`.
 9. **S-009** — Check canonical, Open Graph, JSON-LD and `robots.txt` only when the site has an explicit requirement for them. Evidence: `RAW-20260828-web-a10-generated-acceptance`.
 10. **S-010** — Record provider, runtime, commit, routes, warnings, evidence locations and limitations. Evidence: `RAW-20260828-web-a5-e-deployment-mapping` and `RAW-20260828-web-a4-baseline-smoke`.
 

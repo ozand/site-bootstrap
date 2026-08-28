@@ -31,7 +31,7 @@ claims:
     type: api_contract
     status: confirmed
     evidence_refs: [RAW-20260828-web-cd-content-schema]
-    verification_id: null
+    verification_id: VR-BASELINE-002
     scope: "Package metadata for @keystatic/astro 5.2.0"
 evidence_refs:
   - evidence_id: RAW-20260828-web-a4-baseline-smoke
@@ -60,6 +60,13 @@ verification:
     scope: "WEB-A4 clean generated consumer"
     output_ref: "RAW-20260828-web-a4-baseline-smoke"
     notes: "One host/toolchain only."
+  - verification_id: VR-BASELINE-002
+    method: docs_review
+    performed_at: "2026-08-28T01:57:00Z"
+    result: not_run
+    scope: "Package metadata claim only; no independent compatibility test"
+    output_ref: "RAW-20260828-web-cd-content-schema"
+    notes: "Peer metadata was inspected; application compatibility was not separately tested."
 alternatives: []
 unresolved_conflicts:
   - "No lockfile is retained in the factory; future registry resolution may differ."

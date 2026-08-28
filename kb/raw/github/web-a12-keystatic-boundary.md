@@ -2,7 +2,7 @@
 raw_schema: raw-v1
 capture_id: RAW-20260828-github-a12-keystatic-boundary
 status: raw_capture
-source_type: github
+source_type: web
 source_url: "https://github.com/ozand/site-bootstrap"
 source_title: "Keystatic anonymous route boundary smoke"
 author: null
@@ -20,8 +20,8 @@ retrieval:
   language: en
 content:
   representation: markdown
-  sha256: "sha256:208849d2a180827d5fbd93e8fe7f0d5ce8c1ae5d70b8ef24f5c6442987acd805"
-  byte_count: 781
+  sha256: "sha256:d4d6ec43f3cc23642fb3350227329e2a543bf7cda284f2429ee569b12222c7c6"
+  byte_count: 863
   excerpted: true
   transform: "sanitized anonymous route matrix"
 provenance:
@@ -37,16 +37,13 @@ rights:
   license: unknown
   retention_note: "Statuses, content types, and sizes only; no bodies or headers retained."
 tags: [keystatic, admin, route, baseline]
-github:
-  repository: "ozand/site-bootstrap"
-  object_type: repository_read
-  ref: null
-  commit_sha: null
-  path: null
-  blob_sha: null
-  issue_or_pr: null
-  comment_id: null
+web:
+  canonical_url: "https://github.com/ozand/site-bootstrap"
+  publisher: "ozand/site-bootstrap"
   locator: "WEB-A12 generated fixture route matrix"
+  response_validators:
+    etag: null
+    last_modified: null
 ---
 
 # WEB-A12 anonymous Keystatic boundary smoke
@@ -62,4 +59,4 @@ Anonymous status matrix:
 | `/api/keystatic/config` | 404 | 0 | `text/plain;charset=UTF-8` |
 | `/api/keystatic/` | 404 | 0 | `text/plain;charset=UTF-8` |
 
-HTTP 200 is route reachability, not authentication/security proof. No login, token, cookie, write, GitHub mode, authorization, persistence, production, or provider test was performed. This is repository-read evidence with no immutable GitHub object anchor; it must not be promoted as a source-code claim.
+HTTP 200 is route reachability, not authentication/security proof. No login, token, cookie, write, GitHub mode, authorization, persistence, production, or provider test was performed. The capture is bounded to a generated-fixture runtime observation from a public repository reference; no immutable source-code object was captured. It must not be promoted as a GitHub source-code claim.
