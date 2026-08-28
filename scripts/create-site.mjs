@@ -12,6 +12,9 @@
  *   --template  Template folder under templates/ (default: base-astro).
  *   --no-git    Skip `git init` + initial commit.
  *   --no-skills Skip copying skills/ into <target>/.agents/skills/.
+ *
+ * After scaffolding, compare the snapshot with:
+ *   node scripts/check-skills.mjs --target <target>/.agents/skills
  */
 import fs from 'node:fs';
 import path from 'node:path';
