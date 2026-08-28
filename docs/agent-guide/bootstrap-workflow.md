@@ -12,6 +12,7 @@ npm ci            # requires the committed template package-lock.json
 
 Checks:
 - scaffolder exited 0, target contains `package.json`, `.agents/skills/`, `.gitignore`
+- target does not contain the bootstrap workspace's `qmd.json`, `qmd/collections/`, `.qmd/`, or `kb/`
 - `git log` shows the initial scaffold commit
 
 ## Phase 2 — Verify baseline
@@ -56,3 +57,5 @@ Report to the owner:
 ## Feedback loop
 
 Any non-obvious failure you solved → one lesson file in `kb/lessons/` of site-bootstrap. Template defect → fix `templates/base-astro/` and re-run the AGENTS.md §6 verification cycle.
+
+The generated site does not inherit this repository's QMD registry or knowledge base. QMD/KB adoption in a generated site is an explicit, independent repository decision.

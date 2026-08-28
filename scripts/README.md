@@ -16,4 +16,11 @@ What it does:
 4. Replaces `__SITE_NAME__` / `__SITE_DOMAIN__` placeholders in all text files.
 5. Runs `git init` + initial commit (skip with `--no-git`).
 
+The scaffold intentionally does **not** copy the bootstrap repository's `qmd.json`,
+`qmd/collections/`, `.qmd/` runtime databases, or `kb/` knowledge base. Generated
+sites therefore do not inherit this workspace's QMD registry, index, or KB content.
+If a generated site needs its own knowledge base, it must adopt an independent,
+repository-owned QMD configuration explicitly. The scope check is executable with
+`python scripts/test_scaffold_scope.py`.
+
 Requires Node.js 18+. Zero npm dependencies.
