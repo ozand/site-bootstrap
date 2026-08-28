@@ -24,3 +24,9 @@ The project-wide raw evidence and provenance contract is documented in
 [docs/agent-guide/raw-evidence.md](../docs/agent-guide/raw-evidence.md). New
 captures belong under `kb/raw/` and must remain separate from canonical knowledge
 and project lessons.
+
+## Current canonical records
+
+- [Baseline compatibility matrix](./architecture/baseline-compatibility.md)
+- [Generated-site acceptance procedure](./procedures/generated-site-acceptance.md)
+- [Markdoc and Keystatic schema boundary](./apps/content-schema-boundary.md)
