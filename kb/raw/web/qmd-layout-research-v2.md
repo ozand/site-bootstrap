@@ -4,7 +4,6 @@ capture_id: RAW-20260828-web-qmd-layout-research-v2-b6326f8
 status: raw_capture
 source_type: web
 source_url: "https://github.com/ozand/kb-bootstrap/blob/62e7924d51494a81eb0c4a7257a1c23e25423117/README.md"
-canonical_url: "https://github.com/ozand/kb-bootstrap/blob/62e7924d51494a81eb0c4a7257a1c23e25423117/README.md"
 source_title: "kb-bootstrap README"
 author: null
 organization: "ozand"
@@ -21,13 +20,13 @@ retrieval:
   language: en
 content:
   representation: markdown
-  sha256: "sha256:da90ac9f8e8a8deba47cf394ac80a12aee3d51d72003f7449c6eb5dab54e7d74"
+  sha256: "da90ac9f8e8a8deba47cf394ac80a12aee3d51d72003f7449c6eb5dab54e7d74"
   byte_count: 507
   excerpted: true
   transform: "legacy capture metadata normalized; excerpt retained and provenance pinned"
 provenance:
   captured_by: "site-bootstrap research"
-  derived_from: [RAW-20260827-qmd-layout-research]
+  derived_from: RAW-20260827-qmd-layout-research
 quality:
   source_quality: high
   claim_status: confirmed
