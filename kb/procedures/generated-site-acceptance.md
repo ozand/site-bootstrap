@@ -45,14 +45,14 @@ evidence_refs:
       value: "kb/raw/web/web-a4-baseline-smoke.md:L40-L47"
     notes: "One fixture/host/toolchain."
   - evidence_id: RAW-20260828-github-a12-keystatic-boundary
-    source_type: github
+    source_type: web
     url: "https://github.com/ozand/site-bootstrap"
     captured_at: "2026-08-28T03:56:00Z"
-    source_version: "repository-read fixture; no immutable object anchor"
+    source_version: "Astro 5.18.2 / Node 9.5.5 / Keystatic Astro 5.2.0 / Core 0.5.51; generated-fixture runtime observation"
     locator:
-      kind: github_path
-      value: "repository_read:WEB-A12-generated-fixture-route-matrix"
-    notes: "Runtime observation, not source-code claim."
+      kind: line_range
+      value: "kb/raw/github/web-a12-keystatic-boundary.md:L49-L62"
+    notes: "Anonymous runtime observation; not a source-code claim and not an immutable GitHub object anchor."
 verification:
   - verification_id: VR-ACCEPT-001
     method: reproduction
