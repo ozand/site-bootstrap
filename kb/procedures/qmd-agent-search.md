@@ -22,6 +22,7 @@ Use the project-local QMD collections to find reviewed guidance first and source
 ## Preconditions
 
 - Work from the project root.
+- Treat committed `qmd.json` and `qmd/collections/*.yaml` as authoritative configuration; do not edit `.qmd/` runtime databases to resolve conflicts.
 - Confirm that `qmd.json`, `qmd/collections/`, and the native QMD `.qmd/index.yml` registry exist.
 - Confirm the project collection names with `qmd collection list`.
 - Keep raw research separate from canonical knowledge.
@@ -55,7 +56,8 @@ Use the project-local QMD collections to find reviewed guidance first and source
 - Canonical results are the default for recommendations; raw results are evidence and discovery.
 - Check `status`, version/environment scope, `updated`/capture dates, claim status, and provenance before use.
 - Do not index secrets, cookies, tokens, private payloads, PII, runtime state, or unrelated repositories.
-- After an authorized knowledge-file or collection change, run `qmd update`; it changes the local index.
+- Configuration precedence is committed `qmd.json`/collection manifests, then the project-local registry, then the derived runtime index/database. Treat a missing or stale runtime as a repairable derived-state problem, not a configuration conflict.
+- After an authorized knowledge-file or collection change, run `qmd update`; it changes the local index. Record the actual collection names and search results without committing runtime databases.
 - Keep `.qmd/index.sqlite` and other QMD runtime databases out of Git; commit only the registry configuration.
 - Use `qmd search`/`qmd query`/`qmd get` as read operations. Do not run `qmd update`, `qmd embed`, or collection mutation commands without authorization.
 
