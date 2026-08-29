@@ -11,7 +11,7 @@ private state.
 ## Boundary map
 
 The following documented facts are **README-derived**; live values below are
-separately marked as read-only observations.
+separately marked as **read-only remote metadata** observations.
 
 | Boundary | Evidence/status | Permitted interpretation |
 | --- | --- | --- |
@@ -21,6 +21,7 @@ separately marked as read-only observations.
 | SSH reachability | Direct README-documented operator target accepted a BatchMode key-based connection | Read-only access is verified for this inspection; the target remains a production candidate, not a disposable deployment target |
 | Docker client/server/context | Read-only remote metadata reported client/server `29.1.3` and context `default` | Docker is available for a separately authorized disposable run; no workload or resource inventory was inspected |
 | Nginx/systemd availability | Read-only metadata reported Nginx `1.24.0`; `nginx`, `docker`, and `xray` units reported `active` | Service presence/active state is not permission to reload, reconfigure, or use production traffic |
+| Preflight method | `nginx -v` reported `nginx/1.24.0 (Ubuntu)`; systemd active checks returned `active` | Version and active-state observations only; no configs, logs, inventories, or service details were read |
 | Existing projects/containers/resources | Not inspected | Must remain untouched; no inventory or workload selection is permitted for this test |
 
 The candidate README explicitly prohibits storing private keys, passwords, raw
