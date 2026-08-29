@@ -38,6 +38,37 @@ atomically point `current` at the selected release. Nginx serves that directory
 only. Promotion and rollback belong to the follow-up deployment issues; retain
 checksums and sanitized health results.
 
+### Disposable publisher
+
+`publish-static-release.mjs` publishes a verified static artifact into a
+versioned release tree. It rejects empty or incomplete artifacts, symlinks,
+unsafe release identifiers, duplicate release IDs, and digest changes during
+staging. It copies into a hidden staging directory, verifies the copied digest,
+renames the directory into place, then atomically replaces the `current`
+symlink. A failed publish removes its staging directory and leaves the existing
+`current` pointer unchanged.
+
+Usage (disposable or explicitly authorized target only):
+
+```bash
+node hosting/vps/publish-static-release.mjs \
+  --artifact ./artifact/dist \
+  --root /srv/example-release-root \
+  --release <source-revision-or-release-id> \
+  --retain 2
+```
+
+The artifact must be outside the release root. The required `index.html` entry
+is checked, all files are hashed with a deterministic path/length/content
+framing, and the status JSON reports only release ID, file count, digest, current
+pointer, and removed release IDs. Nginx configuration and production rollout are
+out of scope. Verify the contract with:
+
+```bash
+node hosting/vps/test-publish-static-release.mjs
+```
+
+
 The following Node/systemd and Keystatic notes are historical compatibility
 references only and are not the target public deployment:
 
