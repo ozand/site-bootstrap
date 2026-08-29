@@ -48,18 +48,21 @@ remove it after an unsuccessful run; never publish a failed build.
 `run-publish-trigger.mjs` is a provider-neutral orchestration contract, not a
 webhook listener. A CI or webhook adapter may pass a sanitized GitHub-like push
 event, a build command, the expected artifact directory, and the publisher
-command. Only `push` events for the configured branch (default `main`) with a
-non-zero commit SHA proceed. The build runs first; a failed build or missing
-artifact prevents publication. On success, the publisher receives the commit
-SHA as `TRIGGER_RELEASE_ID` and the sanitized event fields as environment
-variables. Commands must be supplied by the caller; secrets and production
-endpoints are outside this contract.
+command. Build and publish commands are JSON argv arrays such as
+`["node", "build.mjs"]`; they are validated and executed with `shell: false`.
+Only `push` events for the configured branch (default `main`) with a non-zero
+40-hex commit SHA proceed. With `--repository owner/name`, the repository must
+also match exactly. The build runs first; a failed build or missing artifact
+prevents publication. On success, the publisher receives the commit SHA as
+`TRIGGER_RELEASE_ID` and sanitized event fields as environment variables.
+Secrets and production endpoints are outside this contract.
 
 The trigger emits only `ignored`, `blocked`, `failed`, or `published` status JSON
-with event type, branch, repository, before/after revision IDs, and stage. It does
-not authenticate webhook signatures; the provider adapter must verify signatures
-before invoking it. Retry/idempotency is delegated to the versioned publisher,
-which rejects duplicate release IDs.
+with event type, branch, repository, before/after revision IDs, and stage. Child
+stdout/stderr is discarded so build/publisher output and accidental event fields
+are not copied into the status. It does not authenticate webhook signatures; the
+provider adapter must verify signatures before invoking it. Retry/idempotency is
+delegated to the versioned publisher, which rejects duplicate release IDs.
 
 Run the disposable orchestration test:
 

@@ -21,22 +21,32 @@ function parseArgs(argv) {
   return args;
 }
 
-function run(command, cwd, action) {
-  const result = spawnSync(command, {
+function parseCommandSpec(value, label) {
+  let spec;
+  try { spec = JSON.parse(value); } catch { throw new Error(`${label} must be a JSON argv array`); }
+  if (!Array.isArray(spec) || spec.length === 0 || spec.some((part) => typeof part !== 'string' || part.length === 0)) {
+    throw new Error(`${label} must be a non-empty JSON argv array of strings`);
+  }
+  return spec;
+}
+
+function run(spec, cwd, action) {
+  const [executable, ...commandArgs] = spec;
+  const result = spawnSync(executable, commandArgs, {
     cwd,
-    shell: true,
-    encoding: 'utf8',
+    shell: false,
+    stdio: ['ignore', 'ignore', 'ignore'],
     env: {
       ...process.env,
-      TRIGGER_EVENT_TYPE: action.event_type || '',
-      TRIGGER_BRANCH: action.branch || '',
-      TRIGGER_REPOSITORY: action.repository || '',
-      TRIGGER_BEFORE: action.before || '',
-      TRIGGER_AFTER: action.after || '',
-      TRIGGER_RELEASE_ID: action.after || '',
+      TRIGGER_EVENT_TYPE: action.event_type,
+      TRIGGER_BRANCH: action.branch,
+      TRIGGER_REPOSITORY: action.repository,
+      TRIGGER_BEFORE: action.before,
+      TRIGGER_AFTER: action.after,
+      TRIGGER_RELEASE_ID: action.after,
     },
   });
-  return { status: result.status ?? 1, stdout: result.stdout ?? '', stderr: result.stderr ?? '' };
+  return result.status ?? 1;
 }
 
 function fail(message) {
@@ -49,28 +59,35 @@ try {
   if (!args.event || !args.build || !args.artifact || !args.publish) {
     throw new Error('--event, --build, --artifact and --publish are required');
   }
+  if (args.repository && !/^[A-Za-z0-9_.-]+\/[A-Za-z0-9_.-]+$/.test(args.repository)) {
+    throw new Error('--repository must be an owner/name value');
+  }
   const event = JSON.parse(fs.readFileSync(path.resolve(args.event), 'utf8'));
   const expectedBranch = args.branch || 'main';
-  const branch = event.ref?.startsWith('refs/heads/') ? event.ref.slice('refs/heads/'.length) : null;
+  const expectedRepository = args.repository || null;
+  const ref = typeof event.ref === 'string' ? event.ref : null;
+  const branch = ref?.startsWith('refs/heads/') ? ref.slice('refs/heads/'.length) : null;
   const eventType = event.event_type || event.event || null;
-  const before = event.before || null;
-  const after = event.after || null;
-  const repository = event.repository?.full_name || null;
+  const before = typeof event.before === 'string' ? event.before : null;
+  const after = typeof event.after === 'string' ? event.after : null;
+  const repository = typeof event.repository?.full_name === 'string' ? event.repository.full_name : null;
   const action = { event_type: eventType, branch, repository, before, after };
+  const build = parseCommandSpec(args.build, 'build');
+  const publish = parseCommandSpec(args.publish, 'publish');
 
-  if (eventType !== 'push' || branch !== expectedBranch || !after || after === '0'.repeat(40)) {
+  if (eventType !== 'push' || branch !== expectedBranch || (expectedRepository && repository !== expectedRepository) || !/^[0-9a-f]{40}$/i.test(after || '') || after === '0'.repeat(40)) {
     console.log(JSON.stringify({ status: 'ignored', reason: 'event-filter', ...action }, null, 2));
   } else {
-    const build = run(args.build, path.dirname(path.resolve(args.event)), action);
-    if (build.status !== 0) {
+    const buildStatus = run(build, path.dirname(path.resolve(args.event)), action);
+    if (buildStatus !== 0) {
       console.log(JSON.stringify({ status: 'blocked', stage: 'build', reason: 'build-failed', ...action }, null, 2));
       process.exitCode = 1;
     } else if (!fs.existsSync(path.resolve(args.artifact)) || !fs.statSync(path.resolve(args.artifact)).isDirectory()) {
       console.log(JSON.stringify({ status: 'blocked', stage: 'artifact', reason: 'artifact-missing', ...action }, null, 2));
       process.exitCode = 1;
     } else {
-      const publish = run(args.publish, path.dirname(path.resolve(args.event)), action);
-      if (publish.status !== 0) {
+      const publishStatus = run(publish, path.dirname(path.resolve(args.event)), action);
+      if (publishStatus !== 0) {
         console.log(JSON.stringify({ status: 'failed', stage: 'publish', reason: 'publisher-failed', ...action }, null, 2));
         process.exitCode = 1;
       } else {
