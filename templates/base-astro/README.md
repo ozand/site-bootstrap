@@ -25,8 +25,11 @@ regenerate the lockfile with npm and commit both files together.
 The default `astro.config.mjs` is the public static profile and deliberately
 omits the Keystatic integration. When a private Keystatic editor host is needed,
 use the separate `astro.config.editor.mjs` with `npm run dev:editor` or
-`npm run build:editor`. This on-demand Node profile is not a public deployment
-artifact and must remain on the private editor/build host.
+`npm run build:editor`. Before using GitHub mode, change `keystatic.config.ts`
+from local storage to the documented GitHub storage block and provide the
+`KEYSTATIC_*` values through the private host environment. This on-demand Node
+profile is not a public deployment artifact and must remain on the private
+editor/build host.
 
 ## Content
 

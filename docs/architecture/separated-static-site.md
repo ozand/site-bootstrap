@@ -38,7 +38,10 @@ is not public until the build and promotion checks for its release complete.
 The editor host's network restriction, reverse-proxy ACL, and GitHub authorization
 are separate controls. This document does not select a Tailscale/VPN product or
 implement authentication; each deployment must name its enforcement point and
-allowed principals before acceptance.
+allowed principals before acceptance. The template's editor profile and
+`KEYSTATIC_*` placeholders are configuration guidance only: they do not prove
+OAuth, session, role, or GitHub write behavior without an authorized
+non-production test.
 
 ## Build and artifact contract
 
@@ -52,8 +55,9 @@ A release build must identify:
 - sanitized promotion and health-check results.
 
 The artifact contains the public static output only. It must not contain
-credentials, cookies, tokens, private payloads, editor session state, or a source
-checkout. A missing or failed check blocks promotion.
+credentials, cookies, tokens, private payloads, editor session state, editor
+configuration, or a source checkout. A missing or failed check blocks promotion.
+The private editor host is a separate runtime and is not bundled into `dist/`.
 
 ## Release, promotion, and rollback
 

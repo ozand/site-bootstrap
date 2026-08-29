@@ -48,10 +48,14 @@ server runtime or the Keystatic editor surface. The public static config also
 omits the Keystatic integration so its server routes cannot enter the artifact.
 
 Keystatic is a separate private editor/build-host concern. If `/keystatic` must
-run on-demand, use a separately configured private editor profile with the
-appropriate adapter and storage mode; do not treat the public static artifact as
-an editor host. In `github` storage mode, keep `KEYSTATIC_*` values in the host
-environment only (see `.env.example`), never in source or the public artifact.
+run on-demand, use `astro.config.editor.mjs` with `npm run dev:editor` or
+`npm run build:editor`; do not treat the public static artifact as an editor
+host. For hosted editing, explicitly switch `keystatic.config.ts` from `local`
+to the documented `github` storage block and keep `KEYSTATIC_*` values in the
+private host environment only (see `.env.example`), never in source or the
+public artifact. Config guidance and route reachability do not prove GitHub
+OAuth, authentication, authorization, or write behavior; those require a
+separate authorized non-production test.
 Platform-specific configuration belongs in the site-bootstrap `hosting/` guidance.
 
 ## 6. Skills

@@ -3,9 +3,10 @@ import { config, fields, collection, singleton } from '@keystatic/core';
 // CMS contract. MUST stay in sync with the Zod schemas in src/content.config.ts:
 // every field added/renamed here must be mirrored there, and vice versa.
 //
-// storage: 'local' — edits write directly to the working tree (dev / VPS).
-// For hosted editing via GitHub, switch to:
+// storage: 'local' — development-only edits write directly to the working tree.
+// Private hosted editor: switch to GitHub mode and set KEYSTATIC_* host env vars:
 //   storage: { kind: 'github', repo: { owner: '<owner>', name: '__SITE_NAME__' } }
+// Never place GitHub credentials, client secrets, or KEYSTATIC_SECRET in Git.
 export default config({
   storage: { kind: 'local' },
   ui: {
