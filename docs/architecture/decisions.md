@@ -25,13 +25,21 @@ Sites built from this template store ALL content as files in git (Markdoc + JSON
 
 **Trade-off:** schema is defined twice (Keystatic fields + Zod). Mitigation: the sync rule is pinned in every AGENTS.md/CLAUDE.md, and both files carry a header comment pointing at each other.
 
-## ADR-003: Node adapter as the default
+## ADR-003: Node adapter for the private editor/build path; static public publication
 
-**Date:** 2026-08-27 · **Status:** accepted
+**Date:** 2026-08-27 · **Status:** accepted, superseded for public deployment by [the separated static-site architecture](./separated-static-site.md)
 
-Template ships `@astrojs/node` (standalone). Keystatic requires server-rendered routes, so a pure static build is not an option while the CMS is embedded.
+The template currently ships `@astrojs/node` (standalone) so a private/local
+Keystatic editor host can render the admin route during editing. This does not
+make Node the public deployment contract. The public site is built as static
+`dist/` output and served by Nginx on the VPS; public Node, SSR, and Keystatic are
+not part of the target architecture.
 
-**Why Node:** runs anywhere (VPS, Docker, any PaaS) with zero vendor assumptions. Vercel/Netlify/Cloudflare are one `npx astro add <adapter>` away — documented in `hosting/`.
+**Why:** GitHub remains the source of truth while editing is isolated from public
+serving. A local Docker/CI build host runs the locked verification/build pipeline,
+and the public host receives only the verified artifact. The adapter and public
+output profile are implementation follow-ups governed by
+[the separated static-site architecture](./separated-static-site.md).
 
 ## ADR-004: Skills copied into each site, upstreamed here
 

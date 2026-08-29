@@ -1,8 +1,17 @@
 # Хостинг
 
-Шаблон по умолчанию собирается под Node-адаптер (standalone) — он работает на любом VPS и в контейнере. Для облачных платформ адаптер меняется одной командой.
+Целевая архитектура разделяет приватное редактирование, сборку и публичную
+публикацию: Keystatic работает в GitHub-режиме на приватном editor host,
+сборка выполняется на локальном Docker/CI host, а публичный VPS обслуживает
+только проверенный статический релиз через Nginx. Подробности — в
+[архитектурном контракте](../architecture/separated-static-site.md).
 
-## Vercel (проще всего)
+## Другие провайдеры
+
+Vercel, Netlify и Cloudflare не являются частью целевого публичного VPS
+контракта этого проекта. Их адаптеры и provider-specific rollout требуют
+отдельного решения и проверки; не переносите на них автоматически правила
+публичного статического VPS.
 
 ```bash
 npx astro add vercel     # заменит адаптер
@@ -17,14 +26,27 @@ vercel --prod            # или подключите репозиторий в
 
 ## VPS
 
-Готовые файлы в `hosting/vps/`: `Dockerfile`, `docker-compose.yml`, `nginx.conf`, systemd-юнит.
+Целевая архитектура публикует на VPS только проверенный статический релиз:
+Nginx обслуживает `releases/<release-id>/current`, без публичного Node/SSR,
+Keystatic или базы данных. Сборка выполняется отдельно на локальном Docker/CI
+host после `npm ci`, `npm run verify` и `npm run build`.
+
+Готовые VPS-файлы в `hosting/vps/` — исторический Node/Docker baseline и
+implementation reference для follow-up issues; они не являются разрешением
+запускать публичный Node/Keystatic runtime в целевой архитектуре.
 
 ```bash
-docker compose up -d --build   # сайт на 127.0.0.1:4321, nginx сверху для TLS
+# Follow-up deployment implementation; not a production command by itself.
+docker compose up -d --build
 ```
 
-## Важно про Keystatic на проде
+## Важно про Keystatic и публичную публикацию
 
-- Serverless (Vercel/Netlify/Cloudflare): файловая система read-only → работает ТОЛЬКО `github`-режим хранения.
-- VPS: работает и `local`-режим, но правки надо пушить обратно в git (иначе умрут с контейнером). Рекомендация — тоже `github`-режим.
-- Если админка на проде не нужна — оставьте `local` и редактируйте контент только локально/через агента; прод просто рендерит.
+- Keystatic не размещается на публичном VPS; редактор работает на приватном
+  editor host в `github`-режиме и отправляет изменения в GitHub.
+- Публичный VPS не выполняет Node/SSR, не предоставляет `/keystatic` и не
+  хранит runtime-базу данных.
+- `local`-режим остаётся вариантом локальной разработки/непубликуемого
+  редактора; он не является публичной production auth или publication boundary.
+- После commit в GitHub отдельный build host выполняет проверку и публикует
+  только статический `dist/` release.

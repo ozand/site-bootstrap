@@ -2,8 +2,10 @@
 
 ## Вход в админку
 
-- Локально: http://localhost:4321/keystatic (при запущенном `npm run dev`)
-- На проде: `https://<домен>/keystatic` (требует GitHub-режим, см. ниже)
+- На приватном editor host: откройте локальный адрес Keystatic после запуска
+  editor environment; публичный VPS не предоставляет `/keystatic`.
+- Публичный VPS обслуживает только статический сайт через Nginx и не запускает
+  Node/SSR, Keystatic или базу данных.
 
 ## Как это устроено
 
@@ -25,10 +27,13 @@ Singletons → **Site Settings**: имя сайта, слоган.
 
 | Режим | Где работает | Как сохраняет |
 | :--- | :--- | :--- |
-| `local` (по умолчанию) | localhost, VPS | пишет файлы в рабочую копию |
-| `github` | Vercel/любой прод | коммитит в GitHub через GitHub App |
+| `local` | локальная разработка без публикации | пишет файлы в рабочую копию |
+| `github` | приватный editor host | коммитит в GitHub через GitHub App |
 
-Для редактирования на проде переключите `keystatic.config.ts` на `github` — инструкция в `hosting.md` и `hosting/vercel/README.md`.
+Для редактирования используйте приватный editor host и переключите
+`keystatic.config.ts` на `github` — инструкция в `hosting.md` и
+`hosting/vercel/README.md`. Публикация выполняется отдельной проверенной
+статической сборкой; публичный VPS не является editor host.
 
 ## Совместная работа с агентом
 
