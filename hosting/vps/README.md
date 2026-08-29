@@ -80,6 +80,19 @@ node hosting/vps/test-publish-static-release.mjs
 ```
 
 
+### Disposable rollback verification
+
+Run the tracked synthetic rollback test:
+
+```bash
+node hosting/vps/test-static-rollback.mjs
+```
+
+It publishes two distinguishable releases, checks the actual temporary static
+serving boundary, verifies that an empty failed publication leaves `current`
+unchanged, atomically switches `current` back to the retained known-good release,
+and checks the restored HTTP response. It uses no public host or production state.
+
 The following Node/systemd and Keystatic notes are historical compatibility
 references only and are not the target public deployment:
 
