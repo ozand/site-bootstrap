@@ -61,11 +61,23 @@ Rules: the generated site's `AGENTS.md` is the contract. Verify after every stru
 
 ## Phase 5 — Handover
 
+Follow the [generated-site handover procedure](./generated-site-handover.md). Keep
+content-only edits separate from code/design changes and report the source
+revision, locked build checks, static artifact/release identity, publication and
+health result, rollback state, unverified checks, owner, and residual risks.
+
+The public VPS serves only the accepted static artifact through Nginx. It does not
+serve `/keystatic` or run public Node/SSR; Keystatic belongs on the private editor
+host. Do not include credentials, tokens, cookies, private URLs, customer data, or
+runtime payloads in the handoff.
+
 Report to the owner:
-- repo URL, hosting URL, admin URL
-- what was customized (files list)
-- verification evidence (verify/build output, route statuses)
-- next-step suggestions (content plan, analytics, SEO)
+- repo URL and public static hosting URL;
+- private editor-host URL/status only when authorized (never publish credentials);
+- what was customized (content versus code/design files);
+- verification evidence (`npm ci`, verify/build output, artifact digest, route/health statuses);
+- publication/current pointer and rollback status;
+- next-step suggestions and explicitly unverified checks.
 
 ## Feedback loop
 

@@ -23,13 +23,14 @@ npm ci
 npm run dev
 ```
 
-- Сайт: http://localhost:4321
-- CMS: http://localhost:4321/keystatic
+- Публичный сайт: только после отдельной статической сборки и публикации `dist/` через Nginx.
+- Приватный editor host: Keystatic в GitHub-режиме, только для авторизованных редакторов.
+- Публичный VPS не предоставляет `/keystatic` и не запускает Node/SSR.
 
 ## Что дальше
 
-1. **Контент** — см. `content-editing.md`: как писать посты через Keystatic.
-2. **Публикация** — см. `hosting.md`: Vercel или VPS.
+1. **Контент** — см. `content-editing.md`: как редактировать через приватный Keystatic editor host.
+2. **Публикация** — см. `hosting.md` и [handover procedure](../agent-guide/generated-site-handover.md): verified static `dist/` release через Nginx.
 3. **Агент** — откройте папку сайта в Claude Code: агент прочитает `CLAUDE.md`/`AGENTS.md` и будет работать по правилам проекта. Скиллы уже скопированы в `.agents/skills/`.
 
 ## Правила, которые нельзя нарушать

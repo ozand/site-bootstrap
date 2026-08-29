@@ -36,7 +36,7 @@ npm run dev
 # Site: http://localhost:4321  |  CMS: http://localhost:4321/keystatic
 ```
 
-See `docs/user-guide/getting-started.md` for the full walkthrough (in Russian) and `docs/agent-guide/bootstrap-workflow.md` if you are an agent.
+See `docs/user-guide/getting-started.md` for the full walkthrough (in Russian), `docs/agent-guide/bootstrap-workflow.md` for the agent workflow, and `docs/agent-guide/generated-site-handover.md` for the separated static-release handover.
 
 ## Principles
 
