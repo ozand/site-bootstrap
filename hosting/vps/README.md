@@ -32,6 +32,17 @@ separate deployment decisions.
 
 ## Static public release contract
 
+Use [`nginx-static.conf`](./nginx-static.conf) for the public static profile. It
+serves the immutable `current` release with `try_files`, disables directory
+listing, returns `404` for both `/keystatic` and `/keystatic/` descendants, and
+contains no Node upstream or `proxy_pass`. Validate the profile with:
+
+```bash
+node hosting/vps/test-nginx-static.mjs
+```
+
+If Nginx is installed, the helper also runs `nginx -t` against a temporary
+synthetic release/config. Otherwise it runs deterministic config assertions.
 The public VPS receives a verified artifact from the separate build host. Store
 releases under `releases/<release-id>/`, retain the last accepted release, and
 atomically point `current` at the selected release. Nginx serves that directory
