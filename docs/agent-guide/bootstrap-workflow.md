@@ -2,6 +2,17 @@
 
 Protocol for an AI agent deploying a site from this repository. Follow in order; verify each step.
 
+## Phase 0 — Requirements and access preflight
+
+Before scaffold, customization, deployment, or acceptance, complete the
+[requirements and verification preflight](./requirements-and-verification.md).
+Record the outcome, target, scope/exclusions, owner, environment, dependencies,
+acceptance criteria, verification method, rollout intent, access model, storage
+mode, and enforcement point. Resolve material ambiguity as `needs_decision`; do
+not silently assume whether a control belongs to the network, reverse proxy,
+application auth/authz, or storage layer. Keep observed evidence, inference,
+unverified checks, blockers, and non-claims separate in the final report.
+
 ## Phase 1 — Scaffold
 
 ```bash

@@ -42,7 +42,29 @@ Full protocol: `docs/agent-guide/bootstrap-workflow.md`.
 - One lesson = one file in `kb/lessons/`, kebab-case, with a dated header and the symptom → cause → fix structure.
 - Before debugging an Astro/Keystatic/Tailwind issue in any generated site, grep `kb/lessons/` first.
 
-## 6. Verification protocol (this repo)
+## 6. Decision-first requirements and verification
+
+Before implementation or acceptance, normalize the requested outcome and record its
+scope, owner, environment, acceptance criteria, and verification method. Resolve
+ambiguity before changing files: use `needs_decision` for an unresolved product,
+architecture, access-model, provider, or data-scope choice; do not silently choose
+an assumption and call it verified.
+
+For any protected route or administrative surface, explicitly classify the intended
+boundary as network/Tailscale, proxy ACL, application authentication,
+application authorization, storage/persistence, or a documented combination. Test
+at the enforcement point. A route status proves reachability only; it does not
+prove authentication, authorization, or persistence. Local Keystatic storage is a
+file-editing mode, not an identity boundary; GitHub storage and OAuth require a
+separate provider/auth decision.
+
+Every acceptance report must separate observed evidence, inference, and unverified
+claims, and must state development, test, rollout, and residual-risk status. Keep
+reports sanitized: never include credentials, cookies, tokens, private payloads,
+PII, runtime checkpoints, or protected local-state details. Follow the full
+[requirements and verification guide](docs/agent-guide/requirements-and-verification.md).
+
+## 7. Verification protocol (this repo)
 
 - `node scripts/create-site.mjs --name smoke-test --domain example.com --target <scratch-dir>` must complete without errors.
 - Generated site must pass `npm install && npm run verify && npm run build`.
