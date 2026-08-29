@@ -10,25 +10,30 @@ private state.
 
 ## Boundary map
 
+The following documented facts are **README-derived**; live values below are
+separately marked as read-only observations.
+
 | Boundary | Evidence/status | Permitted interpretation |
 | --- | --- | --- |
 | Candidate project identity | `sweb_rf_entry/README.md` was read locally | The repository documentation identifies a sanitized RF Entry candidate and describes it as a production infrastructure project |
 | Candidate services | Candidate README lists `xray`, `nginx`, `fail2ban`, and `ssh` | These are documented services, not a live inventory or authorization to touch them |
 | Candidate OS/runtime | Candidate README documents Ubuntu 24.04.4 LTS and an SSH-based operator path | Documentation only; current host state is unverified |
-| SSH reachability | Current aliases did not resolve from the inspecting workstation | Unverified; no retry, DNS repair, or host mutation is permitted in this contract |
-| Docker client/server/context | Not established because the SSH target was unavailable | Unverified; do not infer engine availability from the local Docker client or README |
-| Nginx/systemd availability | Not established because the SSH target was unavailable | Unverified; no service inspection or reload is authorized |
+| SSH reachability | Direct README-documented operator target accepted a BatchMode key-based connection | Read-only access is verified for this inspection; the target remains a production candidate, not a disposable deployment target |
+| Docker client/server/context | Read-only remote metadata reported client/server `29.1.3` and context `default` | Docker is available for a separately authorized disposable run; no workload or resource inventory was inspected |
+| Nginx/systemd availability | Read-only metadata reported Nginx `1.24.0`; `nginx`, `docker`, and `xray` units reported `active` | Service presence/active state is not permission to reload, reconfigure, or use production traffic |
 | Existing projects/containers/resources | Not inspected | Must remain untouched; no inventory or workload selection is permitted for this test |
 
 The candidate README explicitly prohibits storing private keys, passwords, raw
 VLESS links, raw Xray configs, `.env` files, logs, and sensitive evidence in the
-repository. None were read or copied during this preflight.
+repository. None were read or copied during this preflight. The direct operator
+path is a local-only prerequisite and is intentionally not repeated here.
 
 ## Disposable test contract
 
 A future run is allowed only after a maintainer records the exact authorized host
 alias/account and confirms ownership of the test window. Until then, status is
-`needs_decision`/`access_unavailable`.
+`needs_decision`/`access_unavailable`. The successful metadata preflight does not
+authorize use of production services, paths, containers, or ports.
 
 If authorized, the run must use:
 
