@@ -26,5 +26,5 @@ const posts = (await getCollection('posts', ({ data }) => !data.draft)).sort(
       ))
     }
   </ul>
-  {posts.length === 0 && <p class="text-muted-foreground">No posts yet. Create one at <a href="/keystatic" class="underline">/keystatic</a>.</p>}
+  {posts.length === 0 && <p class="text-muted-foreground">No posts yet. Create one through the private editor host.</p>}
 </Layout>

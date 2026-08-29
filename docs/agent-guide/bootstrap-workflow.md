@@ -34,7 +34,9 @@ npm run build    # must produce dist/ without errors
 npm run dev      # then:
 curl -I http://localhost:4321/          # 200
 curl -I http://localhost:4321/blog      # 200
-curl -I http://localhost:4321/keystatic # 200
+# Public static profile: inspect dist/ with a static server; do not expect /keystatic.
+# Private editor profile (separate host): npm run dev:editor, then:
+curl -I http://localhost:4321/keystatic # 200 (editor profile only)
 ```
 
 Do not proceed to customization on a red baseline. A broken scaffold is a bug in site-bootstrap — fix it in the template, re-scaffold, and record the lesson in `kb/lessons/`.
@@ -55,7 +57,7 @@ Rules: the generated site's `AGENTS.md` is the contract. Verify after every stru
 1. Create the GitHub repo and push (ask the owner for org/visibility if unknown).
 2. Pick hosting with the owner: Vercel (`hosting/vercel/README.md`) or VPS (`hosting/vps/README.md`).
 3. If CMS editing on production is required → switch Keystatic to `github` storage, set `KEYSTATIC_*` env vars.
-4. Smoke-test production: `curl -I https://<domain>/` → 200, open `/keystatic` if enabled.
+4. Smoke-test production: serve the public `dist/` artifact and verify `/` and representative static routes return 200. Do not open `/keystatic` on the public artifact; test it only on the separate private editor profile if enabled.
 
 ## Phase 5 — Handover
 

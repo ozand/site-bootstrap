@@ -6,17 +6,19 @@ Site built from the **site-bootstrap** template: Astro 5 + React 19 + TypeScript
 
 | Command | Description |
 | :--- | :--- |
-| `npm run dev` | Dev server at `http://localhost:4321` (CMS at `/keystatic`) |
+| `npm run dev` | Static-profile dev server at `http://localhost:4321` |
+| `npm run dev:editor` | Private editor dev server using `astro.config.editor.mjs` |
+| `npm run build:editor` | Private editor build using `astro.config.editor.mjs` |
 | `npm run verify` | astro check + eslint. Run before every commit |
 | `npm run build` | Production build. Run after structural changes |
 | `npm run preview` | Preview production build |
 
 ## 2. Architecture rules
 
-1. **Content = files in git.** Blog posts are Markdoc (`.mdoc`) files in `src/content/posts/`. Humans edit via Keystatic UI at `/keystatic`; agents edit files directly. Both produce commits — same substrate.
+1. **Content = files in git.** Blog posts are Markdoc (`.mdoc`) files in `src/content/posts/`. Humans edit via the private Keystatic editor profile; agents edit files directly. Both produce commits — same substrate.
 2. **Schema sync (CRITICAL):** `keystatic.config.ts` (CMS fields) and `src/content.config.ts` (Zod schema) describe the same files. Any field change goes to BOTH files in the same commit.
 3. **No database.** Do not add Supabase/Postgres/ORM. If persistent state is genuinely needed, raise it with the owner first — it is an architecture change.
-4. **Prefer static:** `.astro` for pages/layouts, React (`.tsx`) only for interactive islands. Use `client:load`/`client:visible`; avoid `client:only` unless the component cannot render on the server.
+4. **Prefer static:** `.astro` for pages/layouts, React (`.tsx`) only for interactive islands. Use `client:load`/`client:visible`; avoid `client:only` unless the component cannot render on the server. The public profile is static; keep editor-only routes in the separate private editor profile.
 5. **Routing:** file-based only. No client-side routers. Links are plain `<a>`.
 6. **UI:** reuse `src/components/ui/` (shadcn). Add new shadcn components via `npx shadcn@latest add <name>`, do not hand-roll primitives.
 7. **Styling:** Tailwind utility classes + CSS variables from `src/styles/globals.css`. No new CSS files without reason.
@@ -29,7 +31,7 @@ Site built from the **site-bootstrap** template: Astro 5 + React 19 + TypeScript
 1. `npm run verify` before every commit.
 2. `npm run build` after structural changes (new routes, config, dependencies).
 3. New route → `curl -I http://localhost:4321/<path>` expecting 200.
-4. Content change → confirm the page renders (dev server) and the entry passes schema validation (build fails loudly on schema violations).
+4. Content change → confirm the page renders in the selected profile and the entry passes schema validation (build fails loudly on schema violations).
 
 ## 4. Content workflow
 
@@ -40,7 +42,17 @@ Site built from the **site-bootstrap** template: Astro 5 + React 19 + TypeScript
 
 ## 5. Hosting
 
-Default adapter: `@astrojs/node` (standalone) — runs on any VPS/container. Platform switch (Vercel/Netlify/Cloudflare): see `hosting/` in the site-bootstrap repository. Keystatic admin requires server rendering; in `github` storage mode it also needs the `KEYSTATIC_*` env vars (see `.env.example`).
+The public build profile uses Astro `output: 'static'` and emits files under
+`dist/` for Nginx/CDN publication. The public artifact does not include a Node
+server runtime or the Keystatic editor surface. The public static config also
+omits the Keystatic integration so its server routes cannot enter the artifact.
+
+Keystatic is a separate private editor/build-host concern. If `/keystatic` must
+run on-demand, use a separately configured private editor profile with the
+appropriate adapter and storage mode; do not treat the public static artifact as
+an editor host. In `github` storage mode, keep `KEYSTATIC_*` values in the host
+environment only (see `.env.example`), never in source or the public artifact.
+Platform-specific configuration belongs in the site-bootstrap `hosting/` guidance.
 
 ## 6. Skills
 

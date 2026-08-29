@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev",
+    "dev:editor": "astro dev --config astro.config.editor.mjs",
     "build": "astro build",
+    "build:editor": "astro build --config astro.config.editor.mjs",
     "preview": "astro preview",
     "check": "astro check",
     "lint": "eslint .",

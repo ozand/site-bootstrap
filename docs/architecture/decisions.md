@@ -29,11 +29,12 @@ Sites built from this template store ALL content as files in git (Markdoc + JSON
 
 **Date:** 2026-08-27 · **Status:** accepted, superseded for public deployment by [the separated static-site architecture](./separated-static-site.md)
 
-The template currently ships `@astrojs/node` (standalone) so a private/local
-Keystatic editor host can render the admin route during editing. This does not
-make Node the public deployment contract. The public site is built as static
-`dist/` output and served by Nginx on the VPS; public Node, SSR, and Keystatic are
-not part of the target architecture.
+The template's public profile uses Astro `output: 'static'` and emits static
+`dist/` output for Nginx/CDN publication. This does not include a Node server
+entrypoint or a public Keystatic runtime. A private/local Keystatic editor host
+may use the template's separately documented `astro.config.editor.mjs` profile
+with an on-demand adapter and storage mode; that editor profile is intentionally
+outside the public artifact.
 
 **Why:** GitHub remains the source of truth while editing is isolated from public
 serving. A local Docker/CI build host runs the locked verification/build pipeline,

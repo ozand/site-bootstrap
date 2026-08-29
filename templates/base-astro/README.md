@@ -3,7 +3,7 @@
 Built from the [site-bootstrap](https://github.com/ozand/site-bootstrap) template.
 
 - **Stack:** Astro 5, React 19, TypeScript, Tailwind CSS, shadcn/ui
-- **CMS:** Keystatic at [`/keystatic`](http://localhost:4321/keystatic) — edits content files in git
+- **CMS:** Keystatic private editor profile — edits content files in git; not part of the public static artifact
 - **Data:** no database; all content is Markdoc in `src/content/`
 
 ## Develop
@@ -12,13 +12,21 @@ Built from the [site-bootstrap](https://github.com/ozand/site-bootstrap) templat
 npm ci            # requires the committed package-lock.json
 npm run dev       # http://localhost:4321
 npm run verify    # type check + lint
-npm run build     # production build (Node standalone by default)
+npm run build     # static production artifact under dist/ for Nginx/CDN
 ```
 
 The template commits an npm lockfile (lockfile v3) and supports Node.js 18+
 with npm 9+. Use `npm ci` for clean, reproducible installs; it fails when the
 lockfile and `package.json` drift. If dependencies are intentionally changed,
 regenerate the lockfile with npm and commit both files together.
+
+## Editor profile
+
+The default `astro.config.mjs` is the public static profile and deliberately
+omits the Keystatic integration. When a private Keystatic editor host is needed,
+use the separate `astro.config.editor.mjs` with `npm run dev:editor` or
+`npm run build:editor`. This on-demand Node profile is not a public deployment
+artifact and must remain on the private editor/build host.
 
 ## Content
 
