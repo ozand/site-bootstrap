@@ -30,6 +30,34 @@ For protected routes, declare the enforcement point and distinguish network,
 proxy, application auth/authz, and storage/persistence controls. `local` Keystatic
 storage is a file-editing mode, not an identity boundary.
 
+For command-driven or remote work, extend the intake with a small execution
+manifest before running commands:
+
+```yaml
+execution:
+  command_context:
+    cwd: "package or repository root"
+    entrypoint: "module, script, or executable"
+  transport: "local | direct_ssh | verified_docker_context"
+  access_path_source: "project runbook or explicit owner decision"
+  required_checks: []
+  diagnostic_checks: []
+  forbidden_actions: []
+  owned_resources: []
+  cleanup_verification: []
+```
+
+Use the canonical access path documented by the target runbook. Do not declare a
+target unavailable after testing only a convenience alias when a direct authorized
+path is documented. A Docker SSH transport is a separate authentication path from
+an ordinary SSH command; validate its identity handling before use, or execute the
+Docker CLI inside the already verified direct SSH session.
+
+Commands must run from the owning package/repository root and through the supported
+entrypoint. Prefer package/module invocation over executing an internal source file
+directly. Record the CLI host, runtime/daemon host, and health-check origin when
+they differ.
+
 ## 2. Ambiguity and `needs_decision`
 
 Stop before mutation when a material choice is absent or contradictory, including:
@@ -111,12 +139,32 @@ the minimum next action. Keep all reports sanitized and omit credentials, tokens
 cookies, PII, private URLs/paths, raw payloads, runtime/session contents, and
 protected local-state details.
 
+Classify every probe before execution:
+
+- **required** — directly proves an acceptance criterion and may block completion;
+- **diagnostic** — adds context but cannot block an otherwise complete Issue;
+- **optional** — useful only when the named fixture or requirement exists;
+- **forbidden** — crosses the declared safety or ownership boundary.
+
+A diagnostic failure must not be promoted into a product failure or an acceptance
+blocker. If the Issue changes, update its acceptance criteria before continuing.
+For security-sensitive process execution, remote infrastructure, deployment, or
+evidence-contract changes, obtain review before the delivery commit rather than
+closing first and reopening after a finding.
+
+Prefer receipts generated from deterministic test output over manually copied
+hashes, route matrices, resource identifiers, or statuses. Before closing, verify
+that every required check passed, cleanup completed for every owned resource, the
+receipt matches the stored evidence, and `in progress` is removed.
+
 ## 6. Pre-acceptance checklist
 
 - [ ] Outcome, target, scope, exclusions, owner, environment, dependencies, and rollout are explicit.
 - [ ] Access model, storage mode, enforcement point, protected routes, and allowed principals are decided or marked `needs_decision`.
 - [ ] Acceptance criteria are observable and match the selected architecture.
 - [ ] Each criterion has a reproducible test or an explicit `not_run`/`not_applicable` reason.
+- [ ] Required, diagnostic, optional, and forbidden checks are classified before execution.
+- [ ] Command cwd/entrypoint, canonical transport, execution host, runtime host, and health-check origin are explicit when relevant.
 - [ ] Evidence is labeled observed, inferred, unverified, and non-claim as applicable.
 - [ ] Blockers use the taxonomy above and do not masquerade as product failures.
 - [ ] Development, test, rollout, and residual-risk status are reported separately.

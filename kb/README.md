@@ -4,7 +4,12 @@ Cross-site lessons for sites built from this template. Before debugging an Astro
 
 ## Format
 
-One lesson = one file in `lessons/`, kebab-case name, structure:
+One topic-focused lesson file belongs in `lessons/` with a kebab-case name. A
+file may contain several tightly related failure modes when they share one
+operational boundary and are easier to apply together than separately. Unrelated
+causes require separate files.
+
+Structure:
 
 ```markdown
 # <symptom in one line>
@@ -14,9 +19,15 @@ One lesson = one file in `lessons/`, kebab-case name, structure:
 **Symptom:** what you observed (exact error text).
 **Cause:** verified root cause.
 **Fix:** what actually fixed it.
+**Prevention:** reusable rule that prevents recurrence.
 ```
 
 Add a lesson whenever you solve a non-obvious problem in a generated site — the fix belongs here, not only in that site's history.
+
+## Current lessons
+
+- [Portable Astro lessons](./lessons/astro-lessons-from-ai-business-catalyst.md)
+- [Remote static validation boundaries](./lessons/remote-static-validation-boundaries.md)
 
 ## Research captures
 
