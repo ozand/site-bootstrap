@@ -10,7 +10,7 @@ node scripts/create-site.mjs --name my-site --domain example.com --target ../my-
 
 What it does:
 
-1. Copies `templates/<template>/` (default `base-astro`) to the target directory.
+1. Copies `templates/<template>/` (default `base-astro`) to the target directory. An existing target is accepted only when its entries are limited to the protected runtime paths `.pi` and `nul`; those entries are preserved untouched. Any other pre-existing entry is rejected before copying.
 2. Renames `_gitignore` → `.gitignore`.
 3. Copies `skills/` → `<target>/.agents/skills/` (skip with `--no-skills`).
 4. Replaces `__SITE_NAME__` / `__SITE_DOMAIN__` placeholders in all text files.

@@ -8,7 +8,7 @@
  * Options:
  *   --name      Site name (used as package name, brand, placeholder __SITE_NAME__). Required.
  *   --domain    Production domain (placeholder __SITE_DOMAIN__). Required.
- *   --target    Directory to create the site in. Required. Must not exist or be empty.
+ *   --target    Directory to create the site in. Required. May already contain only .pi or nul runtime entries.
  *   --template  Template folder under templates/ (default: base-astro).
  *   --no-git    Skip `git init` + initial commit.
  *   --no-skills Skip copying skills/ into <target>/.agents/skills/.
@@ -57,8 +57,13 @@ const templateDir = path.join(ROOT, 'templates', args.template);
 if (!fs.existsSync(templateDir)) fail(`Template not found: ${templateDir}`);
 
 const targetDir = path.resolve(args.target);
-if (fs.existsSync(targetDir) && fs.readdirSync(targetDir).length > 0)
-  fail(`Target directory exists and is not empty: ${targetDir}`);
+const SAFE_RUNTIME_ENTRIES = new Set(['.pi', 'nul']);
+if (fs.existsSync(targetDir)) {
+  const existingEntries = fs.readdirSync(targetDir);
+  const unsafeEntries = existingEntries.filter((entry) => !SAFE_RUNTIME_ENTRIES.has(entry));
+  if (unsafeEntries.length > 0)
+    fail('Target directory contains non-runtime content; refusing to overwrite');
+}
 
 console.log(`Scaffolding '${args.name}' from template '${args.template}'`);
 console.log(`  → ${targetDir}`);

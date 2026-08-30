@@ -23,6 +23,7 @@ npm ci            # requires the committed template package-lock.json
 
 Checks:
 - scaffolder exited 0, target contains `package.json`, `.agents/skills/`, `.gitignore`
+- an existing target is accepted only when its pre-existing entries are `.pi` and/or `nul`; those runtime entries are preserved untouched
 - target does not contain the bootstrap workspace's `qmd.json`, `qmd/collections/`, `.qmd/`, or `kb/`
 - `git log` shows the initial scaffold commit
 
