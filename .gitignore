@@ -14,3 +14,7 @@ scratch/
 .qmd/*.sqlite
 .qmd/*.db
 .qmd/cache/
+
+# Agent runtime artifacts
+.pi/
+nul
