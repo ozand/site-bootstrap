@@ -8,7 +8,7 @@ This repository is a **factory**, not a website. It produces agent-operated Astr
 - `skills/` — portable Agent Skills. `create-site.mjs` copies them into `<new-site>/.agents/skills/`.
 - `scripts/create-site.mjs` — the only supported way to scaffold a site. Do not hand-copy the template.
 - `kb/` — cross-site lessons. When you hit a non-obvious problem in ANY site built from this repo, record the lesson here (not only in that site).
-- `docs/` — user guide (Russian), agent guide, ADRs.
+- `docs/` — user guide (Russian), agent guide, ADRs. See `docs/agent-guide/design-workflow.md` for the DESIGN.md format and adoption protocol.
 
 ## 2. Scaffolding a new site (agent workflow)
 
@@ -64,7 +64,17 @@ reports sanitized: never include credentials, cookies, tokens, private payloads,
 PII, runtime checkpoints, or protected local-state details. Follow the full
 [requirements and verification guide](docs/agent-guide/requirements-and-verification.md).
 
-## 7. Verification protocol (this repo)
+## 7. Design system workflow
+
+Every scaffolded site ships with a `DESIGN.md` at its root (generated from
+`templates/base-astro/DESIGN.md`). The format follows the [google-labs-code/design.md](https://github.com/google-labs-code/design.md) spec.
+
+- **Full protocol:** `docs/agent-guide/design-workflow.md`.
+- Read `DESIGN.md` before any UI or styling change in a generated site.
+- Lint on demand: `npx @google/design.md lint DESIGN.md` (no package dependency).
+- **Adoption boundary:** `DESIGN.md` is a documentation and design-brief tool. It does not authorize autonomous visual redesign, database changes, hosting changes, or auth changes.
+
+## 8. Verification protocol (this repo)
 
 - `node scripts/create-site.mjs --name smoke-test --domain example.com --target <scratch-dir>` must complete without errors.
 - Generated site must pass `npm install && npm run verify && npm run build`.

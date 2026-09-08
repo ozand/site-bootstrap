@@ -13,7 +13,19 @@ Site built from the **site-bootstrap** template: Astro 5 + React 19 + TypeScript
 | `npm run build` | Production build. Run after structural changes |
 | `npm run preview` | Preview production build |
 
-## 2. Architecture rules
+## 2. Design system
+
+The site's visual identity is defined in [`DESIGN.md`](./DESIGN.md) using the
+[google-labs-code/design.md](https://github.com/google-labs-code/design.md) format.
+Read it before any UI or styling change. Use declared tokens for colors, typography,
+spacing, and rounding values. Do not autonomously restyle the site — design changes
+require a human-agreed brief or issue. See the
+[design workflow](https://github.com/ozand/site-bootstrap/blob/main/docs/agent-guide/design-workflow.md)
+for the full protocol and adoption boundaries.
+
+Validate with `npx @google/design.md lint DESIGN.md` (on-demand, not a project dependency).
+
+## 3. Architecture rules
 
 1. **Content = files in git.** Blog posts are Markdoc (`.mdoc`) files in `src/content/posts/`. Humans edit via the private Keystatic editor profile; agents edit files directly. Both produce commits — same substrate.
 2. **Schema sync (CRITICAL):** `keystatic.config.ts` (CMS fields) and `src/content.config.ts` (Zod schema) describe the same files. Any field change goes to BOTH files in the same commit.
@@ -24,7 +36,7 @@ Site built from the **site-bootstrap** template: Astro 5 + React 19 + TypeScript
 7. **Styling:** Tailwind utility classes + CSS variables from `src/styles/globals.css`. No new CSS files without reason.
 8. **Drafts:** new posts default to `draft: true`. Pages filter `!data.draft`. Publishing = flipping the flag in a reviewed commit.
 
-## 3. Verification protocol (MANDATORY)
+## 4. Verification protocol (MANDATORY)
 
 "It should work" is unacceptable.
 
@@ -33,14 +45,14 @@ Site built from the **site-bootstrap** template: Astro 5 + React 19 + TypeScript
 3. New route → `curl -I http://localhost:4321/<path>` expecting 200.
 4. Content change → confirm the page renders in the selected profile and the entry passes schema validation (build fails loudly on schema violations).
 
-## 4. Content workflow
+## 5. Content workflow
 
 1. Create post: add `src/content/posts/<slug>.mdoc` with valid frontmatter (see existing posts), or via Keystatic UI.
 2. Slugs are kebab-case. The file name is the slug (`post.id`).
 3. Keep `description` filled — it is the meta description.
 4. Draft → review → set `draft: false` → commit.
 
-## 5. Hosting
+## 6. Hosting
 
 The public build profile uses Astro `output: 'static'` and emits files under
 `dist/` for Nginx/CDN publication. The public artifact does not include a Node
@@ -58,6 +70,6 @@ OAuth, authentication, authorization, or write behavior; those require a
 separate authorized non-production test.
 Platform-specific configuration belongs in the site-bootstrap `hosting/` guidance.
 
-## 6. Skills
+## 7. Skills
 
 Portable Agent Skills live in `.agents/skills/`. Prefer them over external guidance on conflict. Improvements that generalize should be upstreamed to the site-bootstrap repository.
