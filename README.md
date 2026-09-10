@@ -18,7 +18,8 @@ Every site created from this repo follows the same architecture:
 | `skills/` | Portable Agent Skills copied into every new site (`.agents/skills/`) |
 | `scripts/create-site.mjs` | Scaffolder: template → new site folder with placeholders replaced |
 | `docs/user-guide/` | For humans: getting started, editing content via Keystatic, hosting (Russian) |
-| `docs/agent-guide/` | For agents: bootstrap workflow, conventions |
+| `templates/base-astro/DESIGN.md` | Template design-system tokens (DESIGN.md format) copied into every new site |
+| `docs/agent-guide/design-workflow.md` | Agent workflow: how to read and update DESIGN.md |
 | `docs/architecture/` | Architecture Decision Records |
 | `hosting/vercel/`, `hosting/vps/` | Deployment configs per platform |
 | `kb/` | Knowledge base: portable lessons learned across sites |
