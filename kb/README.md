@@ -28,6 +28,7 @@ Add a lesson whenever you solve a non-obvious problem in a generated site — th
 
 - [Portable Astro lessons](./lessons/astro-lessons-from-ai-business-catalyst.md)
 - [Remote static validation boundaries](./lessons/remote-static-validation-boundaries.md)
+- [Mobile route discoverability](./lessons/mobile-route-discoverability.md)
 
 ## Research captures
 
