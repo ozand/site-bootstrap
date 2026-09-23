@@ -7,7 +7,7 @@ category: procedure
 tags: [acceptance, verification, deployment, seo, accessibility, performance]
 status: active
 created: 2026-08-28
-updated: 2026-08-28
+updated: 2026-09-23
 environment:
   os: any
   shell: any
@@ -120,8 +120,14 @@ production security, search ranking, accessibility conformance, or Core Web Vita
 6. **S-006** — If the template enables sitemap generation, inspect `sitemap-index.xml` and numbered sitemaps and confirm intended origin/path. Evidence: `RAW-20260828-web-a10-generated-acceptance`.
 7. **S-007** — If content images exist, check meaningful `alt` and stable dimensions; otherwise mark image checks not applicable. Evidence: `RAW-20260828-web-a10-generated-acceptance`.
 8. **S-008** — Perform manual semantic HTML, labels, keyboard, visible-focus and no-trap checks for interactive UI. Evidence: `VR-ACCEPT-003`.
-9. **S-009** — Check canonical, Open Graph, JSON-LD and `robots.txt` only when the site has an explicit requirement for them. Evidence: `RAW-20260828-web-a10-generated-acceptance`.
-10. **S-010** — Record provider, runtime, commit, routes, warnings, evidence locations and limitations, together with the `verification_run` metadata. Evidence: `RAW-20260828-web-a5-e-deployment-mapping` and `RAW-20260828-web-a4-baseline-smoke`.
+9. **S-009** — Perform deterministic rendered route navigation and layout checks on primary consumer routes defined by the site's information architecture:
+   - Verify mutual route discoverability and visibility across narrow mobile viewports (360px and 390px) as well as representative desktop viewports (e.g. 1280px).
+   - Confirm primary calls-to-action (CTA) remain accessible, distinguishable, and unclipped across tested viewports.
+   - Verify absence of unwanted horizontal document-level overflow (`document.documentElement.scrollWidth <= window.innerWidth`).
+   - Confirm visible focus indicators and accessible keyboard activation for all rendered navigation links and action items.
+   - Record viewport-by-viewport findings (`pass` or `fail`); mark `not_applicable` only when a site architecture explicitly defines no global navigation header (e.g., single-page splash or headless distribution). Evidence: Record in procedural test evidence alongside S-008 checks.
+10. **S-010** — Check canonical, Open Graph, JSON-LD and `robots.txt` only when the site has an explicit requirement for them. Evidence: `RAW-20260828-web-a10-generated-acceptance`.
+11. **S-011** — Record provider, runtime, commit, routes, warnings, evidence locations and limitations, together with the `verification_run` metadata. Evidence: `RAW-20260828-web-a5-e-deployment-mapping` and `RAW-20260828-web-a4-baseline-smoke`.
 
 ## Verification
 
