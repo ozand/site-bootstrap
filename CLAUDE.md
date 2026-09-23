@@ -2,14 +2,14 @@
 
 **Read [AGENTS.md](./AGENTS.md) first** — full contract for this repo.
 
-This repo is a **factory** for agent-operated Astro sites. The base template uses Astro 5 + React 19 + TypeScript + Tailwind + shadcn/ui, file-backed Git content, and optional Keystatic editing. Its default public profile is static; an optional Node-based Keystatic editor profile is separate. Sites may choose a different deployment topology where required. See [the separated static-site architecture](docs/architecture/separated-static-site.md) for the accepted static-public/private-editor contract, which applies only to sites that adopt that profile.
+This repo is a **factory** for agent-operated Astro sites. The base template uses Astro 5 + React 19 + TypeScript + Tailwind + shadcn/ui, file-backed Git content, and Keystatic. Its default public profile is static; a separate Node-based Keystatic editor profile is included. The accepted [separated static-site architecture](docs/architecture/separated-static-site.md) defines the generated-site deployment contract: static public publication and a separate private editor, with provider-specific configuration kept in `hosting/`.
 
 Critical rules:
 
 1. Scaffold sites ONLY via `node scripts/create-site.mjs --name <n> --domain <d> --target <path>`.
 2. Template change → mandatory end-to-end verify: scaffold throwaway site → `npm install` → `npm run verify` → `npm run build`.
 3. `keystatic.config.ts` and `src/content.config.ts` in the template describe the same content — change both or neither.
-4. The template has no database. Keep platform-specific configuration under `hosting/<platform>/`. The separated static-public/private-editor architecture is documented in [the architecture contract](docs/architecture/separated-static-site.md); it is not mandatory for every generated site.
+4. The template has no database. Keep platform-specific configuration under `hosting/<platform>/`; the generated-site static-public/private-editor deployment contract is documented in [the architecture guide](docs/architecture/separated-static-site.md).
 5. Placeholders `__SITE_NAME__` / `__SITE_DOMAIN__` are owned by `scripts/create-site.mjs`.
 6. Generated sites ship with `DESIGN.md` at root (from `templates/base-astro/DESIGN.md`). Read it before UI/styling changes. Lint: `npx @google/design.md lint DESIGN.md`. Full protocol: `docs/agent-guide/design-workflow.md`.
 7. Non-obvious problem solved → record lesson in `kb/lessons/`.
