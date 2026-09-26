@@ -49,3 +49,9 @@ output profile are implementation follow-ups governed by
 `create-site.mjs` copies `skills/` → `<site>/.agents/skills/` (snapshot, not submodule/symlink).
 
 **Why:** each site repo stays self-contained (agents working in the site see skills without cloning the factory). Cost: drift. Mitigation: sync protocol in AGENTS.md §4 — generalizable improvements are upstreamed to site-bootstrap; bootstrap fixes propagate on maintenance passes.
+
+## ADR-005: Implement the starter blue and Inter visual contract in generated sites
+
+**Status:** proposed — [decision draft](./ADR-005-blue-inter-starter-visual-contract.md).
+
+Blue/Inter is the owner-approved design direction, not an implemented template or accepted final mapping. Font asset/license, semantic roles and dark-mode contrast remain open; no CSS or font changes before separate ADR acceptance and an implementation Issue.
