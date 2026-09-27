@@ -16,9 +16,9 @@ The factory's *future* starter scaffold should make deliberate primary actions a
 
 ### Unresolved decisions — block implementation
 
-- **Semantic roles:** confirm exact light-mode action/link/hover/focus/disabled mappings; do not silently turn every surface or `--primary` consumer blue. Existing `#2563EB` is an intended token, but contrast with actual text and backgrounds is not yet independently recorded.
-- **Dark mode:** select and measure separate action/link/focus pairs against actual dark surfaces; do not reuse light blue by default.
-- **Font asset:** identify exact Inter release/WOFF2 asset and provenance, license and redistribution notice, Latin **and Cyrillic** glyph coverage, supported weights, measured size and fallback loading behavior. No asset is approved for download or bundling yet. **Provider:** no external font provider is selected or needed for the self-hosted direction; the font asset's source and license are still pending review.
+- **Semantic roles (candidate, not accepted):** the template currently uses `--primary` for Button default/link variants and `--ring` for focus; retain neutral surfaces/body/navigation and destructive roles. Candidate light values are `--primary: #2563EB`, white on-primary, and blue focus ring. Confirm all first-party consumers plus hover/disabled/focus mappings before acceptance; do not recolor every downstream `--primary` consumer by assumption. Calculated sRGB `#2563EB`/white contrast is 5.17:1; this is not rendered UI evidence.
+- **Dark mode (candidate, not accepted):** `#60A5FA` on near-black `#0A0A0A` calculates 7.79:1; white on that blue calculates only 2.54:1, so a filled button would need dark text. Check links/rings on `#262626` panels and hover/focus states before selecting exact dark tokens. Do not reuse light blue by default or claim WCAG conformance from arithmetic alone.
+- **Font asset (candidate, not bundled):** upstream `rsms/inter` release v4.1 contains `docs/font-files/InterVariable.woff2` (352,240 bytes; Git object `5a8d3e72ad7ffb62af3b146e1b1f54ab5813a212`) and `LICENSE.txt` (SIL OFL 1.1; Git object `9b2ca37b3ffc77391d8b2ebef4a974ef32bf46ea`). Upstream metadata reports Cyrillic/Russian coverage; the exact WOFF2 binary's cmap, weights and rendered Latin/Cyrillic have **not** been tested here. Before distribution, verify asset/license pair, preserve copyright/license notice, and measure loading/fallback/size. No binary is approved for bundling yet. **Provider:** no external runtime font provider is selected for the self-hosted direction.
 - **Typography scope:** specify which heading, body and UI roles use Inter; existing typography sizes and non-sans roles stay unchanged unless separately approved.
 
 ### Explicit non-goals
@@ -56,4 +56,6 @@ Before publishing, revert the implementation commit to restore current neutral/s
 - [Owner brief and design gate](https://github.com/ozand/site-bootstrap/issues/63)
 - [Target token decision and documented drift](https://github.com/ozand/site-bootstrap/issues/61)
 - [`DESIGN.md` workflow](../agent-guide/design-workflow.md)
-- [Inter upstream project (candidate only)](https://github.com/rsms/inter)
+- [Inter v4.1 release and candidate binary](https://github.com/rsms/inter/releases/tag/v4.1)
+- [Inter v4.1 OFL license text](https://github.com/rsms/inter/blob/v4.1/LICENSE.txt)
+- [Upstream Cyrillic metadata (source claim, binary unverified)](https://github.com/rsms/inter/tree/v4.1/docs/_data)
