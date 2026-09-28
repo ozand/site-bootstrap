@@ -18,7 +18,7 @@ The factory's *future* starter scaffold should make deliberate primary actions a
 
 - **Semantic roles (candidate, not accepted):** the template currently uses `--primary` for Button default/link variants and `--ring` for focus; retain neutral surfaces/body/navigation and destructive roles. Candidate light values are `--primary: #2563EB`, white on-primary, and blue focus ring. Confirm all first-party consumers plus hover/disabled/focus mappings before acceptance; do not recolor every downstream `--primary` consumer by assumption. Calculated sRGB `#2563EB`/white contrast is 5.17:1; this is not rendered UI evidence.
 - **Dark mode (candidate, not accepted):** `#60A5FA` on near-black `#0A0A0A` calculates 7.79:1; white on that blue calculates only 2.54:1, so a filled button would need dark text. Check links/rings on `#262626` panels and hover/focus states before selecting exact dark tokens. Do not reuse light blue by default or claim WCAG conformance from arithmetic alone.
-- **Font asset (candidate, not bundled):** upstream `rsms/inter` release v4.1 contains `docs/font-files/InterVariable.woff2` (352,240 bytes; Git object `5a8d3e72ad7ffb62af3b146e1b1f54ab5813a212`) and `LICENSE.txt` (SIL OFL 1.1; Git object `9b2ca37b3ffc77391d8b2ebef4a974ef32bf46ea`). Upstream metadata reports Cyrillic/Russian coverage; the exact WOFF2 binary's cmap, weights and rendered Latin/Cyrillic have **not** been tested here. Before distribution, verify asset/license pair, preserve copyright/license notice, and measure loading/fallback/size. No binary is approved for bundling yet. **Provider:** no external runtime font provider is selected for the self-hosted direction.
+- **Font asset (candidate, not bundled):** upstream Inter v4.1 `docs/font-files/InterVariable.woff2` (352,240 bytes; Git object `5a8d3e72ad7ffb62af3b146e1b1f54ab5813a212`) and matching `LICENSE.txt` (OFL 1.1; `9b2ca37b3ffc77391d8b2ebef4a974ef32bf46ea`) were copied to disposable scratch for inspection. Git object IDs matched upstream. FontTools read 2,852 cmap entries (248 in U+0400–U+04FF), sampled Russian including Ё/ё and Latin ASCII, and variable `wght` 100–900 plus `opsz` 14–32. This is binary metadata evidence, **not** proof of rendered glyphs or every downstream language. Before distribution, preserve the exact copyright/license notice and test actual browser loading, Cyrillic rendering, fallback and asset cost. **Provider:** none external for self-hosting. Bundling remains an implementation decision gated by ADR acceptance.
 - **Typography scope:** specify which heading, body and UI roles use Inter; existing typography sizes and non-sans roles stay unchanged unless separately approved.
 
 ### Explicit non-goals
@@ -42,7 +42,7 @@ No production deployment, external font service, automatic token exporter, new U
 | Claim | Required test | Status |
 | --- | --- | --- |
 | Light/dark blue is legible in approved roles | Measure actual rendered foreground/background pairs, hover and focus contrast at fixed routes/themes | not run; roles/colors undecided |
-| Inter is lawfully self-hosted and works for Russian and Latin | Verify release/license and bundled notice, Unicode coverage, weights, local font request and fallback | not run; asset undecided |
+| Inter is lawfully self-hosted and works for Russian and Latin | Verify release/license and bundled notice, Unicode coverage, weights, local font request and fallback | upstream asset/license identity and sampled binary cmap inspected in scratch; bundling and rendered test not run |
 | No new third-party runtime font requests | Inspect generated public artifact and browser network activity offline/online | not run |
 | Visual change is scoped and usable | Fresh scaffold: `npm install`, `npm run verify`, `npm run build`, `npm run build:editor`; browser compare at 360/390/1280, light/dark, link/button/focus, overflow | not run |
 | Public/editor boundary remains isolated | Inspect static `dist/` for editor/provider material and verify editor profile separately | not run |
@@ -57,5 +57,6 @@ Before publishing, revert the implementation commit to restore current neutral/s
 - [Target token decision and documented drift](https://github.com/ozand/site-bootstrap/issues/61)
 - [`DESIGN.md` workflow](../agent-guide/design-workflow.md)
 - [Inter v4.1 release and candidate binary](https://github.com/rsms/inter/releases/tag/v4.1)
+- [Bounded binary/license inspection receipt](https://github.com/ozand/site-bootstrap/issues/63#issuecomment-5862183540)
 - [Inter v4.1 OFL license text](https://github.com/rsms/inter/blob/v4.1/LICENSE.txt)
 - [Upstream Cyrillic metadata (source claim, binary unverified)](https://github.com/rsms/inter/tree/v4.1/docs/_data)
