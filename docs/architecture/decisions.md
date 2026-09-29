@@ -52,6 +52,6 @@ output profile are implementation follow-ups governed by
 
 ## ADR-005: Implement the starter blue and Inter visual contract in generated sites
 
-**Status:** proposed — [decision draft](./ADR-005-blue-inter-starter-visual-contract.md).
+**Status:** accepted 2026-09-29 — [ADR-005 decision](./ADR-005-blue-inter-starter-visual-contract.md).
 
-Blue/Inter is the owner-approved design direction, not an implemented template or accepted final mapping. Font asset/license, semantic roles and dark-mode contrast remain open; no CSS or font changes before separate ADR acceptance and an implementation Issue.
+The blue/Inter starter direction and scoped token mapping are accepted, **not implemented**. Rendered contrast, font distribution/loading and public/editor artifact checks remain implementation gates. CSS/font changes require a separately governed implementation Issue; no existing site or production rollout is authorized.
