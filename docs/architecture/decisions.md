@@ -52,6 +52,6 @@ output profile are implementation follow-ups governed by
 
 ## ADR-005: Implement the starter blue and Inter visual contract in generated sites
 
-**Status:** accepted 2026-09-29 — [ADR-005 decision](./ADR-005-blue-inter-starter-visual-contract.md).
+**Status:** accepted and implemented for newly scaffolded sites — [ADR-005 decision](./ADR-005-blue-inter-starter-visual-contract.md).
 
-The blue/Inter starter direction and scoped token mapping are accepted, **not implemented**. Rendered contrast, font distribution/loading and public/editor artifact checks remain implementation gates. CSS/font changes require a separately governed implementation Issue; no existing site or production rollout is authorized.
+Implemented by closed [Issue #70](https://github.com/ozand/site-bootstrap/issues/70) and merged [PR #71](https://github.com/ozand/site-bootstrap/pull/71) (`c11a2cb`). The ADR's pre-implementation status and test table are historical; see its 2026-10-01 addendum for bounded completion evidence and residual limits. This does not claim production deployment or changes to existing generated sites.

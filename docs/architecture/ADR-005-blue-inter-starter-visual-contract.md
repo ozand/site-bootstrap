@@ -5,7 +5,9 @@
 **Accepted:** 2026-09-29
 **Authors:** site-bootstrap maintainers
 **Supersedes:** None
-**Related:** ADR-004 (portable skills), Issue #61 (token drift), Issue #63 (design gate)
+**Related:** ADR-004 (portable skills), Issue #61 (token drift), Issue #63 (design gate), Issue #70 (implementation)
+
+**Implementation status (2026-10-01):** Delivered for newly scaffolded sites via [Issue #70](https://github.com/ozand/site-bootstrap/issues/70) and [PR #71](https://github.com/ozand/site-bootstrap/pull/71) (merge commit `c11a2cb`). Context, Decision, Selected mapping, Explicit non-goals, and Test Contract below preserve their original pre-implementation snapshot. Statements there that implementation is pending or blocked, or tests are unrun, describe status at that time only. Production and existing-site limitations remain in force; see the addendum for delivery evidence and current limits.
 
 ## Context
 
@@ -51,6 +53,39 @@ No production deployment, external font service, automatic token exporter, new U
 ## Rollback
 
 Before publishing, revert the implementation commit to restore current neutral/system styling. A published artifact or already-scaffolded downstream sites require their own reviewed release/rollback; this ADR does not authorize either.
+
+## Addendum (2026-10-01)
+
+The decision above records the approved target and its original pre-implementation
+status. Its statements that the implementation was pending and that the following
+tests were unrun are historical snapshots, not current status. The approved
+implementation for **newly scaffolded sites only** was delivered by Issue [#70](https://github.com/ozand/site-bootstrap/issues/70)
+and merged as [PR #71](https://github.com/ozand/site-bootstrap/pull/71)
+(commit `c11a2cb1ef3c207b81d8af92fbd2a91ad348b8c4`). No decision or scope in this
+ADR is changed by this addendum.
+
+Issue #70's completion record reports a fresh disposable scaffold passing locked
+dependency installation, `npm run verify`, public build, and editor build; public
+artifact inspection found the local font and license while excluding editor/server
+artifacts; and local Chromium checks covered selected button/link states, font
+loading, focus/hover/disabled behavior, and overflow at 360/390/1280 in light and
+dark themes. The issue also records independent review. These are the implementation
+receipt's bounded local results, not production or existing-site rollout, physical
+device/assistive-technology coverage, or WCAG certification. It records unresolved
+npm audit findings as residuals, not remediated by this work.
+
+For the documentation-only reconciliation, Issue [#61](https://github.com/ozand/site-bootstrap/issues/61)
+was completed by [PR #72](https://github.com/ozand/site-bootstrap/pull/72), merged
+as merge commit `087df202f8dcd4a90622413d87042c727de3cdd0`. Its
+completion record reports DESIGN.md lint with zero errors and warnings, and a
+same-input 11-file public artifact with identical per-file hashes before and after
+the documentation-only change. These results support that this DESIGN.md
+reconciliation did not change the tested public output; they are not deployment
+or rollout evidence.
+
+No production deployment or mutation of existing generated sites is authorized or
+claimed here. Any future site-specific adoption or rollout remains separately
+scoped and verified.
 
 ## References
 
