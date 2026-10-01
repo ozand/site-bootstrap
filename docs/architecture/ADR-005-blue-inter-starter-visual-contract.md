@@ -7,7 +7,7 @@
 **Supersedes:** None
 **Related:** ADR-004 (portable skills), Issue #61 (token drift), Issue #63 (design gate), Issue #70 (implementation)
 
-**Implementation status (2026-10-01):** Delivered for newly scaffolded sites via [Issue #70](https://github.com/ozand/site-bootstrap/issues/70) and [PR #71](https://github.com/ozand/site-bootstrap/pull/71) (merge commit `c11a2cb`). Context, Decision, and Test Contract below preserve their original pre-implementation snapshot; see the addendum for delivery evidence and limits.
+**Implementation status (2026-10-01):** Delivered for newly scaffolded sites via [Issue #70](https://github.com/ozand/site-bootstrap/issues/70) and [PR #71](https://github.com/ozand/site-bootstrap/pull/71) (merge commit `c11a2cb`). Context, Decision, Selected mapping, Explicit non-goals, and Test Contract below preserve their original pre-implementation snapshot. Statements there that implementation is pending or blocked, or tests are unrun, describe status at that time only. Production and existing-site limitations remain in force; see the addendum for delivery evidence and current limits.
 
 ## Context
 
