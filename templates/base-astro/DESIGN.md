@@ -1,94 +1,113 @@
 ---
 version: alpha
 name: __SITE_NAME__
-description: "Design system tokens for __SITE_NAME__"
+description: "Implemented starter design tokens for __SITE_NAME__"
+omitted:
+  - section: spacing
+    reason: "Spacing uses Tailwind utility classes; no named scale is implemented."
 colors:
-  primary: "#1A1A2E"
-  secondary: "#6B7280"
-  tertiary: "#2563EB"
-  neutral: "#F9FAFB"
-typography:
-  h1:
-    fontFamily: Inter
-    fontSize: 2.5rem
-    fontWeight: 700
-    lineHeight: 1.2
-    letterSpacing: -0.02em
-  h2:
-    fontFamily: Inter
-    fontSize: 1.875rem
-    fontWeight: 600
-    lineHeight: 1.3
-  body-md:
-    fontFamily: Inter
-    fontSize: 1rem
-    fontWeight: 400
-    lineHeight: 1.6
-  label-sm:
-    fontFamily: Inter
-    fontSize: 0.875rem
-    fontWeight: 500
-    lineHeight: 1.4
+  primary: "#2563EB"
+  primary-hover: "#1D4ED8"
+  primary-foreground: "#FFFFFF"
+  primary-dark: "#60A5FA"
+  primary-dark-hover: "#93C5FD"
+  primary-dark-foreground: "#0A0A0A"
+  background-light: "hsl(0 0% 100%)"
+  foreground-light: "hsl(0 0% 3.9%)"
+  card-light: "hsl(0 0% 100%)"
+  card-foreground-light: "hsl(0 0% 3.9%)"
+  secondary-light: "hsl(0 0% 96.1%)"
+  secondary-foreground-light: "hsl(0 0% 9%)"
+  muted-light: "hsl(0 0% 96.1%)"
+  muted-foreground-light: "hsl(0 0% 45.1%)"
+  accent-light: "hsl(0 0% 96.1%)"
+  accent-foreground-light: "hsl(0 0% 9%)"
+  border-light: "hsl(0 0% 89.8%)"
+  input-light: "hsl(0 0% 89.8%)"
+  destructive-light: "hsl(0 84.2% 60.2%)"
+  destructive-foreground-light: "hsl(0 0% 98%)"
+  background-dark: "hsl(0 0% 3.9%)"
+  foreground-dark: "hsl(0 0% 98%)"
+  card-dark: "hsl(0 0% 3.9%)"
+  card-foreground-dark: "hsl(0 0% 98%)"
+  secondary-dark: "hsl(0 0% 14.9%)"
+  secondary-foreground-dark: "hsl(0 0% 98%)"
+  muted-dark: "hsl(0 0% 14.9%)"
+  muted-foreground-dark: "hsl(0 0% 63.9%)"
+  accent-dark: "hsl(0 0% 14.9%)"
+  accent-foreground-dark: "hsl(0 0% 98%)"
+  border-dark: "hsl(0 0% 14.9%)"
+  input-dark: "hsl(0 0% 14.9%)"
+  destructive-dark: "hsl(0 62.8% 30.6%)"
+  destructive-foreground-dark: "hsl(0 0% 98%)"
+  focus-light: "#2563EB"
+  focus-dark: "#93C5FD"
 rounded:
   sm: 4px
-  md: 8px
-  lg: 16px
-spacing:
-  sm: 8px
-  md: 16px
-  lg: 32px
-  xl: 64px
-components:
-  button-primary:
-    backgroundColor: "{colors.tertiary}"
-    textColor: "#FFFFFF"
-    rounded: "{rounded.md}"
-  card:
-    backgroundColor: "{colors.neutral}"
-    rounded: "{rounded.lg}"
+  md: 6px
+  lg: 8px
+typography:
+  sans:
+    fontFamily: Inter
 ---
 
 ## Overview
 
-A clean, modern design system with neutral foundations and a single accent
-color. The visual tone is professional and content-focused — typography-led
-layouts with generous whitespace.
-
-Customize these tokens to match the specific brand identity of the site.
-The starter values are deliberately neutral so they work as a baseline for
-any project scaffolded from site-bootstrap.
+This design brief documents the values implemented by the starter template; it
+is not a promise that each token appears on every route or component. Light and
+dark theme variables are defined in `src/styles/globals.css`, then mapped to
+Tailwind utilities in `tailwind.config.ts`.
 
 ## Colors
 
-The palette uses high-contrast neutrals with one functional accent:
+The light and `.dark` class theme maps below match the CSS custom properties in
+the starter. Blue is used by the primary Button default and link variants;
+ordinary navigation and content anchors retain their inherited neutral
+foreground unless a use site selects the primary link variant. Neutral body text,
+surfaces, borders, and destructive colors retain separate roles.
 
-- **Primary (#1A1A2E):** Deep near-black for headlines and core text.
-- **Secondary (#6B7280):** Muted gray for supporting text, borders, and metadata.
-- **Tertiary (#2563EB):** Blue accent for interactive elements (links, buttons, focus rings). Chosen to meet WCAG AA contrast against white text (5.17:1).
-- **Neutral (#F9FAFB):** Light off-white background, used as the default card background.
+- **Primary Button default and link variants:** light `#2563EB`; foreground on
+  the filled default variant `#FFFFFF`; solid default-button hover `#1D4ED8`.
+- **Dark primary Button variants:** `#60A5FA`; foreground on the filled default
+  variant `#0A0A0A`; solid default-button hover `#93C5FD`.
+- **Button keyboard focus ring:** light `#2563EB`; dark `#93C5FD`. The Button
+  applies a 2px ring with a 2px offset in the current background color. Other
+  anchors retain their existing focus behavior unless their use site defines one.
+- **Light background/card:** `hsl(0 0% 100%)`; **dark background/card:**
+  `hsl(0 0% 3.9%)`.
+- **Secondary and accent surfaces:** light `hsl(0 0% 96.1%)` with foreground
+  `hsl(0 0% 9%)`; dark `hsl(0 0% 14.9%)` with foreground
+  `hsl(0 0% 98%)`.
+- **Muted surface:** light `hsl(0 0% 96.1%)` with muted foreground
+  `hsl(0 0% 45.1%)`; dark `hsl(0 0% 14.9%)` with muted foreground
+  `hsl(0 0% 63.9%)`.
+- **Body foreground:** light `hsl(0 0% 3.9%)`; dark `hsl(0 0% 98%)`.
+  Muted foreground is independently defined per theme.
+- **Border/input:** light `hsl(0 0% 89.8%)`; dark `hsl(0 0% 14.9%)`.
+- **Destructive:** light `hsl(0 84.2% 60.2%)`; dark `hsl(0 62.8% 30.6%)`; both
+  use `hsl(0 0% 98%)` foreground.
+
+These mappings do not claim WCAG conformance. Evaluate actual rendered foreground,
+background, hover, disabled, and focus states when changing UI.
 
 ## Typography
 
-All type is set in Inter, a widely available sans-serif optimized for screen
-readability. The scale uses four levels:
-
-- **h1:** Large headings (2.5rem, tight tracking).
-- **h2:** Section headings (1.875rem).
-- **body-md:** Body text (1rem, relaxed line-height for readability).
-- **label-sm:** Labels and metadata (0.875rem, medium weight).
-
-Replace `Inter` with the project's chosen typeface when brand fonts are decided.
+The Tailwind sans font family is Inter. CSS serves Inter v4.1 from a local
+variable WOFF2 with `font-display: swap`; `ui-sans-serif`, `system-ui`, and
+`sans-serif` are the CSS fallback stack. Serif and monospace utilities remain
+separate. Sizes, weights, line heights, and tracking come from utilities at
+individual use sites; there is no global heading/body type-size scale.
 
 ## Layout
 
-Spacing follows a base-8 scale: 8 / 16 / 32 / 64 px. Use `sm` for tight
-internal gaps, `md` for standard padding, `lg` for section spacing, and `xl`
-for major page sections.
+Spacing follows the existing Tailwind utility scale at each use site; the starter
+has no named global spacing-token scale. The centered `container` utility uses
+`2rem` horizontal padding and a `1400px` maximum-width breakpoint at `2xl`.
 
 ## Shapes
 
-Corner radii range from `sm` (4px, subtle) to `lg` (16px, pronounced).
-Cards default to `lg`; buttons and inputs use `md`.
-
-Component rounding is declared via the `rounded` sub-token (e.g.
-`rounded: "{rounded.md}"`), which references the scale above.
+The root radius is `0.5rem` (8px at the default 16px root size). Tailwind derives
+`rounded-sm` as `calc(var(--radius) - 4px)` (4px), `rounded-md` as
+`calc(var(--radius) - 2px)` (6px), and `rounded-lg` as `var(--radius)` (8px).
+Components select among these utilities at their usage sites; there is no
+universal card or button radius assignment.
