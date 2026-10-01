@@ -1,0 +1,21 @@
+{
+  "sourceCommit": "087df202f8dcd4a90622413d87042c727de3cdd0",
+  "profile": "public static build",
+  "observedCommand": "npm run build",
+  "capturedFileCount": 11,
+  "files": {
+    "_astro/about.BWZQDGNM.css": "a839c44dce14dd6e4a631b89e4d0f7eb95a4eac8ec72b376c9dc6fba9e412008",
+    "_astro/client.NSH60KNz.js": "61951787f15844e3ab866cc2b4340b18510123f5145b6294e18d241534046613",
+    "about/index.html": "a4ccd92c82b167c372cf574d5419b333f93a7f806cdafc783118bdee7ecd65d1",
+    "blog/hello-world/index.html": "9f890d6e61d95c026678919fb8844b87b746bfb43989f616cd11094efc4d406f",
+    "blog/index.html": "270217080e4a0a206f754a29ea1438bdd61d0cfd8d3eed5fefed1a6c10b8a85a",
+    "favicon.svg": "df13e2d0ec5d1ee207ce1b51a082cebd5c0f9a13b1adf9bb6dcaae1046395fca",
+    "fonts/InterVariable.woff2": "693b77d4f32ee9b8bfc995589b5fad5e99adf2832738661f5402f9978429a8e3",
+    "fonts/LICENSE.txt": "262481e844521b326f5ecd053e59b98c8b2da78c8ee1bdbb6e8174305e54935a",
+    "index.html": "c3bc892e2515398f66ac3be7d22b06e5b42c8cd82a1f71308d3fab94819995b0",
+    "sitemap-0.xml": "9a00c3b4724ebecec41abafdd12f77551ac68e2611947cf6149b6f749c40916d",
+    "sitemap-index.xml": "0f3dc330316fe950ebe8804d8bb0397068c13c277da1e3dd7c901d05393ffc85"
+  },
+  "preservation": "A fresh public build was copied into a newly created disposable destination; no destination files were overwritten.",
+  "interpretation": "Artifact inventory only; does not establish runtime behavior, security, authentication, or authorization."
+}

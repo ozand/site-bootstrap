@@ -1,0 +1,595 @@
+{
+  "method": "Authenticated GitHub Advisory Database API GET via gh api advisories/{GHSA}; no exploit testing",
+  "checked_at_utc": "2026-10-01T13:36:34.560437+00:00",
+  "rows": [
+    {
+      "ghsa": "GHSA-j687-52p2-xcff",
+      "package": "astro",
+      "title": "Astro: XSS in define:vars via incomplete </script> tag sanitization",
+      "severity": "medium",
+      "published_at": "2026-04-21T20:39:49Z",
+      "affected_and_first_patched": [
+        {
+          "affected": "< 6.1.6",
+          "first_patched": "6.1.6"
+        }
+      ],
+      "url": "https://github.com/advisories/GHSA-j687-52p2-xcff"
+    },
+    {
+      "ghsa": "GHSA-xr5h-phrj-8vxv",
+      "package": "astro",
+      "title": "Astro: Server island encrypted parameters vulnerable to cross-component replay",
+      "severity": "low",
+      "published_at": "2026-05-13T01:36:39Z",
+      "affected_and_first_patched": [
+        {
+          "affected": "< 6.1.10",
+          "first_patched": "6.1.10"
+        }
+      ],
+      "url": "https://github.com/advisories/GHSA-xr5h-phrj-8vxv"
+    },
+    {
+      "ghsa": "GHSA-jrpj-wcv7-9fh9",
+      "package": "astro",
+      "title": "Astro: XSS via Unescaped Attribute Names in Spread Props",
+      "severity": "medium",
+      "published_at": "2026-06-16T14:57:21Z",
+      "affected_and_first_patched": [
+        {
+          "affected": "< 6.4.6",
+          "first_patched": "6.4.6"
+        }
+      ],
+      "url": "https://github.com/advisories/GHSA-jrpj-wcv7-9fh9"
+    },
+    {
+      "ghsa": "GHSA-f48w-9m4c-m7f5",
+      "package": "astro",
+      "title": "Astro: XSS via unescaped spread attribute names in renderHTMLElement (incomplete fix for CVE-2026-54298)",
+      "severity": "medium",
+      "published_at": "2026-07-20T23:21:58Z",
+      "affected_and_first_patched": [
+        {
+          "affected": "< 7.0.6",
+          "first_patched": "7.0.6"
+        }
+      ],
+      "url": "https://github.com/advisories/GHSA-f48w-9m4c-m7f5"
+    },
+    {
+      "ghsa": "GHSA-7pw4-f3q4-r2p2",
+      "package": "astro",
+      "title": "Astro: Cross-site scripting via unescaped transition:* directive values on hydrated islands",
+      "severity": "low",
+      "published_at": "2026-07-20T23:21:02Z",
+      "affected_and_first_patched": [
+        {
+          "affected": ">= 3.10.0, < 7.0.4",
+          "first_patched": "7.0.4"
+        }
+      ],
+      "url": "https://github.com/advisories/GHSA-7pw4-f3q4-r2p2"
+    },
+    {
+      "ghsa": "GHSA-4g3v-8h47-v7g6",
+      "package": "astro",
+      "title": "Astro: Reflected XSS via unescaped View Transition animation properties",
+      "severity": "medium",
+      "published_at": "2026-07-20T21:08:16Z",
+      "affected_and_first_patched": [
+        {
+          "affected": ">= 2.9.0, <= 7.0.9",
+          "first_patched": "7.1.0"
+        }
+      ],
+      "url": "https://github.com/advisories/GHSA-4g3v-8h47-v7g6"
+    },
+    {
+      "ghsa": "GHSA-2pvr-wf23-7pc7",
+      "package": "astro",
+      "title": "Astro: Host header SSRF in prerendered error page fetch",
+      "severity": "high",
+      "published_at": "2026-06-16T14:38:06Z",
+      "affected_and_first_patched": [
+        {
+          "affected": "< 6.4.6",
+          "first_patched": "6.4.6"
+        }
+      ],
+      "url": "https://github.com/advisories/GHSA-2pvr-wf23-7pc7"
+    },
+    {
+      "ghsa": "GHSA-8hv8-536x-4wqp",
+      "package": "astro",
+      "title": "Astro: Reflected XSS via unescaped slot name",
+      "severity": "high",
+      "published_at": "2026-06-16T14:05:06Z",
+      "affected_and_first_patched": [
+        {
+          "affected": "< 6.3.3",
+          "first_patched": "6.3.3"
+        }
+      ],
+      "url": "https://github.com/advisories/GHSA-8hv8-536x-4wqp"
+    },
+    {
+      "ghsa": "GHSA-26w7-cxv4-gfx2",
+      "package": "astro",
+      "title": "Astro: Remote code execution through AVIF image optimization",
+      "severity": "critical",
+      "published_at": "2026-09-08T21:26:16Z",
+      "affected_and_first_patched": [
+        {
+          "affected": "< 7.2.8",
+          "first_patched": "7.2.8"
+        }
+      ],
+      "url": "https://github.com/advisories/GHSA-26w7-cxv4-gfx2"
+    },
+    {
+      "ghsa": "GHSA-376h-93r7-7g6f",
+      "package": "astro",
+      "title": "Astro: Authorization bypass from missing path-segment boundary check when stripping the configured base",
+      "severity": "medium",
+      "published_at": "2026-09-08T21:26:02Z",
+      "affected_and_first_patched": [
+        {
+          "affected": "<= 7.2.3",
+          "first_patched": "7.2.4"
+        }
+      ],
+      "url": "https://github.com/advisories/GHSA-376h-93r7-7g6f"
+    },
+    {
+      "ghsa": "GHSA-3rmj-9m5h-8fpv",
+      "package": "@astrojs/node",
+      "title": "Astro: Memory exhaustion DoS due to missing request body size limit in Server Islands",
+      "severity": "medium",
+      "published_at": "2026-03-24T19:29:26Z",
+      "affected_and_first_patched": [
+        {
+          "affected": "< 10.0.0",
+          "first_patched": "10.0.0"
+        }
+      ],
+      "url": "https://github.com/advisories/GHSA-3rmj-9m5h-8fpv"
+    },
+    {
+      "ghsa": "GHSA-c57f-mm3j-27q9",
+      "package": "@astrojs/node",
+      "title": "Astro: Cache Poisoning due to incorrect error handling when if-match header is malformed ",
+      "severity": "medium",
+      "published_at": "2026-04-23T14:36:03Z",
+      "affected_and_first_patched": [
+        {
+          "affected": "< 10.0.5",
+          "first_patched": "10.0.5"
+        }
+      ],
+      "url": "https://github.com/advisories/GHSA-c57f-mm3j-27q9"
+    },
+    {
+      "ghsa": "GHSA-r557-wffq-wvrc",
+      "package": "@astrojs/node",
+      "title": "@astrojs/node: Backslash-prefixed paths not recognized as internal by trailing-slash redirect",
+      "severity": "low",
+      "published_at": "2026-07-20T23:22:22Z",
+      "affected_and_first_patched": [
+        {
+          "affected": ">= 8.1.0, < 11.0.2",
+          "first_patched": "11.0.2"
+        }
+      ],
+      "url": "https://github.com/advisories/GHSA-r557-wffq-wvrc"
+    },
+    {
+      "ghsa": "GHSA-qh8j-hqjv-7m4x",
+      "package": "@astrojs/node",
+      "title": "Astro: Malformed port in the Host header can crash the Node adapter",
+      "severity": "high",
+      "published_at": "2026-09-30T23:29:40Z",
+      "affected_and_first_patched": [
+        {
+          "affected": "<= 11.1.2",
+          "first_patched": "11.1.3"
+        }
+      ],
+      "url": "https://github.com/advisories/GHSA-qh8j-hqjv-7m4x"
+    },
+    {
+      "ghsa": "GHSA-q2hr-2g5m-vwhr",
+      "package": "brace-expansion",
+      "title": "brace-expansion: Quadratic-time expansion of the `{a},b}` rewrite causes CPU denial of service",
+      "severity": "medium",
+      "published_at": "2026-09-29T23:45:39Z",
+      "affected_and_first_patched": [
+        {
+          "affected": ">= 4.0.0, < 5.0.12",
+          "first_patched": "5.0.12"
+        },
+        {
+          "affected": ">= 3.0.0, < 3.0.9",
+          "first_patched": "3.0.9"
+        },
+        {
+          "affected": ">= 2.0.0, < 2.1.7",
+          "first_patched": "2.1.7"
+        },
+        {
+          "affected": "< 1.1.21",
+          "first_patched": "1.1.21"
+        }
+      ],
+      "url": "https://github.com/advisories/GHSA-q2hr-2g5m-vwhr"
+    },
+    {
+      "ghsa": "GHSA-qhr7-859c-m2p7",
+      "package": "brace-expansion",
+      "title": "brace-expansion: DoS via uncontrolled recursion on nested brace groups causing stack exhaustion",
+      "severity": "high",
+      "published_at": "2026-09-29T23:45:17Z",
+      "affected_and_first_patched": [
+        {
+          "affected": ">= 4.0.0, < 5.0.11",
+          "first_patched": "5.0.11"
+        },
+        {
+          "affected": ">= 3.0.0, < 3.0.8",
+          "first_patched": "3.0.8"
+        },
+        {
+          "affected": ">= 2.0.0, < 2.1.6",
+          "first_patched": "2.1.6"
+        },
+        {
+          "affected": "< 1.1.20",
+          "first_patched": "1.1.20"
+        }
+      ],
+      "url": "https://github.com/advisories/GHSA-qhr7-859c-m2p7"
+    },
+    {
+      "ghsa": "GHSA-6j4f-fj2g-mc7p",
+      "package": "brace-expansion",
+      "title": "brace-expansion: DoS via uncontrolled recursion in parseCommaParts causing stack exhaustion",
+      "severity": "high",
+      "published_at": "2026-09-29T23:44:58Z",
+      "affected_and_first_patched": [
+        {
+          "affected": ">= 4.0.0, < 5.0.10",
+          "first_patched": "5.0.10"
+        },
+        {
+          "affected": ">= 3.0.0, < 3.0.7",
+          "first_patched": "3.0.7"
+        },
+        {
+          "affected": ">= 2.0.0, < 2.1.5",
+          "first_patched": "2.1.5"
+        },
+        {
+          "affected": "< 1.1.19",
+          "first_patched": "1.1.19"
+        }
+      ],
+      "url": "https://github.com/advisories/GHSA-6j4f-fj2g-mc7p"
+    },
+    {
+      "ghsa": "GHSA-g7r4-m6w7-qqqr",
+      "package": "esbuild",
+      "title": "esbuild allows arbitrary file read when running the development server on Windows",
+      "severity": "low",
+      "published_at": "2026-06-12T20:08:53Z",
+      "affected_and_first_patched": [
+        {
+          "affected": ">= 0.27.3, < 0.28.1",
+          "first_patched": "0.28.1"
+        }
+      ],
+      "url": "https://github.com/advisories/GHSA-g7r4-m6w7-qqqr"
+    },
+    {
+      "ghsa": "GHSA-qw65-cvwx-89v3",
+      "package": "fast-uri",
+      "title": "fast-uri vulnerable to authority injection via an unvalidated port in serialize",
+      "severity": "high",
+      "published_at": "2026-09-28T21:24:39Z",
+      "affected_and_first_patched": [
+        {
+          "affected": "< 2.4.6",
+          "first_patched": "2.4.6"
+        },
+        {
+          "affected": ">= 3.0.0, < 3.1.7",
+          "first_patched": "3.1.7"
+        },
+        {
+          "affected": ">= 4.0.0, < 4.1.4",
+          "first_patched": "4.1.4"
+        }
+      ],
+      "url": "https://github.com/advisories/GHSA-qw65-cvwx-89v3"
+    },
+    {
+      "ghsa": "GHSA-58mr-gqgx-xq4g",
+      "package": "fast-uri",
+      "title": "fast-uri vulnerable to host confusion via an unclosed bracket in the URI authority",
+      "severity": "high",
+      "published_at": "2026-09-28T21:23:35Z",
+      "affected_and_first_patched": [
+        {
+          "affected": "= 2.4.5",
+          "first_patched": "2.4.6"
+        },
+        {
+          "affected": "= 3.1.6",
+          "first_patched": "3.1.7"
+        },
+        {
+          "affected": "= 4.1.3",
+          "first_patched": "4.1.4"
+        }
+      ],
+      "url": "https://github.com/advisories/GHSA-58mr-gqgx-xq4g"
+    },
+    {
+      "ghsa": "GHSA-hrr3-gc8f-f4qj",
+      "package": "fast-uri",
+      "title": "fast-uri vulnerable to inconsistent host case normalization via percent-encoded octets",
+      "severity": "medium",
+      "published_at": "2026-09-29T23:54:25Z",
+      "affected_and_first_patched": [
+        {
+          "affected": "< 2.4.7",
+          "first_patched": "2.4.7"
+        },
+        {
+          "affected": ">= 3.0.0, < 3.1.8",
+          "first_patched": "3.1.8"
+        },
+        {
+          "affected": ">= 4.0.0, < 4.1.5",
+          "first_patched": "4.1.5"
+        }
+      ],
+      "url": "https://github.com/advisories/GHSA-hrr3-gc8f-f4qj"
+    },
+    {
+      "ghsa": "GHSA-f88m-g3jw-g9cj",
+      "package": "sharp",
+      "title": "sharp inherited vulnerabilities in libvips: CVE-2026-33327, CVE-2026-33328, CVE-2026-35590, CVE-2026-35591",
+      "severity": "high",
+      "published_at": "2026-07-21T22:07:17Z",
+      "affected_and_first_patched": [
+        {
+          "affected": "< 0.35.0",
+          "first_patched": "0.35.0"
+        }
+      ],
+      "url": "https://github.com/advisories/GHSA-f88m-g3jw-g9cj"
+    },
+    {
+      "ghsa": "GHSA-rgj7-g3m4-5g8c",
+      "package": "sharp",
+      "title": "sharp: Vulnerabilities in libheif: GHSA-g89c-p67h-r497 and GHSA-2jg2-4ch7-h545",
+      "severity": "high",
+      "published_at": "2026-09-08T21:25:11Z",
+      "affected_and_first_patched": [
+        {
+          "affected": "< 0.35.4",
+          "first_patched": "0.35.4"
+        }
+      ],
+      "url": "https://github.com/advisories/GHSA-rgj7-g3m4-5g8c"
+    },
+    {
+      "ghsa": "GHSA-3wwx-pv8p-q78v",
+      "package": "undici",
+      "title": "undici vulnerable to Denial of Service via unhandled error in WebSocket permessage-deflate decompression",
+      "severity": "medium",
+      "published_at": "2026-09-28T21:42:37Z",
+      "affected_and_first_patched": [
+        {
+          "affected": ">= 6.25.0, < 6.28.1",
+          "first_patched": "6.28.1"
+        },
+        {
+          "affected": ">= 7.28.0, < 7.29.1",
+          "first_patched": "7.29.1"
+        },
+        {
+          "affected": ">= 8.1.0, < 8.10.2",
+          "first_patched": "8.10.2"
+        }
+      ],
+      "url": "https://github.com/advisories/GHSA-3wwx-pv8p-q78v"
+    },
+    {
+      "ghsa": "GHSA-pmjh-fq2x-6v4x",
+      "package": "undici",
+      "title": "undici vulnerable to Denial of Service via orphaned RetryHandler response body",
+      "severity": "medium",
+      "published_at": "2026-09-29T18:22:34Z",
+      "affected_and_first_patched": [
+        {
+          "affected": ">= 7.11.0, < 7.29.1",
+          "first_patched": "7.29.1"
+        },
+        {
+          "affected": ">= 8.0.0, < 8.10.2",
+          "first_patched": "8.10.2"
+        }
+      ],
+      "url": "https://github.com/advisories/GHSA-pmjh-fq2x-6v4x"
+    },
+    {
+      "ghsa": "GHSA-r53p-7pc4-xj5r",
+      "package": "undici",
+      "title": "undici vulnerable to downstream response splitting via retry interceptor",
+      "severity": "low",
+      "published_at": "2026-09-29T18:22:07Z",
+      "affected_and_first_patched": [
+        {
+          "affected": "< 6.28.1",
+          "first_patched": "6.28.1"
+        },
+        {
+          "affected": ">= 7.0.0, < 7.29.1",
+          "first_patched": "7.29.1"
+        },
+        {
+          "affected": ">= 8.0.0, < 8.10.2",
+          "first_patched": "8.10.2"
+        }
+      ],
+      "url": "https://github.com/advisories/GHSA-r53p-7pc4-xj5r"
+    },
+    {
+      "ghsa": "GHSA-rfgv-xxqx-mfg5",
+      "package": "undici",
+      "title": "undici vulnerable to Denial of Service via unrequested WebSocket subprotocol",
+      "severity": "high",
+      "published_at": "2026-09-29T18:21:33Z",
+      "affected_and_first_patched": [
+        {
+          "affected": ">= 6.7.0, < 6.28.1",
+          "first_patched": "6.28.1"
+        },
+        {
+          "affected": ">= 7.0.0, < 7.29.1",
+          "first_patched": "7.29.1"
+        },
+        {
+          "affected": ">= 8.0.0, < 8.10.2",
+          "first_patched": "8.10.2"
+        }
+      ],
+      "url": "https://github.com/advisories/GHSA-rfgv-xxqx-mfg5"
+    },
+    {
+      "ghsa": "GHSA-3xpg-4rpp-hhhm",
+      "package": "undici",
+      "title": "undici vulnerable to Denial of Service via unbounded decompression of compressed responses",
+      "severity": "medium",
+      "published_at": "2026-09-29T18:20:37Z",
+      "affected_and_first_patched": [
+        {
+          "affected": ">= 7.15.0, < 7.29.1",
+          "first_patched": "7.29.1"
+        },
+        {
+          "affected": ">= 8.0.0, < 8.10.2",
+          "first_patched": "8.10.2"
+        }
+      ],
+      "url": "https://github.com/advisories/GHSA-3xpg-4rpp-hhhm"
+    },
+    {
+      "ghsa": "GHSA-2jfj-6hjv-fm6j",
+      "package": "undici",
+      "title": "undici vulnerable to cross-user cookie disclosure via Set-Cookie caching in shared caches",
+      "severity": "medium",
+      "published_at": "2026-09-29T18:19:58Z",
+      "affected_and_first_patched": [
+        {
+          "affected": ">= 7.0.0, < 7.29.1",
+          "first_patched": "7.29.1"
+        },
+        {
+          "affected": ">= 8.0.0, < 8.10.2",
+          "first_patched": "8.10.2"
+        }
+      ],
+      "url": "https://github.com/advisories/GHSA-2jfj-6hjv-fm6j"
+    },
+    {
+      "ghsa": "GHSA-2gqq-gqf2-x968",
+      "package": "undici",
+      "title": "undici vulnerable to response truncation via oversized chunked responses in the dump interceptor",
+      "severity": "low",
+      "published_at": "2026-09-29T18:18:51Z",
+      "affected_and_first_patched": [
+        {
+          "affected": ">= 7.1.0, < 7.29.1",
+          "first_patched": "7.29.1"
+        },
+        {
+          "affected": ">= 8.0.0, < 8.10.2",
+          "first_patched": "8.10.2"
+        }
+      ],
+      "url": "https://github.com/advisories/GHSA-2gqq-gqf2-x968"
+    },
+    {
+      "ghsa": "GHSA-w293-vg96-wgc3",
+      "package": "undici",
+      "title": "undici vulnerable to TLS certificate validation bypass via dropped connect options in BalancedPool",
+      "severity": "high",
+      "published_at": "2026-09-29T18:17:15Z",
+      "affected_and_first_patched": [
+        {
+          "affected": ">= 7.24.1, < 7.29.1",
+          "first_patched": "7.29.1"
+        },
+        {
+          "affected": ">= 8.0.0, < 8.10.2",
+          "first_patched": "8.10.2"
+        }
+      ],
+      "url": "https://github.com/advisories/GHSA-w293-vg96-wgc3"
+    },
+    {
+      "ghsa": "GHSA-8436-99hf-9mmv",
+      "package": "undici",
+      "title": "undici vulnerable to caching and replay of unsafe HTTP method responses",
+      "severity": "low",
+      "published_at": "2026-09-29T18:16:28Z",
+      "affected_and_first_patched": [
+        {
+          "affected": ">= 7.0.0, < 7.29.1",
+          "first_patched": "7.29.1"
+        },
+        {
+          "affected": ">= 8.0.0, < 8.10.2",
+          "first_patched": "8.10.2"
+        }
+      ],
+      "url": "https://github.com/advisories/GHSA-8436-99hf-9mmv"
+    },
+    {
+      "ghsa": "GHSA-vp8m-p9jh-q5pm",
+      "package": "undici",
+      "title": "undici vulnerable to cross-origin cache poisoning via missing origin isolation in interceptors",
+      "severity": "high",
+      "published_at": "2026-09-29T18:15:13Z",
+      "affected_and_first_patched": [
+        {
+          "affected": ">= 8.10.0, < 8.10.2",
+          "first_patched": "8.10.2"
+        }
+      ],
+      "url": "https://github.com/advisories/GHSA-vp8m-p9jh-q5pm"
+    },
+    {
+      "ghsa": "GHSA-rx4f-c7p8-82vq",
+      "package": "undici",
+      "title": "undici vulnerable to Denial of Service via WebSocketStream unclean close",
+      "severity": "medium",
+      "published_at": "2026-09-29T18:10:32Z",
+      "affected_and_first_patched": [
+        {
+          "affected": ">= 7.0.0, < 7.29.1",
+          "first_patched": "7.29.1"
+        },
+        {
+          "affected": ">= 8.0.0, < 8.10.2",
+          "first_patched": "8.10.2"
+        }
+      ],
+      "url": "https://github.com/advisories/GHSA-rx4f-c7p8-82vq"
+    }
+  ],
+  "errors": []
+}
