@@ -2,7 +2,7 @@
 
 **Read [AGENTS.md](./AGENTS.md) first** — full contract for this repo.
 
-This repo is a **factory** for agent-operated Astro sites. The base template uses Astro 5 + React 19 + TypeScript + Tailwind + shadcn/ui, file-backed Git content, and Keystatic. Its default public profile is static; a separate Node-based Keystatic editor profile is included. The accepted [separated static-site architecture](docs/architecture/separated-static-site.md) defines the generated-site deployment contract: static public publication and a separate private editor, with provider-specific configuration kept in `hosting/`.
+This repo is a **factory** for agent-operated Astro sites. The base template uses Astro 7 + React 19 + TypeScript + Tailwind + shadcn/ui, file-backed Git content, and Keystatic. Its default public profile is static; a separate Node-based Keystatic editor profile is included. The accepted [separated static-site architecture](docs/architecture/separated-static-site.md) defines the generated-site deployment contract: static public publication and a separate private editor, with provider-specific configuration kept in `hosting/`.
 
 Critical rules:
 

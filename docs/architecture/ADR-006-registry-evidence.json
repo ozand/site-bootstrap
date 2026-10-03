@@ -1,0 +1,26 @@
+{
+  "retrieved_at": "2026-10-03",
+  "method": "read-only npm view registry queries",
+  "target": {
+    "package": "astro",
+    "stable_version": "7.3.5",
+    "excluded_prerelease": "7.4.0-beta.1",
+    "engines": {"node": ">=22.12.0", "npm": ">=9.6.5", "pnpm": ">=7.1.0"},
+    "registry_evidence": "C:/Temp/astro81-latest-meta.json",
+    "sha256": "4758f95c9f4b8c98360925389479a1ff59bd80d07473ab20c75bc95be4e9a2cc"
+  },
+  "integration_metadata": [
+    {"package": "@astrojs/node", "version": "11.1.6", "peerDependencies": {"astro": "^7.2.1"}},
+    {"package": "@astrojs/markdoc", "version": "2.0.9", "peerDependencies": {"astro": "^7.0.0"}, "engines": {"node": ">=22.12.0"}},
+    {"package": "@keystatic/astro", "version": "6.0.0", "peerDependencies": {"astro": "5 || 6 || 7", "react": "^18.2.0 || ^19.0.0", "react-dom": "^18.2.0 || ^19.0.0"}},
+    {"package": "@astrojs/react", "version": "7.0.0", "peerDependencies": {"react": "^17.0.2 || ^18.0.0 || ^19.0.0", "react-dom": "^17.0.2 || ^18.0.0 || ^19.0.0", "@types/react": "^17.0.50 || ^18.0.21 || ^19.0.0", "@types/react-dom": "^17.0.17 || ^18.0.6 || ^19.0.0", "oxc-transform-react": "^0.145.0"}, "engines": {"node": ">=22.12.0"}},
+    {"package": "@astrojs/tailwind", "version": "6.0.2", "peerDependencies": {"astro": "^3.0.0 || ^4.0.0 || ^5.0.0", "tailwindcss": "^3.0.24"}}
+  ],
+  "official_migration_sources": [
+    {"url": "https://docs.astro.build/en/guides/upgrade-to/v6/", "retrieved_sha256": "b6f6eda29a23988d305f8f37ac87674550dea3dbb6196a891e220262c58284b1"},
+    {"url": "https://docs.astro.build/en/guides/upgrade-to/v7/", "retrieved_sha256": "fccf24bc988017ed8f82fd653df52c4e2d7b799f214aacfa10b99e1c2c784cbf"},
+    {"url": "https://docs.astro.build/en/guides/styling/#tailwind", "retrieved_sha256": "23b5014efd0953a468d7eca2c961737e197431296a4e2fdc4c5859101c9b47e6"},
+    {"url": "https://github.com/withastro/astro/blob/main/packages/integrations/tailwind/README.md", "retrieved_sha256": "48f384981a81a5c5f39fea8c5f7e3b7ccde8bd495771cbad5d4583e876094dd4"}
+  ],
+  "limitations": "Point-in-time metadata; registry peer declarations do not prove factory compatibility. The local Node 24/npm 11 meets declared target engines; Node 22.12 minimum is not tested. Raw registry/docs snapshots remain local; this sanitized receipt records observed fields and hashes."
+}

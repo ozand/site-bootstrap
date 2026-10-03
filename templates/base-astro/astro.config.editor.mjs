@@ -3,7 +3,8 @@ import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
 import markdoc from '@astrojs/markdoc';
 import keystatic from '@keystatic/astro';
-import tailwind from '@astrojs/tailwind';
+import tailwindcss from 'tailwindcss';
+import autoprefixer from 'autoprefixer';
 import sitemap from '@astrojs/sitemap';
 import node from '@astrojs/node';
 
@@ -12,11 +13,11 @@ import node from '@astrojs/node';
 export default defineConfig({
   output: 'server',
   site: 'https://__SITE_DOMAIN__',
+  vite: { css: { postcss: { plugins: [tailwindcss(), autoprefixer()] } } },
   integrations: [
     react(),
     markdoc(),
     keystatic(),
-    tailwind({ applyBaseStyles: false }),
     sitemap(),
   ],
   adapter: node({ mode: 'standalone' }),

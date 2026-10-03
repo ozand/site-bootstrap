@@ -55,3 +55,7 @@ output profile are implementation follow-ups governed by
 **Status:** accepted and implemented for newly scaffolded sites — [ADR-005 decision](./ADR-005-blue-inter-starter-visual-contract.md).
 
 Implemented by closed [Issue #70](https://github.com/ozand/site-bootstrap/issues/70) and merged [PR #71](https://github.com/ozand/site-bootstrap/pull/71) (`c11a2cb`). The ADR's pre-implementation status and test table are historical; see its 2026-10-01 addendum for bounded completion evidence and residual limits. This does not claim production deployment or changes to existing generated sites.
+
+## ADR-006: Upgrade the canonical template to Astro 7.3.5
+
+**Status:** Accepted — [ADR-006](./ADR-006-upgrade-canonical-template-to-astro-7.md).

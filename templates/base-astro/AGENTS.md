@@ -1,6 +1,6 @@
 # __SITE_NAME__ — Agent Guide
 
-Site built from the **site-bootstrap** template: Astro 5 + React 19 + TypeScript + Tailwind CSS + shadcn/ui + Keystatic CMS. Database-less — git is the single source of truth for all content.
+Site built from the **site-bootstrap** template: Astro 7 + React 19 + TypeScript + Tailwind CSS + shadcn/ui + Keystatic CMS. Database-less — git is the single source of truth for all content.
 
 ## 1. Commands
 
