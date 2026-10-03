@@ -1,0 +1,409 @@
+{
+  "method": "Authenticated GitHub Advisory Database API GET via gh api advisories/{GHSA}; read-only; no exploit testing",
+  "source_commit": "310cbcf5226ad288a1a548e375aa6476d736590f",
+  "npm_audit_json_sha256": "e3faae7dffe9a6ccd93cae4133134709fbe2cc5739065f4a718b106b602ccb87",
+  "checked_at_utc": "2026-10-03T02:18:00.299372+00:00",
+  "rows": [
+    {
+      "ghsa": "GHSA-26w7-cxv4-gfx2",
+      "title": "Astro: Remote code execution through AVIF image optimization",
+      "severity": "critical",
+      "published_at": "2026-09-08T21:26:16Z",
+      "affected_and_first_patched": [
+        {
+          "package": "astro",
+          "ecosystem": "npm",
+          "affected": "< 7.2.8",
+          "first_patched": "7.2.8"
+        }
+      ],
+      "url": "https://github.com/advisories/GHSA-26w7-cxv4-gfx2",
+      "package": "astro"
+    },
+    {
+      "ghsa": "GHSA-2pvr-wf23-7pc7",
+      "title": "Astro: Host header SSRF in prerendered error page fetch",
+      "severity": "high",
+      "published_at": "2026-06-16T14:38:06Z",
+      "affected_and_first_patched": [
+        {
+          "package": "astro",
+          "ecosystem": "npm",
+          "affected": "< 6.4.6",
+          "first_patched": "6.4.6"
+        }
+      ],
+      "url": "https://github.com/advisories/GHSA-2pvr-wf23-7pc7",
+      "package": "astro"
+    },
+    {
+      "ghsa": "GHSA-376h-93r7-7g6f",
+      "title": "Astro: Authorization bypass from missing path-segment boundary check when stripping the configured base",
+      "severity": "medium",
+      "published_at": "2026-09-08T21:26:02Z",
+      "affected_and_first_patched": [
+        {
+          "package": "astro",
+          "ecosystem": "npm",
+          "affected": "<= 7.2.3",
+          "first_patched": "7.2.4"
+        }
+      ],
+      "url": "https://github.com/advisories/GHSA-376h-93r7-7g6f",
+      "package": "astro"
+    },
+    {
+      "ghsa": "GHSA-3rmj-9m5h-8fpv",
+      "title": "Astro: Memory exhaustion DoS due to missing request body size limit in Server Islands",
+      "severity": "medium",
+      "published_at": "2026-03-24T19:29:26Z",
+      "affected_and_first_patched": [
+        {
+          "package": "@astrojs/node",
+          "ecosystem": "npm",
+          "affected": "< 10.0.0",
+          "first_patched": "10.0.0"
+        }
+      ],
+      "url": "https://github.com/advisories/GHSA-3rmj-9m5h-8fpv",
+      "package": "@astrojs/node"
+    },
+    {
+      "ghsa": "GHSA-4g3v-8h47-v7g6",
+      "title": "Astro: Reflected XSS via unescaped View Transition animation properties",
+      "severity": "medium",
+      "published_at": "2026-07-20T21:08:16Z",
+      "affected_and_first_patched": [
+        {
+          "package": "astro",
+          "ecosystem": "npm",
+          "affected": ">= 2.9.0, <= 7.0.9",
+          "first_patched": "7.1.0"
+        }
+      ],
+      "url": "https://github.com/advisories/GHSA-4g3v-8h47-v7g6",
+      "package": "astro"
+    },
+    {
+      "ghsa": "GHSA-4q55-j62x-fr9h",
+      "title": "devalue: Malformed null-prototype object keys bypass __proto__ rejection via property-key coercion",
+      "severity": "medium",
+      "published_at": "2026-10-01T15:13:23Z",
+      "affected_and_first_patched": [
+        {
+          "package": "devalue",
+          "ecosystem": "npm",
+          "affected": "<= 5.9.2",
+          "first_patched": "5.9.3"
+        }
+      ],
+      "url": "https://github.com/advisories/GHSA-4q55-j62x-fr9h",
+      "package": "devalue"
+    },
+    {
+      "ghsa": "GHSA-7pw4-f3q4-r2p2",
+      "title": "Astro: Cross-site scripting via unescaped transition:* directive values on hydrated islands",
+      "severity": "low",
+      "published_at": "2026-07-20T23:21:02Z",
+      "affected_and_first_patched": [
+        {
+          "package": "astro",
+          "ecosystem": "npm",
+          "affected": ">= 3.10.0, < 7.0.4",
+          "first_patched": "7.0.4"
+        }
+      ],
+      "url": "https://github.com/advisories/GHSA-7pw4-f3q4-r2p2",
+      "package": "astro"
+    },
+    {
+      "ghsa": "GHSA-8hv8-536x-4wqp",
+      "title": "Astro: Reflected XSS via unescaped slot name",
+      "severity": "high",
+      "published_at": "2026-06-16T14:05:06Z",
+      "affected_and_first_patched": [
+        {
+          "package": "astro",
+          "ecosystem": "npm",
+          "affected": "< 6.3.3",
+          "first_patched": "6.3.3"
+        }
+      ],
+      "url": "https://github.com/advisories/GHSA-8hv8-536x-4wqp",
+      "package": "astro"
+    },
+    {
+      "ghsa": "GHSA-c57f-mm3j-27q9",
+      "title": "Astro: Cache Poisoning due to incorrect error handling when if-match header is malformed ",
+      "severity": "medium",
+      "published_at": "2026-04-23T14:36:03Z",
+      "affected_and_first_patched": [
+        {
+          "package": "@astrojs/node",
+          "ecosystem": "npm",
+          "affected": "< 10.0.5",
+          "first_patched": "10.0.5"
+        }
+      ],
+      "url": "https://github.com/advisories/GHSA-c57f-mm3j-27q9",
+      "package": "@astrojs/node"
+    },
+    {
+      "ghsa": "GHSA-ch52-4w7c-c8xp",
+      "title": "http-cache-semantics max-stale handling can disclose cross-user cached responses",
+      "severity": "high",
+      "published_at": "2026-09-18T18:31:44Z",
+      "affected_and_first_patched": [
+        {
+          "package": "http-cache-semantics",
+          "ecosystem": "npm",
+          "affected": "<= 4.2.0",
+          "first_patched": null
+        }
+      ],
+      "url": "https://github.com/advisories/GHSA-ch52-4w7c-c8xp",
+      "package": "http-cache-semantics"
+    },
+    {
+      "ghsa": "GHSA-f48w-9m4c-m7f5",
+      "title": "Astro: XSS via unescaped spread attribute names in renderHTMLElement (incomplete fix for CVE-2026-54298)",
+      "severity": "medium",
+      "published_at": "2026-07-20T23:21:58Z",
+      "affected_and_first_patched": [
+        {
+          "package": "astro",
+          "ecosystem": "npm",
+          "affected": "< 7.0.6",
+          "first_patched": "7.0.6"
+        }
+      ],
+      "url": "https://github.com/advisories/GHSA-f48w-9m4c-m7f5",
+      "package": "astro"
+    },
+    {
+      "ghsa": "GHSA-f88m-g3jw-g9cj",
+      "title": "sharp inherited vulnerabilities in libvips: CVE-2026-33327, CVE-2026-33328, CVE-2026-35590, CVE-2026-35591",
+      "severity": "high",
+      "published_at": "2026-07-21T22:07:17Z",
+      "affected_and_first_patched": [
+        {
+          "package": "sharp",
+          "ecosystem": "npm",
+          "affected": "< 0.35.0",
+          "first_patched": "0.35.0"
+        }
+      ],
+      "url": "https://github.com/advisories/GHSA-f88m-g3jw-g9cj",
+      "package": "sharp"
+    },
+    {
+      "ghsa": "GHSA-g7r4-m6w7-qqqr",
+      "title": "esbuild allows arbitrary file read when running the development server on Windows",
+      "severity": "low",
+      "published_at": "2026-06-12T20:08:53Z",
+      "affected_and_first_patched": [
+        {
+          "package": "esbuild",
+          "ecosystem": "npm",
+          "affected": ">= 0.27.3, < 0.28.1",
+          "first_patched": "0.28.1"
+        }
+      ],
+      "url": "https://github.com/advisories/GHSA-g7r4-m6w7-qqqr",
+      "package": "esbuild"
+    },
+    {
+      "ghsa": "GHSA-hx4r-w6wj-j8fg",
+      "title": "devalue: Residual sparse-array CPU amplification in uneval",
+      "severity": "medium",
+      "published_at": "2026-10-01T15:17:42Z",
+      "affected_and_first_patched": [
+        {
+          "package": "devalue",
+          "ecosystem": "npm",
+          "affected": "<= 5.9.2",
+          "first_patched": "5.9.3"
+        }
+      ],
+      "url": "https://github.com/advisories/GHSA-hx4r-w6wj-j8fg",
+      "package": "devalue"
+    },
+    {
+      "ghsa": "GHSA-j22f-vq7h-c4qm",
+      "title": "devalue: `stringify`/`uneval` serialize shared memory",
+      "severity": "high",
+      "published_at": "2026-10-01T15:18:06Z",
+      "affected_and_first_patched": [
+        {
+          "package": "devalue",
+          "ecosystem": "npm",
+          "affected": ">= 5.1.0, <= 5.9.2",
+          "first_patched": "5.9.3"
+        }
+      ],
+      "url": "https://github.com/advisories/GHSA-j22f-vq7h-c4qm",
+      "package": "devalue"
+    },
+    {
+      "ghsa": "GHSA-j687-52p2-xcff",
+      "title": "Astro: XSS in define:vars via incomplete </script> tag sanitization",
+      "severity": "medium",
+      "published_at": "2026-04-21T20:39:49Z",
+      "affected_and_first_patched": [
+        {
+          "package": "astro",
+          "ecosystem": "npm",
+          "affected": "< 6.1.6",
+          "first_patched": "6.1.6"
+        }
+      ],
+      "url": "https://github.com/advisories/GHSA-j687-52p2-xcff",
+      "package": "astro"
+    },
+    {
+      "ghsa": "GHSA-jrpj-wcv7-9fh9",
+      "title": "Astro: XSS via Unescaped Attribute Names in Spread Props",
+      "severity": "medium",
+      "published_at": "2026-06-16T14:57:21Z",
+      "affected_and_first_patched": [
+        {
+          "package": "astro",
+          "ecosystem": "npm",
+          "affected": "< 6.4.6",
+          "first_patched": "6.4.6"
+        }
+      ],
+      "url": "https://github.com/advisories/GHSA-jrpj-wcv7-9fh9",
+      "package": "astro"
+    },
+    {
+      "ghsa": "GHSA-mcm9-63f2-9j32",
+      "title": "devalue: Repeated primitive strings cause quadratic expansion in uneval",
+      "severity": "high",
+      "published_at": "2026-10-01T15:17:29Z",
+      "affected_and_first_patched": [
+        {
+          "package": "devalue",
+          "ecosystem": "npm",
+          "affected": "<= 5.9.2",
+          "first_patched": "5.9.3"
+        }
+      ],
+      "url": "https://github.com/advisories/GHSA-mcm9-63f2-9j32",
+      "package": "devalue"
+    },
+    {
+      "ghsa": "GHSA-qh8j-hqjv-7m4x",
+      "title": "Astro: Malformed port in the Host header can crash the Node adapter",
+      "severity": "high",
+      "published_at": "2026-09-30T23:29:40Z",
+      "affected_and_first_patched": [
+        {
+          "package": "@astrojs/node",
+          "ecosystem": "npm",
+          "affected": "<= 11.1.2",
+          "first_patched": "11.1.3"
+        }
+      ],
+      "url": "https://github.com/advisories/GHSA-qh8j-hqjv-7m4x",
+      "package": "@astrojs/node"
+    },
+    {
+      "ghsa": "GHSA-r557-wffq-wvrc",
+      "title": "@astrojs/node: Backslash-prefixed paths not recognized as internal by trailing-slash redirect",
+      "severity": "low",
+      "published_at": "2026-07-20T23:22:22Z",
+      "affected_and_first_patched": [
+        {
+          "package": "@astrojs/node",
+          "ecosystem": "npm",
+          "affected": ">= 8.1.0, < 11.0.2",
+          "first_patched": "11.0.2"
+        }
+      ],
+      "url": "https://github.com/advisories/GHSA-r557-wffq-wvrc",
+      "package": "@astrojs/node"
+    },
+    {
+      "ghsa": "GHSA-rgj7-g3m4-5g8c",
+      "title": "sharp: Vulnerabilities in libheif: GHSA-g89c-p67h-r497 and GHSA-2jg2-4ch7-h545",
+      "severity": "high",
+      "published_at": "2026-09-08T21:25:11Z",
+      "affected_and_first_patched": [
+        {
+          "package": "sharp",
+          "ecosystem": "npm",
+          "affected": "< 0.35.4",
+          "first_patched": "0.35.4"
+        }
+      ],
+      "url": "https://github.com/advisories/GHSA-rgj7-g3m4-5g8c",
+      "package": "sharp"
+    },
+    {
+      "ghsa": "GHSA-vfj7-8cjw-p6xm",
+      "title": "braces vulnerable to stack-exhaustion denial of service through deeply nested patterns",
+      "severity": "high",
+      "published_at": "2026-09-18T18:31:41Z",
+      "affected_and_first_patched": [
+        {
+          "package": "braces",
+          "ecosystem": "npm",
+          "affected": "<= 3.0.3",
+          "first_patched": null
+        }
+      ],
+      "url": "https://github.com/advisories/GHSA-vfj7-8cjw-p6xm",
+      "package": "braces"
+    },
+    {
+      "ghsa": "GHSA-wf3x-273g-mvxv",
+      "title": "devalue: Sparse arrays emitted by uneval cause eager allocation when evaluated",
+      "severity": "low",
+      "published_at": "2026-10-01T15:17:13Z",
+      "affected_and_first_patched": [
+        {
+          "package": "devalue",
+          "ecosystem": "npm",
+          "affected": ">= 1.0.0, <= 5.9.2",
+          "first_patched": "5.9.3"
+        }
+      ],
+      "url": "https://github.com/advisories/GHSA-wf3x-273g-mvxv",
+      "package": "devalue"
+    },
+    {
+      "ghsa": "GHSA-x5rw-q4pp-hg5g",
+      "title": "devalue: stringifyAsync can cause an unhandled rejection despite a caught returned promise",
+      "severity": "high",
+      "published_at": "2026-10-01T15:15:13Z",
+      "affected_and_first_patched": [
+        {
+          "package": "devalue",
+          "ecosystem": "npm",
+          "affected": ">= 5.8.0, <= 5.9.2",
+          "first_patched": "5.9.3"
+        }
+      ],
+      "url": "https://github.com/advisories/GHSA-x5rw-q4pp-hg5g",
+      "package": "devalue"
+    },
+    {
+      "ghsa": "GHSA-xr5h-phrj-8vxv",
+      "title": "Astro: Server island encrypted parameters vulnerable to cross-component replay",
+      "severity": "low",
+      "published_at": "2026-05-13T01:36:39Z",
+      "affected_and_first_patched": [
+        {
+          "package": "astro",
+          "ecosystem": "npm",
+          "affected": "< 6.1.10",
+          "first_patched": "6.1.10"
+        }
+      ],
+      "url": "https://github.com/advisories/GHSA-xr5h-phrj-8vxv",
+      "package": "astro"
+    }
+  ],
+  "errors": []
+}
