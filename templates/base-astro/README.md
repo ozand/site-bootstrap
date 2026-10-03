@@ -2,7 +2,7 @@
 
 Built from the [site-bootstrap](https://github.com/ozand/site-bootstrap) template.
 
-- **Stack:** Astro 5, React 19, TypeScript, Tailwind CSS, shadcn/ui
+- **Stack:** Astro 7, React 19, TypeScript, Tailwind CSS, shadcn/ui
 - **CMS:** Keystatic private editor profile — edits content files in git; not part of the public static artifact
 - **Data:** no database; all content is Markdoc in `src/content/`
 
@@ -15,8 +15,7 @@ npm run verify    # type check + lint
 npm run build     # static production artifact under dist/ for Nginx/CDN
 ```
 
-The template commits an npm lockfile (lockfile v3) and supports Node.js 18+
-with npm 9+. Use `npm ci` for clean, reproducible installs; it fails when the
+The template commits an npm lockfile (lockfile v3) and declares Node.js 22.12+ and npm 9.6.5+ as minimum versions. Use `npm ci` for clean, reproducible installs; it fails when the
 lockfile and `package.json` drift. If dependencies are intentionally changed,
 regenerate the lockfile with npm and commit both files together.
 

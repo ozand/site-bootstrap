@@ -1,0 +1,69 @@
+{
+  "baseline_commit": "1dd7900bb79b4828b2f70f9a42064ce57ed810a5",
+  "observed_files_sha256": {
+    "astro81-delivery-ci.log": "15188198fb785f3eb960f7d21e9491844c828d31ff659a74f811834312b911b8",
+    "astro81-delivery-editor.log": "671f055e95f03e44114c46a9a8968f61fcdc7670c230554d36a105722f777e69",
+    "astro81-delivery-install.log": "cee5c36300d823601878835d43a4c6388856a5f764161675503d38b069db3ef3",
+    "astro81-delivery-public.log": "e5984ff705f622d58332febc3c07635ff1d1342b941efa1fc2ae1495d82777fd",
+    "astro81-delivery-verify.log": "3b04f27ff162b36559e74b6fb7442e6521e7bb05cb8087d4c4905227b77fdb44",
+    "astro81-delivery-audit.json": "43a6d999d6dd4f492aef17ac9b9609da36e7a3c0b99086a2009e7cc4bc75a276",
+    "astro81-baseline-proof-audit.json": "4e3d2dafee8f02e4b59d51cdf85f57184fe3bdf2fb254a60d15aca56d9c24595",
+    "astro81-delivery-public-manifest.json": "fce0a2ee0d4000f579c034cfe691c2b98034ac41ab70a95c68e41c7ddbebac4f"
+  },
+  "template_inputs_sha256": {
+    "package.json": "a25bbf135f1ea96a9e0d52f9f0b1f8fc9e9d186cf72626f8ccd34123a8814b68",
+    "package-lock.json": "301a6a9edb54b5e09744a84e891748f2bca52a9e89d59dbbd0247b703969fd0b"
+  },
+  "public_artifact_manifest": {
+    "favicon.svg": "df13e2d0ec5d1ee207ce1b51a082cebd5c0f9a13b1adf9bb6dcaae1046395fca",
+    "index.html": "88e204d93ef23df12c82c4c66855f18ceb058f7e6726e2cb45aa9a5205f3ae93",
+    "sitemap-0.xml": "9a00c3b4724ebecec41abafdd12f77551ac68e2611947cf6149b6f749c40916d",
+    "sitemap-index.xml": "0f3dc330316fe950ebe8804d8bb0397068c13c277da1e3dd7c901d05393ffc85",
+    "about/index.html": "a9a5813c8e76f0e87fb58f240235297e36b3b272b66be5c85a0796a358b498ac",
+    "blog/index.html": "0122d7c7ce15dab30ebdf98e2e6224e828d5616a6cd05d633518d351d03c8054",
+    "fonts/InterVariable.woff2": "693b77d4f32ee9b8bfc995589b5fad5e99adf2832738661f5402f9978429a8e3",
+    "fonts/LICENSE.txt": "262481e844521b326f5ecd053e59b98c8b2da78c8ee1bdbb6e8174305e54935a",
+    "_astro/client.BAurHbMU.js": "5f07801401c17933f377896de4902fad84a35def61e5984beb67febe94f739e9",
+    "_astro/Layout.CB3JC_NQ.css": "8f5cf1649f261b6468b121086b8b52179b662ab53a263e7fa81e3e4c3c620490",
+    "blog/hello-world/index.html": "97ed733ff0ea3c71b1af2f1b11c2d53fc8a179ef902ea0d46ed54dc9949e6d72"
+  },
+  "commands": [
+    "npm --prefix C:/Temp/astro81-delivery install",
+    "npm --prefix C:/Temp/astro81-delivery ci",
+    "npm --prefix C:/Temp/astro81-delivery run verify",
+    "npm --prefix C:/Temp/astro81-delivery run build",
+    "npm --prefix C:/Temp/astro81-delivery run build:editor",
+    "npm --prefix C:/Temp/astro81-delivery audit --json"
+  ],
+  "render_review": "48 public navigations; reviewer observed HTTP 200, no overflow/external requests, preserved Inter/theme/navigation",
+  "template_inputs_lf_sha256": {
+    "package.json": "a25bbf135f1ea96a9e0d52f9f0b1f8fc9e9d186cf72626f8ccd34123a8814b68",
+    "package-lock.json": "301a6a9edb54b5e09744a84e891748f2bca52a9e89d59dbbd0247b703969fd0b"
+  },
+  "render_results_sha256": "e7ebf709c641753f273693f902fcd67dfa757abb156ad4f84862132403ca2d1b",
+  "render_matrix": {
+    "artifacts": 2,
+    "routes": 4,
+    "widths": [
+      360,
+      390,
+      1280
+    ],
+    "themes": [
+      "light",
+      "forced-dark"
+    ],
+    "navigations": 48,
+    "screenshots": 48,
+    "http_200": 48,
+    "external_requests": 0,
+    "overflow_cases": 0
+  },
+  "lock_graph_delta": {
+    "baseline_nodes": 962,
+    "candidate_nodes": 1003,
+    "removed_paths": 71,
+    "added_paths": 112,
+    "shared_path_version_changes": 85
+  }
+}
