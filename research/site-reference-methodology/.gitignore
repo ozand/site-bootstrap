@@ -1,0 +1,12 @@
+# Private research archive - omitted from public repository (no legal determination)
+raw_captures/
+pilot/
+sources/
+synthesis/
+*.py
+metadata/source-preservation-ledger.json
+metadata/handoff-issue-87.md
+metadata/copy-verification.json
+metadata/coverage-repair-checkpoint.json
+metadata/manifest*.json
+metadata/stageA-full-inventory.json
