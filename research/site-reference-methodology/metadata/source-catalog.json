@@ -1,0 +1,134 @@
+{
+  "catalog_version": "1.0.0",
+  "project": "site-bootstrap",
+  "issue_reference": "GitHub Issue #87",
+  "scope": "Public Source Attribution Catalog for Website Reference Methodology",
+  "publication_policy": "Full third-party raw scrape bodies and HTML dumps are omitted from the public repository; no legal determination is made. Raw research captures are preserved separately in the local private research archive.",
+  "summary": {
+    "total_sources": 17,
+    "core_methodology_topics_covered": "8/8",
+    "methodology_questions_audited": 28,
+    "epistemic_roles": "Demonstrated interface actions are [OBSERVED]. Marketing role copy is [SITE_CLAIM]. Inferred job executor is [INFERRED]/[HYPOTHESIS]. Buyer is [SITE_CLAIM]/[INFERRED]. Decider is [HYPOTHESIS]. Status unknown is an evidence tracking status, not an epistemic grade."
+  },
+  "sources": {
+    "SRC-01": {
+      "title": "Design.md Spec (Google Labs)",
+      "urls": [
+        "https://github.com/google-labs-code/design.md"
+      ],
+      "authority": "Tier 1: Direct Unedited Plain Text"
+    },
+    "SRC-02": {
+      "title": "Design Tokens Format (DTCG)",
+      "urls": [
+        "https://tr.designtokens.org/format/"
+      ],
+      "authority": "Tier 1: Direct Unedited Plain Text"
+    },
+    "SRC-03": {
+      "title": "Open UI Select Explainer",
+      "urls": [
+        "https://open-ui.org/components/select/"
+      ],
+      "authority": "Tier 1: Direct Unedited Plain Text"
+    },
+    "SRC-04": {
+      "title": "WCAG 2.2 Recommendation (W3C)",
+      "urls": [
+        "https://www.w3.org/TR/WCAG22/"
+      ],
+      "authority": "Tier 2 (DOM) & Tier 3 (Markdown)"
+    },
+    "SRC-05": {
+      "title": "Contrast Minimum SC 1.4.3 (W3C)",
+      "urls": [
+        "https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html"
+      ],
+      "authority": "Tier 4: Reference Record"
+    },
+    "SRC-06": {
+      "title": "10 Usability Heuristics (NN/g)",
+      "urls": [
+        "https://www.nngroup.com/articles/ten-usability-heuristics/"
+      ],
+      "authority": "Tier 1: Direct Unedited Plain Text"
+    },
+    "SRC-07": {
+      "title": "Obviously Awesome (Dunford)",
+      "urls": [
+        "https://www.aprildunford.com/books/"
+      ],
+      "authority": "Tier 1: Direct Unedited Plain Text"
+    },
+    "SRC-08": {
+      "title": "Market is Trying to Tell You (First Round)",
+      "urls": [
+        "https://review.firstround.com/the-market-is-trying-to-tell-you-something-listen-up/"
+      ],
+      "authority": "Tier 4: Reference Record"
+    },
+    "SRC-09": {
+      "title": "JTBD Theory (Christensen Inst)",
+      "urls": [
+        "https://www.christenseninstitute.org/jobs-to-be-done/"
+      ],
+      "authority": "Tier 4: Reference Record"
+    },
+    "SRC-10": {
+      "title": "Four Forces & Demand-Side Sales (Moesta)",
+      "urls": [
+        "https://jobstobedone.org/resources/the-forces/"
+      ],
+      "authority": "Tier 1 (Text) & Tier 3 (Markdown)"
+    },
+    "SRC-11": {
+      "title": "Know Your Customers JTBD (HBR)",
+      "urls": [
+        "https://hbr.org/2016/09/know-your-customers-jobs-to-be-done"
+      ],
+      "authority": "Tier 1: Direct Unedited Plain Text"
+    },
+    "SRC-12": {
+      "title": "Outcome-Driven Innovation (Ulwick)",
+      "urls": [
+        "https://strategyn.com/jobs-to-be-done/"
+      ],
+      "authority": "Tier 1: Direct Unedited Plain Text"
+    },
+    "SRC-13": {
+      "title": "Customer Journey Mapping 101 (NN/g)",
+      "urls": [
+        "https://www.nngroup.com/articles/journey-mapping-101/"
+      ],
+      "authority": "Tier 1: Direct Unedited Plain Text"
+    },
+    "SRC-14": {
+      "title": "Service Blueprints (NN/g)",
+      "urls": [
+        "https://www.nngroup.com/articles/service-blueprints-definition/"
+      ],
+      "authority": "Tier 1: Direct Unedited Plain Text"
+    },
+    "SRC-15": {
+      "title": "UX Benchmark Methodology (Baymard)",
+      "urls": [
+        "https://baymard.com/research/methodology"
+      ],
+      "authority": "Tier 1: Direct Unedited Plain Text"
+    },
+    "SRC-16": {
+      "title": "IA Study Guide (NN/g)",
+      "urls": [
+        "https://www.nngroup.com/articles/ia-study-guide/"
+      ],
+      "authority": "Tier 1: Direct Unedited Plain Text"
+    },
+    "SRC-17": {
+      "title": "Pattern Library (Martijn van Welie)",
+      "urls": [
+        "https://www.welie.com/patterns/"
+      ],
+      "authority": "Tier 1: Direct Unedited Plain Text"
+    }
+  }
+}
