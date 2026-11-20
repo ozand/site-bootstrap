@@ -72,6 +72,31 @@ serve the selected static root and return no public editor route. Keep release
 retention sufficient for rollback and never delete the last accepted release
 before verifying its replacement.
 
+### Checklist for an already approved in-place release
+
+Use this checklist only if the site already has a separately approved method
+that replaces files in place. It does not change the versioned VPS process above
+or authorize direct edits, a new transport, or a new rollout.
+
+1. **Identify the release.** Record the source revision and artifact digest.
+   List the exact files to replace and the public URLs that serve them.
+2. **Before writing.** Verify the target and capture a fresh, protected backup
+   with a readability and restore check. Save the original bytes of each file
+   to be replaced and recheck them immediately before writing. Stop if the
+   backup, target, or original bytes cannot be verified.
+3. **After writing.** Compare each affected public response with the expected
+   artifact bytes; HTTP 200 alone is not enough. On failure, stop further
+   uploads. Use only the approved rollback for changes attributable to this
+   release; leave unexpected bytes untouched and report recovery as unverified
+   if ownership or restoration cannot be established.
+4. **Record the outcome.** Keep the last confirmed phase (backup, upload,
+   public verification, or rollback), its result, and a sanitized error code
+   or class if it failed. If the phase is unknown, say so instead of assuming
+   nothing was written. Do not include raw logs or backup contents.
+
+Examples: [AYGA bounded release](https://github.com/ozand/site-ayga/issues/63#issuecomment-6553253089)
+and [AYGA failure reporting](https://github.com/ozand/site-ayga/issues/64#issuecomment-6728104495).
+
 ## Troubleshooting boundaries
 
 - A failed `npm ci`, verify, or build is a **build/verification** failure; do not
